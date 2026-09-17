@@ -1,0 +1,1283 @@
+<title>補語</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+TC:ital,wght@0,500;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#efe9db;
+    --bg-1:#f6f1e5;
+    --surface:#fffdf7;
+    --surface-2:#f7f0e2;
+    --ink:#26303c;
+    --ink-soft:#6c6255;
+    --ink-faint:#9a8f7d;
+    --line:rgba(38,48,60,0.12);
+    --accent:#b23a2a;
+    --accent-deep:#8a2c1f;
+    --accent-tint:#f2ded6;
+    --accent-ink:#fff8f2;
+    --shadow-sm:0 2px 8px -4px rgba(38,30,20,0.18);
+    --shadow-md:0 14px 34px -16px rgba(38,30,20,0.32);
+    --shadow-lg:0 24px 60px -20px rgba(38,30,20,0.38);
+    --c-result:#b23a2a;
+    --c-result-tint:#f4ddd6;
+    --c-direction:#a9702c;
+    --c-direction-tint:#f1e2c9;
+    --c-potential:#5d7a3d;
+    --c-potential-tint:#dfe6cd;
+    --c-degree:#2f7f74;
+    --c-degree-tint:#d4e7e3;
+    --c-manner:#3f5f85;
+    --c-manner-tint:#d9e2ee;
+    --c-duration:#7a4f80;
+    --c-duration-tint:#e5d9e6;
+    --c-frequency:#a14a5c;
+    --c-frequency-tint:#eeced5;
+    --c-idiom:#4a5a8a;
+    --c-idiom-tint:#dde1ef;
+    --c-vv:#8a6a2a;
+    --c-vv-tint:#ece0c4;
+    --focus:#8a2c1f;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg-0:#1b1712;
+      --bg-1:#211c16;
+      --surface:#2a231c;
+      --surface-2:#332b22;
+      --ink:#f3ead9;
+      --ink-soft:#c9bba4;
+      --ink-faint:#8e8272;
+      --line:rgba(243,234,217,0.14);
+      --accent:#e2725a;
+      --accent-deep:#f08a73;
+      --accent-tint:#4a2c23;
+      --accent-ink:#241109;
+      --shadow-sm:0 2px 10px -4px rgba(0,0,0,0.5);
+      --shadow-md:0 16px 36px -16px rgba(0,0,0,0.6);
+      --shadow-lg:0 26px 64px -20px rgba(0,0,0,0.65);
+      --c-result:#e2725a; --c-result-tint:#442621;
+      --c-direction:#d9a24f; --c-direction-tint:#41331d;
+      --c-potential:#9db572; --c-potential-tint:#333a24;
+      --c-degree:#68bcae; --c-degree-tint:#1f3b37;
+      --c-manner:#8fabd6; --c-manner-tint:#28344a;
+      --c-duration:#c398c8; --c-duration-tint:#3a2c3e;
+      --c-frequency:#d78b98; --c-frequency-tint:#402831;
+      --c-idiom:#93a3d6; --c-idiom-tint:#313a56;
+      --c-vv:#d1ab5c; --c-vv-tint:#3c331d;
+      --focus:#f08a73;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg-0:#1b1712;
+    --bg-1:#211c16;
+    --surface:#2a231c;
+    --surface-2:#332b22;
+    --ink:#f3ead9;
+    --ink-soft:#c9bba4;
+    --ink-faint:#8e8272;
+    --line:rgba(243,234,217,0.14);
+    --accent:#e2725a;
+    --accent-deep:#f08a73;
+    --accent-tint:#4a2c23;
+    --accent-ink:#241109;
+    --shadow-sm:0 2px 10px -4px rgba(0,0,0,0.5);
+    --shadow-md:0 16px 36px -16px rgba(0,0,0,0.6);
+    --shadow-lg:0 26px 64px -20px rgba(0,0,0,0.65);
+    --c-result:#e2725a; --c-result-tint:#442621;
+    --c-direction:#d9a24f; --c-direction-tint:#41331d;
+    --c-potential:#9db572; --c-potential-tint:#333a24;
+    --c-degree:#68bcae; --c-degree-tint:#1f3b37;
+    --c-manner:#8fabd6; --c-manner-tint:#28344a;
+    --c-duration:#c398c8; --c-duration-tint:#3a2c3e;
+    --c-frequency:#d78b98; --c-frequency-tint:#402831;
+    --c-idiom:#93a3d6; --c-idiom-tint:#313a56;
+    --c-vv:#d1ab5c; --c-vv-tint:#3c331d;
+    --focus:#f08a73;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(ellipse 120% 80% at 50% -10%, var(--bg-1), var(--bg-0));
+    color:var(--ink);
+    font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  .zh-simp{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;}
+  body.script-simp{
+    font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+  }
+  .wrap{
+    max-width:960px;
+    margin:0 auto;
+    padding:32px 20px 20px;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+  .pinyin{
+    font-family:'Noto Serif TC', serif;
+    font-style:italic;
+    font-weight:500;
+  }
+  button{font-family:inherit;}
+  :focus-visible{outline:2.5px solid var(--focus); outline-offset:2px;}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:22px;
+    min-height:68px;
+  }
+  .topbar-left{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .nav-btn{
+    display:inline-flex;align-items:center;gap:6px;
+    background:transparent;border:1.5px solid var(--line);
+    color:var(--ink-soft);
+    border-radius:999px;
+    padding:14px 28px 14px 22px;
+    font-size:27px;font-weight:500;
+    cursor:pointer;white-space:nowrap;
+    transition:border-color .15s, color .15s, background .15s;
+  }
+  .nav-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-tint);}
+  .crumb{
+    font-size:26px;color:var(--ink-faint);font-weight:500;
+    display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+  }
+  .crumb b{color:var(--ink-soft);font-weight:700;}
+  .script-toggle{
+    display:inline-flex;background:var(--surface-2);border:1px solid var(--line);
+    border-radius:999px;padding:6px;gap:4px;
+    box-shadow:inset 0 1px 2px rgba(0,0,0,0.05);
+  }
+  .script-toggle button{
+    border:none;background:transparent;color:var(--ink-soft);
+    font-size:25px;font-weight:700;padding:12px 24px;border-radius:999px;cursor:pointer;
+    white-space:nowrap;
+    transition:background .15s, color .15s;
+  }
+  .script-toggle button.active{background:var(--accent);color:var(--accent-ink);}
+
+  main{flex:1;display:flex;flex-direction:column;}
+
+  /* ---------- hero (lang pick) ---------- */
+  .hero{
+    display:flex;flex-direction:column;align-items:center;
+    text-align:center;
+    padding:38px 8px 10px;
+    gap:6px;
+  }
+  .mark{
+    width:152px;height:152px;border-radius:44px;
+    background:linear-gradient(155deg, var(--accent), var(--accent-deep));
+    color:var(--accent-ink);
+    display:flex;align-items:center;justify-content:center;
+    font-size:76px;font-weight:900;
+    box-shadow:var(--shadow-md);
+    margin-bottom:14px;
+  }
+  h1.title{
+    font-size:68px;margin:0;font-weight:900;letter-spacing:.01em;
+    text-wrap:balance;
+  }
+  p.subtitle{
+    margin:4px 0 0;color:var(--ink-soft);font-size:30px;line-height:1.7;
+    max-width:34em;text-wrap:balance;
+  }
+  p.subtitle.small{font-size:27px;color:var(--ink-faint);margin-top:2px;}
+
+  .choice-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;
+    width:100%;max-width:420px;margin:26px auto 0;
+  }
+  .choice-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:26px 14px;
+    text-align:center;
+    cursor:pointer;
+    box-shadow:var(--shadow-sm);
+    transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  }
+  .choice-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--accent);}
+  .choice-card .big{font-size:44px;font-weight:900;color:var(--ink);}
+  .choice-card .cap{display:block;font-size:23px;color:var(--ink-faint);margin-top:5px;letter-spacing:.06em;}
+
+  /* ---------- module grid ---------- */
+  .section-head{text-align:center;margin:6px 0 22px;}
+  .section-head h2{font-size:44px;margin:0 0 4px;font-weight:900;}
+  .section-head p{margin:0;color:var(--ink-soft);font-size:28px;}
+
+  .module-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;
+    max-width:640px;margin:0 auto;width:100%;
+  }
+  .module-card{
+    position:relative;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:22px 18px;
+    cursor:pointer;
+    box-shadow:var(--shadow-sm);
+    transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    text-align:left;
+  }
+  .module-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--accent);}
+  .module-card .num{
+    font-family:'Noto Serif TC',serif;font-style:italic;font-weight:600;
+    font-size:25px;color:var(--accent);letter-spacing:.04em;
+  }
+  .module-card h3{margin:6px 0 4px;font-size:38px;font-weight:900;}
+  .module-card p{margin:0;font-size:25px;color:var(--ink-faint);line-height:1.5;}
+  .module-card.soon{cursor:default;opacity:.55;}
+  .module-card.soon:hover{transform:none;box-shadow:var(--shadow-sm);border-color:var(--line);}
+  .badge-soon{
+    position:absolute;top:16px;right:16px;
+    font-size:21px;font-weight:700;color:var(--ink-faint);
+    border:1px solid var(--line);border-radius:999px;padding:6px 18px;
+    background:var(--surface-2);
+  }
+
+  /* ---------- type grid ---------- */
+  .type-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+    gap:13px;
+  }
+  .type-card{
+    position:relative;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-left:6px solid var(--cat-color, var(--accent));
+    border-radius:16px;
+    padding:18px 16px;
+    text-align:left;
+    cursor:pointer;
+    box-shadow:var(--shadow-sm);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .type-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+  .type-card h3{margin:0 0 5px;font-size:34px;font-weight:900;}
+  .type-card p{margin:0 0 10px;font-size:25px;color:var(--ink-soft);line-height:1.55;min-height:2.4em;}
+  .type-card .count{
+    font-size:22px;font-weight:700;color:var(--cat-color, var(--accent));
+    background:var(--cat-tint, var(--accent-tint));
+    display:inline-block;padding:6px 18px;border-radius:999px;
+  }
+
+  /* ---------- deck ---------- */
+  .deck-head{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:10px;margin-bottom:18px;flex-wrap:wrap;
+  }
+  .cat-pill{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:26px;font-weight:700;color:var(--cat-color);
+    background:var(--cat-tint);
+    padding:12px 26px;border-radius:999px;
+  }
+  .cat-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--cat-color);}
+  .progress-wrap{
+    display:flex;align-items:center;gap:9px;font-size:25px;color:var(--ink-faint);font-weight:600;
+  }
+  .progress-track{
+    width:110px;height:5px;border-radius:999px;background:var(--surface-2);overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .progress-fill{height:100%;background:var(--cat-color, var(--accent));border-radius:999px;transition:width .25s ease;}
+
+  .deck-body{
+    flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:6px 0 18px;
+  }
+  .card-stage{
+    width:100%;max-width:440px;
+    perspective:1400px;
+  }
+  .flip-card{
+    position:relative;width:100%;
+    cursor:pointer;
+  }
+  .flip-inner{
+    display:grid;
+    transition:transform .5s cubic-bezier(.22,.8,.32,1.1);
+    transform-style:preserve-3d;
+  }
+  .flip-card.flipped .flip-inner{transform:rotateY(180deg);}
+  .face{
+    grid-area:1/1;
+    align-self:start;
+    width:100%;
+    border-radius:24px;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:26px;
+    box-shadow:var(--shadow-lg);
+    border:1px solid var(--line);
+    box-sizing:border-box;
+  }
+  .face-front{
+    background:var(--surface);
+    border-top:8px solid var(--cat-color, var(--accent));
+    aspect-ratio:4/3;
+  }
+  .face-front .hanzi{
+    font-size:clamp(52px,13vw,86px);
+    font-weight:900;
+    letter-spacing:.02em;
+    text-align:center;
+    line-height:1.15;
+  }
+  .face-back{
+    background:var(--surface-2);
+    transform:rotateY(180deg);
+    justify-content:flex-start;
+    padding-top:22px;
+    min-height:100%;
+  }
+  .back-hanzi{font-size:52px;font-weight:900;}
+  .back-pinyin{font-size:30px;color:var(--cat-color);margin-top:2px;margin-bottom:14px;}
+  .back-lines{width:100%;max-width:380px;display:flex;flex-direction:column;gap:10px;}
+  .back-line{font-size:27px;line-height:1.65;text-align:left;}
+  .back-line .lbl{font-weight:700;color:var(--cat-color);}
+  .back-line .val{color:var(--ink);}
+  .back-line.example .val{color:var(--ink-soft);}
+  .tap-hint{
+    margin-top:16px;font-size:23px;color:var(--ink-faint);
+    letter-spacing:.04em;
+  }
+
+  .deck-controls{
+    display:flex;align-items:center;justify-content:center;gap:14px;
+    margin-top:22px;width:100%;max-width:440px;
+  }
+  .ctl-btn{
+    width:88px;height:88px;border-radius:50%;
+    background:var(--surface);border:1px solid var(--line);
+    color:var(--ink-soft);font-size:36px;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;box-shadow:var(--shadow-sm);
+    transition:background .15s, color .15s, transform .1s;
+  }
+  .ctl-btn:hover{color:var(--accent);border-color:var(--accent);}
+  .ctl-btn:active{transform:scale(.94);}
+  .ctl-btn:disabled{opacity:.35;cursor:default;}
+  .ctl-btn:disabled:hover{color:var(--ink-soft);border-color:var(--line);}
+  .flip-btn{
+    flex:1;max-width:260px;
+    height:88px;border-radius:999px;
+    background:var(--cat-color, var(--accent));color:var(--accent-ink);
+    border:none;font-weight:700;font-size:28px;cursor:pointer;
+    box-shadow:var(--shadow-sm);
+    transition:transform .1s;
+  }
+  .flip-btn:active{transform:scale(.97);}
+
+  .deck-foot-row{
+    display:flex;justify-content:center;margin-top:14px;
+  }
+  .ghost-btn{
+    background:transparent;border:none;color:var(--ink-faint);
+    font-size:25px;font-weight:600;cursor:pointer;padding:6px 10px;
+    text-decoration:underline;text-underline-offset:3px;
+  }
+  .ghost-btn:hover{color:var(--accent);}
+
+  .intro-note{
+    max-width:440px;margin:0 auto 20px;text-align:center;
+    font-size:26px;color:var(--ink-soft);line-height:1.7;
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:14px;padding:12px 18px;
+  }
+
+  .done-panel{
+    text-align:center;max-width:380px;margin:0 auto;
+  }
+  .done-panel .emoji-mark{
+    width:120px;height:120px;border-radius:50%;margin:0 auto 14px;
+    background:var(--cat-tint);color:var(--cat-color);
+    display:flex;align-items:center;justify-content:center;font-size:52px;font-weight:900;
+  }
+  .done-panel h3{font-size:38px;margin:0 0 6px;}
+  .done-panel p{font-size:27px;color:var(--ink-soft);margin:0 0 18px;}
+  .done-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+  .pill-btn{
+    border-radius:999px;padding:20px 36px;font-size:27px;font-weight:700;cursor:pointer;border:1px solid var(--line);
+    background:var(--surface);color:var(--ink);
+  }
+  .pill-btn.primary{background:var(--cat-color, var(--accent));color:var(--accent-ink);border:none;}
+
+  footer.site-foot{
+    text-align:center;color:var(--ink-faint);font-size:23px;
+    padding:26px 0 6px;letter-spacing:.02em;
+  }
+
+  @media (max-width:520px){
+    .wrap{padding:20px 14px 14px;}
+    h1.title{font-size:56px;}
+    .module-grid{grid-template-columns:1fr;}
+    .choice-grid{grid-template-columns:1fr 1fr;}
+    .deck-controls{gap:10px;}
+    .topbar{flex-wrap:wrap;row-gap:10px;min-height:0;}
+    .nav-btn{font-size:19px;padding:9px 18px 9px 14px;}
+    .crumb{font-size:18px;}
+    .script-toggle button{font-size:17px;padding:8px 14px;}
+    .topbar-left{gap:8px;}
+  }
+
+  /* ---------- practice ---------- */
+  .quiz-shell{max-width:600px;margin:0 auto;width:100%;}
+  .quiz-passage{
+    background:var(--surface);border:1px solid var(--line);border-radius:16px;
+    padding:18px 20px;margin-bottom:18px;font-size:14.5px;line-height:1.85;color:var(--ink);
+    box-shadow:var(--shadow-sm);
+  }
+  .quiz-item{margin-bottom:22px;}
+  .quiz-item:last-child{margin-bottom:0;}
+  .quiz-item .q-prompt{
+    font-size:30px;font-weight:700;margin-bottom:10px;line-height:1.5;
+    display:flex;gap:8px;
+  }
+  .quiz-item .q-prompt .q-label{
+    flex:none;color:var(--accent);font-family:'Noto Serif TC',serif;font-weight:700;
+  }
+  .opt-list{display:flex;flex-direction:column;gap:8px;}
+  .opt-btn{
+    text-align:left;
+    display:flex;align-items:center;gap:10px;
+    background:var(--surface);border:1.5px solid var(--line);
+    border-radius:12px;padding:20px 26px;
+    font-size:28px;color:var(--ink);cursor:pointer;
+    font-family:inherit;
+    transition:border-color .15s,background .15s;
+  }
+  .opt-btn .opt-mark{
+    flex:none;width:44px;height:44px;border-radius:50%;
+    border:1.5px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    font-size:23px;font-weight:700;color:var(--ink-faint);
+  }
+  .opt-btn:hover{border-color:var(--accent);}
+  .opt-btn.selected{border-color:var(--accent);background:var(--accent-tint);}
+  .opt-btn.selected .opt-mark{border-color:var(--accent);color:var(--accent);background:var(--surface);}
+  .opt-btn.is-correct{border-color:#4c8a5e;background:rgba(76,138,94,0.12);}
+  .opt-btn.is-correct .opt-mark{border-color:#4c8a5e;color:#4c8a5e;background:var(--surface);}
+  .opt-btn.is-wrong{border-color:var(--accent);background:rgba(178,58,42,0.1);}
+  .opt-btn.is-wrong .opt-mark{border-color:var(--accent);color:var(--accent);background:var(--surface);}
+  .opt-btn:disabled{cursor:default;}
+  .opt-btn:disabled:hover{border-color:var(--line);}
+  .opt-btn.selected:disabled:hover{border-color:var(--accent);}
+
+  .quiz-headrow{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:10px;margin-bottom:16px;flex-wrap:wrap;
+  }
+  .quiz-actions{
+    display:flex;justify-content:center;gap:12px;margin-top:24px;
+  }
+  .quiz-actions .pill-btn{min-width:140px;}
+
+  .score-ring{
+    width:192px;height:192px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;flex-direction:column;
+    margin:0 auto 16px;
+    background:var(--accent-tint);color:var(--accent);
+    font-weight:900;font-size:52px;line-height:1;
+    border:4px solid var(--accent);
+  }
+  .score-ring small{font-size:22px;font-weight:700;margin-top:3px;color:var(--ink-faint);}
+  .review-list{
+    text-align:left;max-width:520px;margin:22px auto 0;
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .review-item{
+    background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:20px 26px;font-size:26px;line-height:1.6;
+  }
+  .review-item .r-q{font-weight:700;color:var(--ink);margin-bottom:4px;}
+  .review-item .r-your{color:var(--accent);}
+  .review-item .r-correct{color:#4c8a5e;font-weight:700;}
+  .review-head{
+    text-align:center;font-size:26px;font-weight:700;color:var(--ink-faint);
+    margin:26px 0 4px;letter-spacing:.04em;
+  }
+
+  @media (max-width:520px){
+    .quiz-passage{padding:14px 16px;font-size:14px;}
+  }
+
+  /* ---------- lookup (module 4) ---------- */
+  .lookup-search-wrap{max-width:480px;margin:0 auto 22px;}
+  .lookup-input{
+    width:100%;padding:22px 32px;border-radius:999px;
+    border:1.5px solid var(--line);background:var(--surface);color:var(--ink);
+    font-size:30px;font-family:inherit;box-shadow:var(--shadow-sm);
+    transition:border-color .15s;
+  }
+  .lookup-input:focus{border-color:var(--accent);}
+  .lookup-hint{
+    text-align:center;color:var(--ink-faint);font-size:27px;
+    max-width:420px;margin:6px auto 0;
+  }
+  .lookup-results{
+    display:flex;flex-direction:column;gap:14px;
+    max-width:600px;margin:0 auto;
+  }
+  .lookup-card{
+    background:var(--surface);border:1px solid var(--line);
+    border-left:6px solid var(--cat-color, var(--accent));
+    border-radius:16px;padding:18px 20px;box-shadow:var(--shadow-sm);
+  }
+  .lookup-card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .lookup-hanzi{font-size:52px;font-weight:900;}
+  .lookup-level-badge{
+    flex:none;font-size:21px;font-weight:700;padding:6px 20px;border-radius:999px;
+    color:var(--cat-color, var(--accent));background:var(--cat-tint, var(--accent-tint));
+    white-space:nowrap;
+  }
+  .lookup-pinyin{font-size:28px;color:var(--cat-color, var(--accent));margin-top:2px;}
+  .lookup-cat-pill{
+    display:inline-block;font-size:22px;font-weight:700;
+    padding:6px 18px;border-radius:999px;margin:9px 0 12px;
+  }
+  .lookup-card .back-lines{width:100%;max-width:none;}
+</style>
+
+<div class="wrap">
+  <div class="topbar" id="topbar"></div>
+  <main id="app"></main>
+  <footer class="site-foot">Shelleytaiwan製作 2026</footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* ============ 簡繁字轉換表 ============ */
+var S2 = {
+  "見":"见","會":"会","對":"对","錯":"错","著":"着","來":"来","進":"进","過":"过","動":"动",
+  "極":"极","壞":"坏","兒":"儿","時":"时","補":"补","語":"语","個":"个","聲":"声","頓":"顿",
+  "場":"场","學":"学","聽":"听","說":"说","寫":"写","記":"记","準":"准","備":"备","認":"认",
+  "堅":"坚","靜":"静","暈":"晕","關":"关","買":"买","氣":"气","興":"兴","熱":"热","讀":"读",
+  "罵":"骂","兩":"两","張":"张","開":"开","製":"制","選":"选","擇":"择","隨":"随","亂":"乱",
+  "類":"类","詢":"询","頁":"页","簡":"简","習":"习","閱":"阅","慣":"惯","塊":"块","將":"将",
+  "點":"点","擊":"击","釋":"释","複":"复","單":"单","機":"机","體":"体","練":"练","繁":"繁",
+  "髒":"脏","輕":"轻","紅":"红","鐘":"钟","禮":"礼","輩":"辈","紀":"纪","槍":"枪","腳":"脚",
+  "歷":"历","貴":"贵","討":"讨","論":"论","陣":"阵","幾":"几","經":"经","營":"营","識":"识",
+  "變":"变"
+};
+function toS(str){
+  if(typeof str!=="string") return str;
+  var out="";
+  for(var i=0;i<str.length;i++){ var c=str[i]; out += (S2[c]||c); }
+  return out;
+}
+
+/* ============ 內容資料 ============ */
+var CATEGORIES = [{"id":"result","name":"結果補語","short":"結果","color":"var(--c-result)","tint":"var(--c-result-tint)","tagline":"動作帶來的「結果」","intro":{"zh":"表示動作帶來的結果。","ja":"動作がもたらす「結果」を表します。","en":"Expresses the result an action brings about."},"cards":[{"h":"見","p":"jiàn","ja":{"m":"視覺に入る、知覚する","i":"「看」より一歩進み、目や耳に「カチッと入る」結果を表す"},"en":{"m":"to enter one's sight, to perceive","i":"marks the moment something “clicks” into the eyes or ears — beyond just looking (看)"},"ex":"我在人群中一眼就看見了她。"},{"h":"到","p":"dào","ja":{"m":"到着する、届く","i":"動作が目的地に「到達する」＝目的を果たす"},"en":{"m":"to arrive, to reach","i":"the action “arrives at” its target — goal achieved"},"ex":"我終於在商店裡找到了那本書。"},{"h":"完","p":"wán","ja":{"m":"終わる、無くなる","i":"数量やプロセスが「ゼロになる」＝完了"},"en":{"m":"to end, to run out","i":"the quantity or process hits zero — all done"},"ex":"他很快就把作業寫完了。"},{"h":"好","p":"hǎo","ja":{"m":"良い、仕上がる","i":"終わるだけでなく「満足のいく状態に仕上がる」"},"en":{"m":"good, properly finished","i":"not just done — done well, ready to use"},"ex":"晚飯已經做好了，快來吃吧。"},{"h":"懂","p":"dǒng","ja":{"m":"理解する","i":"情報が頭に入り「わかった状態」になる"},"en":{"m":"to understand","i":"information goes in and “clicks” — comprehension achieved"},"ex":"老師說得很慢，我完全聽懂了。"},{"h":"會","p":"huì","ja":{"m":"できる、身につく","i":"練習の結果、「できる状態」になる"},"en":{"m":"to master, to become able to","i":"practice pays off — the skill is now yours"},"ex":"我花了一個月終於學會了游泳。"},{"h":"對","p":"duì","ja":{"m":"正しい","i":"動作の結果が「正解」になる"},"en":{"m":"correct","i":"the result of the action turns out right"},"ex":"這次考試他全部都答對了。"},{"h":"錯","p":"cuò","ja":{"m":"間違っている","i":"動作の結果が「不正解」になる"},"en":{"m":"wrong","i":"the result of the action turns out wrong"},"ex":"我把他的名字寫錯了。"},{"h":"住","p":"zhù","ja":{"m":"住む、とどまる","i":"動いていたものが「その場に固定される」"},"en":{"m":"to stay, to live","i":"something moving becomes firmly fixed in place"},"ex":"請大家記住這個重要的日期。"},{"h":"著","p":"zháo","ja":{"m":"触れる、火がつく","i":"対象に「ピタッと接触」＝うまく達成する（眠り・火など）"},"en":{"m":"to touch, to catch (as fire)","i":"making contact with the target — goal successfully hit"},"ex":"寶寶哭了很久才終於睡著。"},{"h":"在","p":"zài","ja":{"m":"存在する、〜にある","i":"動作の結果、人や物が「そこに位置する」"},"en":{"m":"to exist, to be located","i":"the result: a person or thing ends up located there"},"ex":"他把書包放在桌子上了。"},{"h":"髒","p":"zāng","ja":{"m":"汚い","i":"動作の結果、物が「汚れた状態になる」"},"en":{"m":"dirty","i":"the result of the action — something becomes dirty"},"ex":"小狗不小心把地毯弄髒了。"},{"h":"碎","p":"suì","ja":{"m":"砕ける、粉々になる","i":"動作の結果、物が「粉々に壊れる」"},"en":{"m":"broken to pieces","i":"the result of the action — something shatters"},"ex":"他不小心把媽媽的花瓶打碎了。"},{"h":"紅","p":"hóng","ja":{"m":"赤い","i":"動作の結果、「赤くなる」（目や顔など）"},"en":{"m":"red","i":"the result of the action — something turns red (eyes, face, etc.)"},"ex":"她因為那部電影哭紅了眼睛。"},{"h":"大","p":"dà","ja":{"m":"大きい","i":"動作の結果、「大きくなる」"},"en":{"m":"big","i":"the result of the action — something becomes bigger"},"ex":"這幾年這座城市變大了很多。"},{"h":"輕","p":"qīng","ja":{"m":"軽い","i":"人や物を「軽く見る」＝見くびる、軽んじる"},"en":{"m":"light (in weight)","i":"to see someone or something as “light” — to underestimate, belittle"},"ex":"你不應該看輕自己的能力。"},{"h":"開","p":"kāi","ja":{"m":"開く","i":"心や状況が「開く」＝こだわりが取れる、または離れて空きができる"},"en":{"m":"to open","i":"the mind or situation “opens up” — letting go of something, or freeing up space"},"ex":"他終於想開了，心情好多了。"},{"h":"成","p":"chéng","ja":{"m":"成る、できあがる","i":"動作の結果、別のものに「変わる」"},"en":{"m":"to become","i":"the result of the action — turning into something else"},"ex":"毛毛蟲最後會變成美麗的蝴蝶。"},{"h":"清","p":"qīng","ja":{"m":"はっきりしている","i":"動作の結果、「はっきり見える／わかる」状態になる"},"en":{"m":"clear","i":"the result of the action — becoming clearly visible or understandable"},"ex":"燈光太暗，我看不清黑板上的字。"},{"h":"倒","p":"dǎo","ja":{"m":"倒れる","i":"動作の結果、物が「倒れる」"},"en":{"m":"to fall over","i":"the result of the action — something topples over"},"ex":"昨晚的颱風把大樹吹倒了。"},{"h":"滿","p":"mǎn","ja":{"m":"いっぱいである","i":"動作の結果、空間や容器が「いっぱいになる」"},"en":{"m":"full","i":"the result of the action — a space or container becomes full"},"ex":"教室裡的座位已經坐滿了學生。"},{"h":"乾淨","p":"gānjìng","ja":{"m":"きれいである","i":"動作の結果、「きれいな状態」になる"},"en":{"m":"clean","i":"the result of the action — something becomes clean"},"ex":"媽媽把桌子擦乾淨了。"},{"h":"醒","p":"xǐng","ja":{"m":"目が覚める","i":"動作の結果、眠りから「覚める」"},"en":{"m":"to wake up","i":"the result of the action — waking from sleep"},"ex":"鬧鐘的聲音把我吵醒了。"},{"h":"熟","p":"shú","ja":{"m":"よく熟れている、習熟している","i":"動作の結果、「よく火が通る」または「よく身につく」状態になる"},"en":{"m":"well-cooked, familiar","i":"the result of the action — thoroughly cooked, or thoroughly learned"},"ex":"這些青菜還沒炒熟，再等一下。"}]},{"id":"direction","name":"趨向補語","short":"趨向","color":"var(--c-direction)","tint":"var(--c-direction-tint)","tagline":"動作的「方向」","intro":{"zh":"表示動作朝向某個方向發展，分為簡單和複合兩種。","ja":"動作が向かう「方向」を表します。単純と複合の2種類があります。","en":"Expresses the direction an action moves in — simple or compound."},"cards":[{"h":"來","p":"lái","ja":{"m":"話し手に近づく","i":"動作が「こちら」へ向かう"},"en":{"m":"toward the speaker","i":"the action moves “this way”"},"ex":"爸爸下班以後就馬上回來了。"},{"h":"去","p":"qù","ja":{"m":"話し手から離れる","i":"動作が「あちら」へ向かう"},"en":{"m":"away from the speaker","i":"the action moves “that way”"},"ex":"現在很晚了，我該回去了。"},{"h":"上","p":"shàng","ja":{"m":"下から上へ上がる","i":"上へ向かう、または「ピタッとくっつく／閉じる」"},"en":{"m":"upward","i":"moving up — or sticking / closing onto something"},"ex":"他很快就爬上山頂了。"},{"h":"下","p":"xià","ja":{"m":"上から下へ下りる","i":"下へ向かう、または「収まる」"},"en":{"m":"downward","i":"moving down — or settling into place"},"ex":"請大家先坐下，我們開始上課。"},{"h":"進","p":"jìn","ja":{"m":"外から中へ入る","i":"内側へ向かう"},"en":{"m":"inward","i":"moving into a space"},"ex":"他慢慢走進教室，找位子坐下。"},{"h":"出","p":"chū","ja":{"m":"中から外へ出る","i":"外側へ向かう"},"en":{"m":"outward","i":"moving out of a space"},"ex":"他從包包裡拿出一本書。"},{"h":"回","p":"huí","ja":{"m":"元の場所へ戻る","i":"出発点へ向かう"},"en":{"m":"back, returning","i":"heading back to where it started"},"ex":"他出差回來，帶回了很多禮物給大家。"},{"h":"過","p":"guò","ja":{"m":"通り過ぎる","i":"ある地点を通ってこちら／あちらへ"},"en":{"m":"across, over, past","i":"passing by a point, toward here or there"},"ex":"我們每天都走過這座橋去上班。"},{"h":"起","p":"qǐ","ja":{"m":"下から上へ持ち上がる","i":"動作が上向きに始まる"},"en":{"m":"upward, rising","i":"the action lifts upward / begins"},"ex":"他彎下腰，拿起地上的書。"},{"h":"起來","p":"qǐlái","ja":{"m":"起き上がる、立ち上がる","i":"①【開始】〜し始める（笑起來）②【想起】記憶が浮かぶ（想起來）"},"en":{"m":"to get up, to rise","i":"① start ~ing (笑起來) ② a memory surfaces (想起來)"},"ex":"他忽然想起來這件事，笑了起來。"},{"h":"出來","p":"chūlái","ja":{"m":"中から外へ出てくる","i":"①【出現】隱れていたものが現れる（看出來）②【創造】無から有を生む（做出來）"},"en":{"m":"to come out","i":"① something hidden comes to light (看出來) ② creating something new (做出來)"},"ex":"他馬上就看出來問題，很快做出來新設計。"},{"h":"下去","p":"xiàqù","ja":{"m":"下りていく","i":"【継続】そのまま〜し続ける"},"en":{"m":"to go down","i":"continuing on, just as it is"},"ex":"不管多辛苦，我都要堅持下去。"},{"h":"下來","p":"xiàlái","ja":{"m":"下りてくる","i":"①【固定】動きを止めて書き留める（記下來）②【落ち着く】激しさが静まる（靜下來）"},"en":{"m":"to come down","i":"① settle or write it down (記下來) ② calm down from intensity (靜下來)"},"ex":"老師說的重點我都趕快記下來，心情也慢慢靜下來了。"},{"h":"過來","p":"guòlái","ja":{"m":"通ってこちらへ来る","i":"【正常化】異常な状態から正常に戻る"},"en":{"m":"to come over","i":"returning to a normal state"},"ex":"他昏倒之後，過了幾分鐘才醒過來。"},{"h":"過去","p":"guòqù","ja":{"m":"通ってあちらへ行く","i":"【非正常化】正常な状態から非日常な状態へ"},"en":{"m":"to go over","i":"slipping out of a normal state"},"ex":"她聽到消息太震驚，當場暈過去了。"},{"h":"上去","p":"shàngqù","ja":{"m":"上がっていく","i":"【付着・閉鎖】上にくっつく、閉じて密着する"},"en":{"m":"to go up (onto)","i":"attaching on top, closing something shut"},"ex":"他小心地把海報貼上去。"}]},{"id":"potential","name":"可能補語","short":"可能","color":"var(--c-potential)","tint":"var(--c-potential-tint)","tagline":"「能不能」做到","intro":{"zh":"在動詞與結果／趨向補語中間加上「得」或「不」，表示做不做得到。以下是幾個較特別的可能補語用字。","ja":"動詞と結果／方向補語の間に「得」（できる）か「不」（できない）を挟んで、可能かどうかを表します。以下はやや特殊な可能補語の字です。","en":"Insert 得 (can) or 不 (cannot) between the verb and a resultative/directional complement. Below are a few special potential-complement words."},"cards":[{"h":"動","p":"dòng","ja":{"m":"動く","i":"体力があって「物理的に動かせるか」"},"en":{"m":"to move","i":"whether you have the strength to physically move it"},"ex":"走了一整天，我現在走不動了。"},{"h":"了","p":"liǎo","ja":{"m":"終わる、完了する（liǎoと読む、leではない）","i":"状況的に「最後までやり切れるか」"},"en":{"m":"to finish, to manage (read liǎo, not le)","i":"whether circumstances let you see it through"},"ex":"明天要是下雨，我們可能去不了了。"},{"h":"下","p":"xià","ja":{"m":"収める","i":"空間の余裕が「収まるかどうか」"},"en":{"m":"to fit","i":"whether there's room for it to fit"},"ex":"這張桌子太小，坐不下十個人。"},{"h":"起","p":"qǐ","ja":{"m":"持ち上げる","i":"経済力・身分が「支えられるか」"},"en":{"m":"to lift, to afford","i":"whether you can afford to carry the weight"},"ex":"這間房子太貴，我買不起。"},{"h":"中","p":"zhòng","ja":{"m":"当たる、命中する","i":"見て「気に入る、好みに当たる」かどうか"},"en":{"m":"to hit, to match","i":"whether something “hits the mark” of one's taste — to take a liking to"},"ex":"我在店裡看中了一件紅色的外套。"},{"h":"消","p":"xiāo","ja":{"m":"消化する、こなす","i":"身体や気持ちが「持ちこたえられるか」"},"en":{"m":"to digest, to bear","i":"whether your body or nerves can hold up under it"},"ex":"每天加班到很晚，我實在吃不消。"}]},{"id":"degree","name":"程度補語","short":"程度","color":"var(--c-degree)","tint":"var(--c-degree-tint)","tagline":"程度有多「深」","intro":{"zh":"表示動作或狀態達到的程度，常搭配「極、死、壞、透」等字。","ja":"動作や状態が達した「程度」を表します。「極・死・壊・透」などとよく組み合わせます。","en":"Expresses the degree an action or state reaches, often with words like 極/死/壞/透."},"cards":[{"h":"極","p":"jí","ja":{"m":"北極・南極、頂点","i":"これ以上ない「限界」に達している"},"en":{"m":"the pole, the summit","i":"reaching the absolute limit"},"ex":"這裡的風景美極了！"},{"h":"死","p":"sǐ","ja":{"m":"命がなくなる","i":"耐えがたいほどその状態がひどい"},"en":{"m":"to die","i":"a state so intense it feels life-threatening"},"ex":"今天走了一整天，累死了。"},{"h":"壞","p":"huài","ja":{"m":"壊れる、悪くなる","i":"心や体が「壊れそうなほど」感情が高ぶる"},"en":{"m":"to break, to go bad","i":"emotions so strong the mind or body feels like breaking"},"ex":"看到這個消息，他氣壞了。"},{"h":"透","p":"tòu","ja":{"m":"突き抜ける、染み込む","i":"芯まで100%その状態になりきる"},"en":{"m":"to penetrate through","i":"soaked all the way through — 100% that state"},"ex":"這次考試考得糟糕透了。"},{"h":"得多","p":"dé duō","ja":{"m":"「得」＋「多」","i":"形容詞＋「得多」で比較の差が大きいことを表す＝「ずっと〜」"},"en":{"m":"得 + 多 (more)","i":"adjective + 得多 shows a big gap in comparison — “much more ~”"},"ex":"今天的天氣比昨天冷得多。"},{"h":"多了","p":"duō le","ja":{"m":"「多」＋「了」","i":"形容詞の後に置き、以前より「ずっと〜になった」という変化を表す"},"en":{"m":"多 (more) + 了","i":"placed after an adjective to show a big change compared with before"},"ex":"吃了藥以後，他覺得舒服多了。"},{"h":"一些","p":"yī xiē","ja":{"m":"（数量が）少し","i":"形容詞＋「了」＋「一些」で「少し〜になった」という控えめな比較"},"en":{"m":"a bit, a little","i":"a softer comparison — “a bit more ~ than before”"},"ex":"這件衣服比那件貴了一些。"}]},{"id":"manner","name":"樣態補語（得）","short":"樣態","color":"var(--c-manner)","tint":"var(--c-manner-tint)","tagline":"動作的「樣子」","intro":{"zh":"用「得」連接動詞和描述語，說明動作進行的樣子。","ja":"「得」で動詞と描写語をつなぎ、動作の「様子」を説明します。","en":"得 links a verb to a description, showing the manner in which the action happens."},"cards":[{"h":"得","p":"de","ja":{"m":"（結構助詞、もとの意味はなし）","i":"動詞・形容詞の後に置き「〜するのが…だ」と様子を説明する目印"},"en":{"m":"(a structural particle, no original meaning)","i":"a marker placed after a verb / adjective to describe how the action is done"},"ex":"他跑得非常快，是班上最快的。"},{"h":"得很","p":"de hěn","ja":{"m":"形容詞＋「得很」","i":"「とても〜だ」という強調"},"en":{"m":"adjective + 得很","i":"emphasizes “very ~”"},"ex":"這家餐廳的菜好得很，你一定要試試。"},{"h":"不得了","p":"bù dé liǎo","ja":{"m":"収拾がつかない、大変だ","i":"程度が「手に負えないほど」に達している"},"en":{"m":"unmanageable, terribly so","i":"the degree has gone past what you can handle"},"ex":"今天天氣熱得不得了，大家都在流汗。"}]},{"id":"duration","name":"時量補語","short":"時量","color":"var(--c-duration)","tint":"var(--c-duration-tint)","tagline":"動作「多久」","intro":{"zh":"表示動作或狀態持續了多久時間。","ja":"動作や状態が「どれだけ続いたか」という時間の長さを表します。","en":"Expresses how long an action or state lasted."},"cards":[{"h":"一下","p":"yī xià","ja":{"m":"ちょっとの間","i":"動詞の後で「短い時間」を表す"},"en":{"m":"a moment","i":"marks a short span of time after the verb"},"ex":"你等一下，我馬上就來。"},{"h":"一下子","p":"yī xiàzi","ja":{"m":"一瞬で、あっという間に","i":"「一下」よりくだけた言い方で短い時間を表す"},"en":{"m":"in an instant","i":"a casual way to say “in a flash”"},"ex":"別擔心，這件事一下子就能做完。"},{"h":"片刻","p":"piànkè","ja":{"m":"（書き言葉）ほんの一瞬","i":"書面語で「一瞬・少しの間」を表す"},"en":{"m":"(literary) a brief moment","i":"a formal way to say “a moment”"},"ex":"他沉默片刻，才緩緩開口說話。"},{"h":"一會兒","p":"yī huǐr","ja":{"m":"少しの間（口語）","i":"「一下」よりやや口語的な「しばらく」"},"en":{"m":"a little while (colloquial)","i":"a slightly more casual “for a bit”"},"ex":"請你在門口等一會兒，老闆馬上出來。"},{"h":"一分鐘","p":"yī fēnzhōng","ja":{"m":"1分間","i":"具体的な時間の長さ"},"en":{"m":"one minute","i":"a concrete, short length of time"},"ex":"麻煩你再等一分鐘，湯就要好了。"},{"h":"十分鐘","p":"shí fēnzhōng","ja":{"m":"10分間","i":"具体的な時間の長さ"},"en":{"m":"ten minutes","i":"a concrete length of time"},"ex":"我們先休息十分鐘，再繼續開會。"},{"h":"半個小時","p":"bàn ge xiǎoshí","ja":{"m":"30分","i":"「一個小時」の半分の長さ"},"en":{"m":"half an hour","i":"half the length of one hour"},"ex":"我在車站等了半個小時，公車才來。"},{"h":"一學時","p":"yī xuéshí","ja":{"m":"1コマ（授業時間）","i":"授業1コマ分の長さ（約45〜50分）"},"en":{"m":"one class period","i":"the length of one class period (about 45–50 min)"},"ex":"今天下午我們只上一學時的課。"},{"h":"一鐘頭","p":"yī zhōngtóu","ja":{"m":"1時間（口語）","i":"「一個小時」の口語的な言い方"},"en":{"m":"one hour (colloquial)","i":"a casual way to say “one hour”"},"ex":"他在醫院等了一鐘頭才看到醫生。"},{"h":"一個小時","p":"yī ge xiǎoshí","ja":{"m":"1時間","i":"具体的な長さをそのまま動詞の後に置く"},"en":{"m":"one hour","i":"a concrete length of time placed right after the verb"},"ex":"我排隊排了一個小時才買到票。"},{"h":"半天","p":"bàn tiān","ja":{"m":"半日","i":"転じて「かなり長い時間」の比喩にも使う"},"en":{"m":"half a day","i":"often stretched to mean “a long while”"},"ex":"這個問題他想了半天，還是想不出答案。"},{"h":"一天一夜","p":"yī tiān yī yè","ja":{"m":"まる一昼夜","i":"昼も夜も休まず「まる一日」続く"},"en":{"m":"a full day and night","i":"continuing nonstop through day and night"},"ex":"這場颱風下了一天一夜的雨。"},{"h":"好幾天","p":"hǎo jǐ tiān","ja":{"m":"何日も","i":"はっきりしないが「かなり多くの日数」を表す"},"en":{"m":"quite a few days","i":"an unspecified but sizable number of days"},"ex":"她感冒病了好幾天，一直沒去上班。"},{"h":"一整天","p":"yī zhěng tiān","ja":{"m":"丸一日","i":"動作・状態が一日中続いたことを表す"},"en":{"m":"a whole day","i":"the action or state lasted all day long"},"ex":"我今天在廚房忙了一整天，累死了。"},{"h":"一禮拜","p":"yī lǐbài","ja":{"m":"1週間（口語）","i":"「一個星期」の口語的な言い方"},"en":{"m":"one week (colloquial)","i":"a casual way to say “one week”"},"ex":"醫生叫我在家休息一禮拜。"},{"h":"一個星期","p":"yī ge xīngqí","ja":{"m":"1週間","i":"継続した期間の長さを表す"},"en":{"m":"one week","i":"marks a stretch of one week"},"ex":"我們在台南住了一個星期才回家。"},{"h":"半個月","p":"bàn ge yuè","ja":{"m":"半月（約2週間）","i":"1ヶ月の半分の長さ"},"en":{"m":"half a month","i":"about two weeks"},"ex":"姐姐去日本旅行，住了半個月才回來。"},{"h":"一個月","p":"yī ge yuè","ja":{"m":"1ヶ月","i":"継続した期間の長さを表す"},"en":{"m":"one month","i":"marks a stretch of one month"},"ex":"我學了一個月的中文，進步很多。"},{"h":"數月","p":"shù yuè","ja":{"m":"（書き言葉）数ヶ月","i":"書面語で「何ヶ月も」を表す"},"en":{"m":"(literary) several months","i":"a formal way to say “several months”"},"ex":"這項工程歷時數月才終於完工。"},{"h":"一季度","p":"yī jìdù","ja":{"m":"1四半期（3ヶ月）","i":"ビジネスなどで使う3ヶ月の単位"},"en":{"m":"one quarter","i":"a three-month business period"},"ex":"這家公司已經營運了一季度，成效逐漸顯現。"},{"h":"半輩子","p":"bàn bèizi","ja":{"m":"人生の半分","i":"人生のおよそ半分の長さの時間"},"en":{"m":"half a lifetime","i":"roughly half of one's life"},"ex":"父親為這個家辛苦了半輩子。"},{"h":"半年","p":"bàn nián","ja":{"m":"半年","i":"1年の半分の長さ"},"en":{"m":"half a year","i":"half the length of one year"},"ex":"我學了半年鋼琴，已經會彈幾首曲子。"},{"h":"一年","p":"yī nián","ja":{"m":"1年","i":"継続した期間の長さを表す"},"en":{"m":"one year","i":"marks a stretch of one year"},"ex":"他在台北住了一年，很喜歡這座城市。"},{"h":"一年半","p":"yī nián bàn","ja":{"m":"1年半","i":"語順に注意：一・年・半の順"},"en":{"m":"a year and a half","i":"note the word order: one · year · half"},"ex":"我學了一年半日文，已經能簡單對話。"},{"h":"好幾年","p":"hǎo jǐ nián","ja":{"m":"何年も","i":"はっきりしないが「かなり多くの年数」"},"en":{"m":"quite a few years","i":"an unspecified but sizable number of years"},"ex":"這對老朋友分開好幾年，終於再見面。"},{"h":"十來年","p":"shí lái nián","ja":{"m":"10年あまり","i":"10年よりやや多い、おおよその年数"},"en":{"m":"about ten years","i":"roughly ten-plus years"},"ex":"我和他認識十來年了，感情一直很好。"},{"h":"一世代","p":"yī shìdài","ja":{"m":"ひと世代","i":"人の一世代分の長さの時間（数十年にも使う）"},"en":{"m":"one generation","i":"the span of one generation (also used for “decades”)"},"ex":"這個家族的事業已經傳承了一世代。"},{"h":"半個世紀","p":"bàn ge shìjì","ja":{"m":"半世紀（50年）","i":"100年の半分の長さ"},"en":{"m":"half a century","i":"fifty years"},"ex":"這家老店已經經營了半個世紀。"},{"h":"有生之年","p":"yǒushēngzhīnián","ja":{"m":"（書き言葉）生きている限り","i":"人生の終わりまで続く、非常に長い時間"},"en":{"m":"(literary) as long as one lives","i":"an extremely long span, lasting to the end of one's life"},"ex":"他希望能在有生之年看到孩子結婚。"}]},{"id":"frequency","name":"動量補語","short":"動量","color":"var(--c-frequency)","tint":"var(--c-frequency-tint)","tagline":"做了「幾次」","intro":{"zh":"表示動作進行了幾次。","ja":"動作が「何回」行われたかを表します。","en":"Expresses how many times an action occurred."},"cards":[{"h":"次","p":"cì","ja":{"m":"回、順序","i":"最も一般的な「〜回」"},"en":{"m":"time(s), occurrence","i":"the all-purpose word for “~ times”"},"ex":"我去過北京兩次，很喜歡那裡的烤鴨。"},{"h":"遍","p":"biàn","ja":{"m":"通して1回","i":"始めから終わりまで通して行う1回"},"en":{"m":"once through","i":"one complete pass, start to finish"},"ex":"這篇課文太難了，我看了三遍才看懂。"},{"h":"回","p":"huí","ja":{"m":"回（口語）","i":"「次」とほぼ同じ、エピソード性のある1回"},"en":{"m":"time(s) (colloquial)","i":"like 次, but with more of a story / episode feel"},"ex":"那家餐廳很有名，我們去過一回，味道還不錯。"},{"h":"番","p":"fān","ja":{"m":"ひとしきりのプロセス","i":"思考・努力・議論など、労力を伴う一連の過程を1回と数える"},"en":{"m":"a round, a process","i":"counts a whole process involving effort — thinking, debating, working hard"},"ex":"為了這個決定，我們認真討論了一番。"},{"h":"遭","p":"zāo","ja":{"m":"（人生の）1回、巡り合わせ","i":"人生の一度きりの経験・巡り合わせを1回と数える、文語的"},"en":{"m":"a turn, a time (in life)","i":"a literary way to count a once-in-a-lifetime experience"},"ex":"聽說那座山很美，他特地去走了一遭。"},{"h":"下","p":"xià","ja":{"m":"軽く1回","i":"軽い・短い動作の1回"},"en":{"m":"a light action, once","i":"one quick, light action"},"ex":"他看我在發呆，就輕輕拍了我一下。"},{"h":"巴掌","p":"bāzhang","ja":{"m":"平手打ち1発","i":"手のひらで打つ動作の1回"},"en":{"m":"a slap","i":"one strike with the palm of the hand"},"ex":"電影裡，壞人欺負小孩，被英雄打了一巴掌。"},{"h":"拳","p":"quán","ja":{"m":"拳（パンチ）1発","i":"こぶしで打つ動作の1回"},"en":{"m":"a punch","i":"one strike with a fist"},"ex":"漫畫裡，主角生氣地打了敵人一拳，把他打退。"},{"h":"槍","p":"qiāng","ja":{"m":"銃撃1発","i":"銃で撃つ動作の1回"},"en":{"m":"a gunshot","i":"one shot fired"},"ex":"警匪片裡，警察對空開了一槍，把小偷嚇跑了。"},{"h":"刀","p":"dāo","ja":{"m":"刃物で1突き","i":"刃物で切る・刺す動作の1回"},"en":{"m":"a knife stroke","i":"one cut or stab with a blade"},"ex":"故事中的士兵在戰場上被敵人刺了一刀，幸好傷得不重。"},{"h":"鞭子","p":"biānzi","ja":{"m":"ムチで1打ち","i":"ムチで打つ動作の1回"},"en":{"m":"a whip strike","i":"one lash of a whip"},"ex":"馬戲團表演時，訓獸師對著空中抽了一鞭子。"},{"h":"腳","p":"jiǎo","ja":{"m":"1蹴り","i":"足で蹴る動作の1回"},"en":{"m":"a kick","i":"one kick with the foot"},"ex":"弟弟跟哥哥吵架，氣得踢了他一腳。"},{"h":"趟","p":"tàng","ja":{"m":"1往復","i":"1回の行き来（移動の回数）"},"en":{"m":"a trip","i":"one round trip of movement"},"ex":"我昨天去了一趟超市，買了很多水果。"},{"h":"步","p":"bù","ja":{"m":"1歩","i":"足を踏み出す動作の1回"},"en":{"m":"a step","i":"one step taken"},"ex":"他往前走一步，仔細看清楚黑板上的字。"},{"h":"眼","p":"yǎn","ja":{"m":"チラッと1見","i":"目を使った動作の1回"},"en":{"m":"a glance","i":"one look with the eyes"},"ex":"她只看了他一眼，就知道他在說謊。"},{"h":"口","p":"kǒu","ja":{"m":"1口","i":"食べる・飲む・噛む動作の1回"},"en":{"m":"a mouthful","i":"one bite, sip, or nibble"},"ex":"湯太燙了，他小心地喝了一口，慢慢喝完。"},{"h":"聲","p":"shēng","ja":{"m":"ひと声","i":"声や音を出す動作の1回"},"en":{"m":"one sound","i":"one utterance or sound"},"ex":"看到蟑螂，她嚇得叫了一聲，跑出了廚房。"},{"h":"嘴","p":"zuǐ","ja":{"m":"ひと口出し（うわさ・口出し）","i":"口を挟む・うわさする動作の1回"},"en":{"m":"a remark, a bit of gossip","i":"one interjection or bit of gossip"},"ex":"大家在討論工作，他忍不住插了一嘴。"},{"h":"頓","p":"dùn","ja":{"m":"1区切り","i":"食事・叱責・殴打などのひとまとまり"},"en":{"m":"a session","i":"one bout — of a meal, a scolding, a beating"},"ex":"他工作遲到，被老闆狠狠罵了一頓。"},{"h":"通","p":"tòng","ja":{"m":"ひとしきり（乱暴・急に）","i":"慌ただしく、または激しく続けて行う1回"},"en":{"m":"a burst (of hurried / wild action)","i":"one hurried or intense round of continuous action"},"ex":"他心情不好，對著電話亂罵了一通。"},{"h":"陣","p":"zhèn","ja":{"m":"ひとしきり（しばらく続く）","i":"激しい状態がしばらく続く1回"},"en":{"m":"a spell, a burst","i":"one stretch of something intense continuing for a while"},"ex":"聽到這個好消息，她開心地笑了一陣。"},{"h":"場","p":"chǎng","ja":{"m":"ひとまとまりの出来事","i":"映画・雨・病気など、1つのまとまった出来事"},"en":{"m":"an event, a bout","i":"one whole episode — a movie, a rainstorm, an illness"},"ex":"昨天下了一場大雨，路上都是積水。"}]}];
+
+var PRACTICE = {"t1":[{"context":null,"items":[{"label":null,"prompt":"這本書印刷太模糊了，我實在看不＿＿。","options":["清","懂","見","完"],"correct":0,"cat":"result"}]},{"context":null,"items":[{"label":null,"prompt":"媽媽用心把晚飯做＿＿了，色香味俱全，就等大家回來吃。","options":["完","好","到","對"],"correct":1,"cat":"result"}]},{"context":null,"items":[{"label":null,"prompt":"剛才外面太吵了，老師說的話我沒聽＿＿。","options":["懂","見","完","對"],"correct":1,"cat":"result"}]},{"context":null,"items":[{"label":null,"prompt":"雖然這道題很難，但他最後還是做＿＿了。","options":["錯","對","好","完"],"correct":1,"cat":"result"}]},{"context":null,"items":[{"label":null,"prompt":"秘密我已經在筆記本上記＿＿了，不會忘記。","options":["住","到","在","好"],"correct":0,"cat":"result"}]},{"context":null,"items":[{"label":null,"prompt":"門票早就賣＿＿了，我們明天再來買吧。","options":["完","好","對","到"],"correct":0,"cat":"result"}]},{"context":null,"items":[{"label":null,"prompt":"我在路上找＿＿了我的錢包，真是太幸運了。","options":["見","完","到","好"],"correct":2,"cat":"result"}]},{"context":null,"items":[{"label":null,"prompt":"這份地圖有點複雜，但我已經看＿＿了，知道怎麼走。","options":["懂","見","完","好"],"correct":0,"cat":"result"}]},{"context":null,"items":[{"label":null,"prompt":"垃圾桶已經裝＿＿了，快去倒掉吧。","options":["滿","好","完","到"],"correct":0,"cat":"result"}]},{"context":null,"items":[{"label":null,"prompt":"這個漢字你寫＿＿了，少了一橫。","options":["錯","對","完","好"],"correct":0,"cat":"result"}]},{"context":null,"items":[{"label":null,"prompt":"衣服上的污漬都洗＿＿了，快拿去曬吧。","options":["好","完","乾淨","到"],"correct":2,"cat":"result"}]},{"context":null,"items":[{"label":null,"prompt":"他這幾年認真運動，整個人變＿＿了完全不同的樣子，更有精神。","options":["得","成","到","完"],"correct":1,"cat":"result"}]},{"context":null,"items":[{"label":null,"prompt":"請把你的名字寫＿＿這張紙上。","options":["在","到","住","好"],"correct":0,"cat":"result"}]},{"context":null,"items":[{"label":null,"prompt":"昨晚風太大，院子裡的小樹被吹＿＿了。","options":["倒","碎","髒","紅"],"correct":0,"cat":"result"}]},{"context":null,"items":[{"label":null,"prompt":"雖然這首漢語歌很難，但我已經學＿＿了，還能唱給朋友聽。","options":["會","懂","完","好"],"correct":0,"cat":"result"}]},{"context":null,"items":[{"label":null,"prompt":"我在公共汽車上睡＿＿了，差點坐過站。","options":["著","住","在","醒"],"correct":0,"cat":"result"}]},{"context":null,"items":[{"label":null,"prompt":"桌子上的玻璃杯被弟弟打＿＿了，地上都是玻璃渣。","options":["碎","髒","倒","走"],"correct":0,"cat":"result"}]},{"context":null,"items":[{"label":null,"prompt":"聽說那家餐廳今天打折，我們快＿＿吧！","options":["進去","進來","走去","進"],"correct":0,"cat":"direction"}]},{"context":null,"items":[{"label":null,"prompt":"他在外面敲門，你趕快去開門讓他＿＿。","options":["進去","進來","出去","出來"],"correct":1,"cat":"direction"}]},{"context":null,"items":[{"label":null,"prompt":"樓下有人找你，你快＿＿吧。","options":["上去","上來","下去","下來"],"correct":2,"cat":"direction"}]},{"context":null,"items":[{"label":null,"prompt":"只要你堅持＿＿，漢語一定能學好。","options":["下去","下來","起來","過來"],"correct":0,"cat":"direction"}]},{"context":null,"items":[{"label":null,"prompt":"老師一走進教室，學生們立刻安靜＿＿了。","options":["下來","下去","起來","出來"],"correct":0,"cat":"direction"}]},{"context":null,"items":[{"label":null,"prompt":"我想＿＿他是誰了，他是我的小學同學。","options":["起來","出來","下去","過來"],"correct":0,"cat":"direction"}]},{"context":null,"items":[{"label":null,"prompt":"他已經爬＿＿山頂了，正揮手向我們微笑。","options":["上","下來","過去","起來"],"correct":0,"cat":"direction"}]},{"context":null,"items":[{"label":null,"prompt":"他把最後一口飯吃了下＿＿，才放下碗筷。","options":["去","來","上","起"],"correct":0,"cat":"direction"}]},{"context":null,"items":[{"label":null,"prompt":"這個生詞我從來沒見過，太難了，我怎麼也想不＿＿它的意思。","options":["起來","出來","下去","到"],"correct":1,"cat":"direction"}]},{"context":null,"items":[{"label":null,"prompt":"這座山太高了，我實在爬不＿＿。","options":["上去","上來","得上去","得上來"],"correct":0,"cat":"direction"}]},{"context":null,"items":[{"label":null,"prompt":"垃圾桶滿了，請你把垃圾拿＿＿吧。","options":["出去","進來","上來","起來"],"correct":0,"cat":"direction"}]},{"context":null,"items":[{"label":null,"prompt":"突然下起了大雨，大家都跑＿＿躲雨。","options":["進去","進來","出去","出來"],"correct":0,"cat":"direction"}]},{"context":null,"items":[{"label":null,"prompt":"看到大熊貓可愛的樣子，遊客們都笑＿＿了。","options":["起來","下去","出來","過來"],"correct":0,"cat":"direction"}]},{"context":null,"items":[{"label":null,"prompt":"雖然大家都反對，但他還是決定做＿＿，不願意放棄。","options":["下去","起來","過去","完"],"correct":0,"cat":"direction"}]},{"context":null,"items":[{"label":null,"prompt":"這套老房子很便宜，他決定把它買＿＿投資。","options":["下來","過去","起來","進去"],"correct":0,"cat":"direction"}]},{"context":null,"items":[{"label":null,"prompt":"他走得太快了，我真的跟不＿＿。","options":["上","下","進","出"],"correct":0,"cat":"potential"}]},{"context":null,"items":[{"label":null,"prompt":"這個星期六的聚會我要加班，去不＿＿了。","options":["了","完","到","起"],"correct":0,"cat":"potential"}]},{"context":null,"items":[{"label":null,"prompt":"他們兩個人性格不合，總是合不＿＿。","options":["來","上","動","起"],"correct":0,"cat":"potential"}]},{"context":null,"items":[{"label":null,"prompt":"這個包太貴了，我實在買不＿＿。","options":["起","了","完","到"],"correct":0,"cat":"potential"}]},{"context":null,"items":[{"label":null,"prompt":"先生，您看＿＿這款手機了嗎？現在買有優惠。","options":["中","懂","見","對"],"correct":0,"cat":"potential"}]},{"context":null,"items":[{"label":null,"prompt":"這道菜太油了，我實在吃不＿＿，胃有點不舒服。","options":["消","了","完","下"],"correct":0,"cat":"potential"}]},{"context":null,"items":[{"label":null,"prompt":"這間房間坐得＿＿十個人嗎？","options":["下","了","完","起"],"correct":0,"cat":"potential"}]},{"context":null,"items":[{"label":null,"prompt":"那件重重的行李箱，他一個人搬不＿＿。","options":["動","下","了","起"],"correct":0,"cat":"potential"}]},{"context":null,"items":[{"label":null,"prompt":"昨晚停電了，房間裡黑＿＿了。","options":["透","極","死","壞"],"correct":1,"cat":"degree"}]},{"context":null,"items":[{"label":null,"prompt":"他做的這件事真是糟糕＿＿了，把大家都害慘了。","options":["極","死","壞","透"],"correct":3,"cat":"degree"}]},{"context":null,"items":[{"label":null,"prompt":"他昨天跑步跑得太快，今天腳痛＿＿了。","options":["死","壞","極","透"],"correct":0,"cat":"degree"}]},{"context":null,"items":[{"label":null,"prompt":"聽到這個壞消息，他氣＿＿了，一句話都說不出來。","options":["壞","死","極","透"],"correct":0,"cat":"degree"}]},{"context":null,"items":[{"label":null,"prompt":"他這次考試考得比上次好＿＿，媽媽很高興。","options":["得多","多了","一些","極了"],"correct":1,"cat":"degree"}]},{"context":null,"items":[{"label":null,"prompt":"這次考試題目比上次難＿＿，很多同學都沒考好。","options":["得多","多了","一些","極了"],"correct":0,"cat":"degree"}]},{"context":null,"items":[{"label":null,"prompt":"今天的天氣比昨天涼快＿＿，出去走走吧。","options":["得多","多了","一些","極了"],"correct":2,"cat":"degree"}]},{"context":null,"items":[{"label":null,"prompt":"聽了這個好消息，他高興＿＿了。","options":["極","死","壞","透"],"correct":0,"cat":"degree"}]},{"context":null,"items":[{"label":null,"prompt":"那個演員長＿＿很帥，很多人喜歡他。","options":["得","的","地","極"],"correct":0,"cat":"manner"}]},{"context":null,"items":[{"label":null,"prompt":"這次的成績好＿＿了，媽媽高興得不得了。","options":["得很","多了","一些","得多"],"correct":0,"cat":"manner"}]},{"context":null,"items":[{"label":null,"prompt":"他吃了太多，肚子撐＿＿，一動也不想動。","options":["得不得了","得很","得多","多了"],"correct":0,"cat":"manner"}]},{"context":null,"items":[{"label":null,"prompt":"他高興＿＿跳了起來。","options":["的","地","得","極"],"correct":2,"cat":"manner"}]},{"context":null,"items":[{"label":null,"prompt":"哥哥跑＿＿非常快，拿到了第一名。","options":["得","的","地","多"],"correct":0,"cat":"manner"}]},{"context":null,"items":[{"label":null,"prompt":"妹妹笑＿＿肚子都疼了。","options":["得","的","地","極"],"correct":0,"cat":"manner"}]},{"context":null,"items":[{"label":null,"prompt":"今天的晚會辦＿＿非常成功。","options":["得","的","地","極"],"correct":0,"cat":"manner"}]},{"context":null,"items":[{"label":null,"prompt":"弟弟今天特別忙＿＿，作業和考試都擠在一起。","options":["得很","得多","多了","一些"],"correct":0,"cat":"manner"}]},{"context":null,"items":[{"label":null,"prompt":"他打算在中國住＿＿，好好體驗當地生活。","options":["一年","一分鐘","十分鐘","片刻"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"他們在圖書館裡坐了＿＿，才把報告寫完。","options":["一整天","一分鐘","十分鐘","片刻"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"他想了＿＿，很快就想出辦法了，一點也不難。","options":["一下","一整天","半輩子","十來年"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"請等我＿＿，我馬上就到。","options":["一會兒","一下","一天","一次"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"他剛到公車站沒多久，等了＿＿，公車就來了。","options":["一下子","半天","一整天","一個星期"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"老師請大家先休息＿＿，十分鐘後再上課。","options":["片刻","一天","一個月","一年"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"每天的漢語課有＿＿，時間過得很快。","options":["一學時","半個世紀","一世代","有生之年"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"我等公車等了＿＿，車還沒來。","options":["一鐘頭","一季度","半輩子","一世代"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"這次會議大概開＿＿，大家先準備一下資料。","options":["半個小時","半個世紀","一世代","十來年"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"外面下了＿＿的雨，路都積水了。","options":["一天一夜","一分鐘","十分鐘","一下"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"他生病住院，已經＿＿沒來上課了。","options":["好幾天","一分鐘","十分鐘","一下子"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"這個假期我們全家去日本玩了＿＿。","options":["一禮拜","一分鐘","片刻","一下子"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"裝修工程還要＿＿才能完成。","options":["半個月","一分鐘","片刻","十分鐘"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"這項研究他已經做了＿＿，還沒有結果。","options":["數月","一分鐘","片刻","十分鐘"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"公司每＿＿會做一次業績檢討。","options":["一季度","一分鐘","片刻","十分鐘"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"老爺爺辛苦了＿＿，終於把孩子們都養大了。","options":["半輩子","一分鐘","片刻","十分鐘"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"我們認識已經＿＿了，感情一直很好。","options":["十來年","一分鐘","片刻","十分鐘"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"這間老店已經經營了＿＿，很有歷史。","options":["半個世紀","一分鐘","片刻","十分鐘"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"他常說，希望在＿＿能看到夢想實現的那一天。","options":["有生之年","一分鐘","片刻","十分鐘"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"他遲到了，只讓我在門口等了＿＿。","options":["一分鐘","一世代","半輩子","有生之年"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"從我家走到捷運站，只要＿＿就到了。","options":["十分鐘","半個世紀","一世代","十來年"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"我在網路上找這個資料，找了＿＿才找到。","options":["半天","一分鐘","片刻","十分鐘"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"這次出差，我要在上海待＿＿。","options":["一個星期","一分鐘","十分鐘","片刻"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"他學中文已經學了＿＿，進步很快。","options":["半年","一分鐘","十分鐘","片刻"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"這個項目已經進行了＿＿，快要完成了。","options":["一年半","一分鐘","十分鐘","片刻"],"correct":0,"cat":"duration"}]},{"context":null,"items":[{"label":null,"prompt":"這部電影我看過＿＿兩次了，還是很感動。","options":["次","遍","回","下"],"correct":0,"cat":"frequency"}]},{"context":null,"items":[{"label":null,"prompt":"老師把這篇課文讀了＿＿一遍，大家都聽懂了。","options":["次","遍","回","下"],"correct":1,"cat":"frequency"}]},{"context":null,"items":[{"label":null,"prompt":"這件事我已經跟你說過好幾＿＿了，別再忘記。","options":["回","遍","次","下"],"correct":0,"cat":"frequency"}]},{"context":null,"items":[{"label":null,"prompt":"這個問題他想了＿＿，還是沒有答案。","options":["一番","一次","一遍","一下"],"correct":0,"cat":"frequency"}]},{"context":null,"items":[{"label":null,"prompt":"難得來人間走一＿＿，就要活得精彩。","options":["遭","次","遍","下"],"correct":0,"cat":"frequency"}]},{"context":null,"items":[{"label":null,"prompt":"你摸＿＿看，這塊布是不是很軟？","options":["一下","一次","一遍","一趟"],"correct":0,"cat":"frequency"}]},{"context":null,"items":[{"label":null,"prompt":"弟弟惹媽媽生氣，被打了一＿＿。","options":["巴掌","拳","槍","刀"],"correct":0,"cat":"frequency"}]},{"context":null,"items":[{"label":null,"prompt":"他氣得往牆上打了一＿＿，手都紅了。","options":["拳","巴掌","槍","刀"],"correct":0,"cat":"frequency"}]},{"context":null,"items":[{"label":null,"prompt":"獵人朝天空開了一＿＿，鳥群都飛走了。","options":["槍","拳","巴掌","刀"],"correct":0,"cat":"frequency"}]},{"context":null,"items":[{"label":null,"prompt":"廚師快速地在魚身上劃了一＿＿。","options":["刀","槍","拳","鞭子"],"correct":0,"cat":"frequency"}]},{"context":null,"items":[{"label":null,"prompt":"馬夫朝馬身上抽了一＿＿，馬立刻跑了起來。","options":["鞭子","巴掌","拳","槍"],"correct":0,"cat":"frequency"}]},{"context":null,"items":[{"label":null,"prompt":"小狗被踢了一＿＿，痛得叫了起來。","options":["腳","步","拳","巴掌"],"correct":0,"cat":"frequency"}]},{"context":null,"items":[{"label":null,"prompt":"他往前走了一大＿＿，離終點更近了。","options":["步","腳","趟","下"],"correct":0,"cat":"frequency"}]},{"context":null,"items":[{"label":null,"prompt":"你這樣下去不行，我們明天去＿＿醫院吧。","options":["一回","一次","一遍","一趟"],"correct":3,"cat":"frequency"}]},{"context":null,"items":[{"label":null,"prompt":"他很喜歡這個女孩，忍不住多看了她一＿＿。","options":["眼","口","聲","下"],"correct":0,"cat":"frequency"}]},{"context":null,"items":[{"label":null,"prompt":"湯太燙了，他只敢喝一小＿＿。","options":["口","眼","聲","下"],"correct":0,"cat":"frequency"}]},{"context":null,"items":[{"label":null,"prompt":"聽到有人叫他，他大聲應了一＿＿。","options":["聲","口","眼","下"],"correct":0,"cat":"frequency"}]},{"context":null,"items":[{"label":null,"prompt":"鄰居很愛管閒事，總喜歡插一＿＿別人的事。","options":["嘴","聲","口","下"],"correct":0,"cat":"frequency"}]},{"context":null,"items":[{"label":null,"prompt":"這孩子聰明＿＿，一教就會。","options":["得很","的","地","極"],"correct":0,"cat":"manner"}]}],"t2":[{"context":"小張打算搬家，他找了一家搬家公司。搬家那天，行李特別多。有一些大箱子非常重，搬家工人兩個人才搬①。他們把行李一箱一箱地搬②車上。小張在旁邊看③很著急，一邊幫忙一邊說：「大家慢點，別把東西弄④了，這些可是我家的傳家寶！」最後，花了三個小時，終於把所有東西都收拾⑤了。","items":[{"label":"①","prompt":"","options":["得動","不動","得完","不完"],"correct":0,"cat":"potential"},{"label":"②","prompt":"","options":["上","到","進","完"],"correct":1,"cat":"result"},{"label":"③","prompt":"","options":["得","的","地","極"],"correct":0,"cat":"manner"},{"label":"④","prompt":"","options":["壞","髒","破","碎"],"correct":0,"cat":"result"},{"label":"⑤","prompt":"","options":["成","好","對","到"],"correct":1,"cat":"result"}]},{"context":"今天風太大，把桌上的花瓶吹①了，還把沒關緊的窗戶吹②了。小李趕快跑③把窗戶關④，房間裡才安靜⑤。","items":[{"label":"①","prompt":"","options":["倒","碎","髒","完"],"correct":0,"cat":"result"},{"label":"②","prompt":"","options":["開","關","倒","壞"],"correct":0,"cat":"result"},{"label":"③","prompt":"","options":["過去","過來","起來","下去"],"correct":1,"cat":"direction"},{"label":"④","prompt":"","options":["上","好","完","住"],"correct":1,"cat":"result"},{"label":"⑤","prompt":"","options":["下來","起來","下去","過來"],"correct":0,"cat":"direction"}]},{"context":"廚房裡的香氣傳①了，小明一聞②就走③廚房，看見媽媽已經把晚飯做④了，滿滿一桌菜。他高興⑤跳了起來，大聲說：「太好了！肚子好餓！」","items":[{"label":"①","prompt":"","options":["出來","出去","進來","進去"],"correct":0,"cat":"direction"},{"label":"②","prompt":"","options":["見","到","懂","好"],"correct":0,"cat":"result"},{"label":"③","prompt":"","options":["進","出","上","回"],"correct":0,"cat":"direction"},{"label":"④","prompt":"","options":["好","完","對","滿"],"correct":0,"cat":"result"},{"label":"⑤","prompt":"","options":["得","極","死","壞"],"correct":0,"cat":"manner"}]},{"context":"這段課文很難，我讀了很多遍也沒記①。老師走②，又從頭說了③。這次我終於聽④了，心裡踏實⑤。","items":[{"label":"①","prompt":"","options":["住","在","著","好"],"correct":0,"cat":"result"},{"label":"②","prompt":"","options":["過來","過去","起來","下來"],"correct":0,"cat":"direction"},{"label":"③","prompt":"","options":["一遍","一次","一回","一下"],"correct":0,"cat":"frequency"},{"label":"④","prompt":"","options":["懂","見","完","好"],"correct":0,"cat":"result"},{"label":"⑤","prompt":"","options":["得多","多了","一些","得很"],"correct":1,"cat":"degree"}]},{"context":"小張太累了，他坐在沙發上，很快就睡①了。突然，電話響②了，把他吵③了。他拿起電話，聽了半天也沒聽④對方是誰，只好無奈地睡⑤了。","items":[{"label":"①","prompt":"","options":["著","住","醒","好"],"correct":0,"cat":"result"},{"label":"②","prompt":"","options":["了起來","了下去","了過去","了出來"],"correct":0,"cat":"direction"},{"label":"③","prompt":"","options":["醒","著","破","壞"],"correct":0,"cat":"result"},{"label":"④","prompt":"","options":["出來","出去","起來","下來"],"correct":0,"cat":"direction"},{"label":"⑤","prompt":"","options":["下去","過去","起來","過來"],"correct":1,"cat":"direction"}]},{"context":"這家餐館的菜做①很好吃，客人多②排不③隊。小王等了④，才吃到⑤晚飯，肚子都餓扁了。","items":[{"label":"①","prompt":"","options":["得","不","極","死"],"correct":0,"cat":"manner"},{"label":"②","prompt":"","options":["得","不","極","死"],"correct":2,"cat":"degree"},{"label":"③","prompt":"","options":["下","上","動","完"],"correct":0,"cat":"potential"},{"label":"④","prompt":"","options":["半天","一分鐘","片刻","一下"],"correct":0,"cat":"duration"},{"label":"⑤","prompt":"","options":["上","到","完","好"],"correct":2,"cat":"result"}]},{"context":"小美最近在學做蛋糕，第一次做①完全失敗，蛋糕又硬又難吃；她沒有放棄，練②，終於做③了，蛋糕又鬆又香。朋友吃了都稱讚她做④了，還說想跟她學⑤做蛋糕呢。","items":[{"label":"①","prompt":"","options":["得","不","極","死"],"correct":0,"cat":"manner"},{"label":"②","prompt":"","options":["了一整天","了一個月","了一下","了一遍"],"correct":1,"cat":"duration"},{"label":"③","prompt":"","options":["得好","不好","得完","不完"],"correct":0,"cat":"result"},{"label":"④","prompt":"","options":["得好","得完","得懂","得對"],"correct":0,"cat":"result"},{"label":"⑤","prompt":"","options":["會","懂","完","對"],"correct":0,"cat":"result"}]},{"context":"這座城市的地鐵系統很方便，第一次來的遊客也能很快看①路線圖。小陳今天要去機場，他查②了地鐵路線，算③大概要花一個小時，於是提前出發，趕④了班機，一路上他心情放鬆，覺得旅行才剛剛開始，充滿期待。這時他忽然想⑤朋友之前推薦過這座城市有名的夜市，打算下次專程再去嚐嚐。","items":[{"label":"①","prompt":"","options":["懂","見","完","對"],"correct":0,"cat":"result"},{"label":"②","prompt":"","options":["到","懂","完","好"],"correct":0,"cat":"result"},{"label":"③","prompt":"","options":["下來","起來","出來","過去"],"correct":0,"cat":"direction"},{"label":"④","prompt":"","options":["上","下","到","過"],"correct":0,"cat":"direction"},{"label":"⑤","prompt":"","options":["起","起來","出來","下來"],"correct":1,"cat":"direction"}]},{"context":"爺爺年輕時在鄉下種田，一種就是①，日子雖然辛苦，但他從不喊累。後來搬到城市，他常常跟孫子們說起那段日子，一講就是②，怎麼也說不完。他常說，希望在③能看到孫子們都成家立業，那時候他就算辛苦了④，也覺得值得。孫子們聽了都很感動，決定要常回家陪⑤爺爺。","items":[{"label":"①","prompt":"","options":["半輩子","一分鐘","片刻","十分鐘"],"correct":0,"cat":"duration"},{"label":"②","prompt":"","options":["一鐘頭","一分鐘","一秒鐘","片刻"],"correct":0,"cat":"duration"},{"label":"③","prompt":"","options":["有生之年","一分鐘","片刻","十分鐘"],"correct":0,"cat":"duration"},{"label":"④","prompt":"","options":["一輩子","一分鐘","一秒","片刻"],"correct":0,"cat":"grammar"},{"label":"⑤","prompt":"","options":["一下","一遍","一次","一趟"],"correct":0,"cat":"frequency"}]},{"context":"這間老麵店已經開了①，是這條街上最有歷史的店。老闆說，這麼多年來，他每天都堅持②，從不偷懶。上個③，他還特地去進修，學了新的做法。最近生意越來越好，客人常常要排④才吃得到，老闆笑⑤合不攏嘴，說這都是老顧客們的支持。","items":[{"label":"①","prompt":"","options":["半個世紀","一分鐘","片刻","十分鐘"],"correct":0,"cat":"duration"},{"label":"②","prompt":"","options":["下去","起來","過去","下來"],"correct":0,"cat":"direction"},{"label":"③","prompt":"","options":["季度","一分鐘","片刻","十分鐘"],"correct":0,"cat":"duration"},{"label":"④","prompt":"","options":["一個小時","一分鐘","片刻","一下子"],"correct":0,"cat":"duration"},{"label":"⑤","prompt":"","options":["得","的","地","極"],"correct":0,"cat":"manner"}]},{"context":"小林第一次獨自出國旅行，飛機漸漸飛①，穿過雲層，他心裡既緊張又興奮。到了目的地，他發現自己的行李箱不見了，急②了，臉都白了，趕緊到處找，找了好③才在角落發現它。他鬆了一口氣，走過去把行李箱拿④，走出機場，抬頭看見陌生的天空，忍不住笑⑤了。","items":[{"label":"①","prompt":"","options":["上去","上來","下去","過去"],"correct":0,"cat":"direction"},{"label":"②","prompt":"","options":["壞","得","完","透"],"correct":0,"cat":"degree"},{"label":"③","prompt":"","options":["幾天","幾年","一陣","一頓"],"correct":2,"cat":"frequency"},{"label":"④","prompt":"","options":["起來","出來","過來","上來"],"correct":0,"cat":"direction"},{"label":"⑤","prompt":"","options":["出來","起來","下去","過去"],"correct":0,"cat":"direction"}]},{"context":"小陳跟朋友約好晚上七點吃飯，可是他六點半才想①忘了帶錢包，只好趕快回家拿。他一路狂奔，跑②家門就衝進去，找③錢包後，又立刻衝出去攔計程車。司機看他氣喘吁吁，忍不住問他怎麼了，小陳笑④有點不好意思，說沒事，只是差點遲到。最後他準時趕⑤，朋友都誇他這次難得沒遲到。","items":[{"label":"①","prompt":"","options":["起","起來","出來","到"],"correct":1,"cat":"direction"},{"label":"②","prompt":"","options":["進","進去","過去","回去"],"correct":0,"cat":"direction"},{"label":"③","prompt":"","options":["到","見","完","好"],"correct":0,"cat":"result"},{"label":"④","prompt":"","options":["得","的","地","極"],"correct":0,"cat":"manner"},{"label":"⑤","prompt":"","options":["到","上","得上","不上"],"correct":2,"cat":"potential"}]},{"context":"這間公司最近業績不好，老闆決定每①都要開一次檢討會，希望能找出問題。開會時，大家你一言我一語，討論②，卻始終沒有結論。副理氣③，拍著桌子說，這樣下去不行，必須馬上改進。最後大家決定先試行新方案④，如果還是沒有起色，就得重新考慮。老闆聽了，滿意地點⑤頭。","items":[{"label":"①","prompt":"","options":["一季度","一分鐘","片刻","十分鐘"],"correct":0,"cat":"duration"},{"label":"②","prompt":"","options":["了一番","了一次","了一遍","了一下"],"correct":0,"cat":"frequency"},{"label":"③","prompt":"","options":["壞了","好了","完了","透了"],"correct":0,"cat":"degree"},{"label":"④","prompt":"","options":["半個月","一分鐘","片刻","十分鐘"],"correct":0,"cat":"duration"},{"label":"⑤","prompt":"","options":["了","過","著","到"],"correct":0,"cat":"grammar"}]},{"context":"小美養了一隻貓，這隻貓很調皮，昨天不小心把桌上的花瓶打①了，花瓶碎了一地。小美又生氣又心疼，罵了貓一②，貓嚇得躲③沙發底下，好一④才敢出來。小美看牠可憐的樣子，忍不住又笑⑤了。","items":[{"label":"①","prompt":"","options":["碎","壞","倒","髒"],"correct":0,"cat":"result"},{"label":"②","prompt":"","options":["頓","下","聲","口"],"correct":0,"cat":"frequency"},{"label":"③","prompt":"","options":["在","到","進","過"],"correct":0,"cat":"result"},{"label":"④","prompt":"","options":["陣","下","次","遍"],"correct":0,"cat":"frequency"},{"label":"⑤","prompt":"","options":["起來","出來","下去","過來"],"correct":0,"cat":"direction"}]},{"context":"小王在銀行工作已經①了，這些年他看過各種各樣的客戶。今天一位老先生來辦事，因為聽②行員的說明，反覆問了好幾次。老先生的兒子後來也趕③銀行，幫忙解釋清楚，老先生這才聽④了，滿意地離開。小王目送他們走⑤，心裡覺得這份工作雖然辛苦，卻很有意義。","items":[{"label":"①","prompt":"","options":["十來年","一分鐘","片刻","十分鐘"],"correct":0,"cat":"duration"},{"label":"②","prompt":"","options":["不懂","不見","不完","不對"],"correct":0,"cat":"result"},{"label":"③","prompt":"","options":["到","過","上","完"],"correct":0,"cat":"result"},{"label":"④","prompt":"","options":["懂","見","完","好"],"correct":0,"cat":"result"},{"label":"⑤","prompt":"","options":["出去","進去","上去","過去"],"correct":0,"cat":"direction"}]},{"context":"這次颱風特別大，整整刮①，把路上的招牌都吹②了。居民們擔心得睡不③，一直等到隔天早上，風雨終於停④，大家才鬆了一口氣，趕快出門清理，把倒下的樹木一根一根搬⑤路邊。","items":[{"label":"①","prompt":"","options":["一天一夜","一分鐘","十分鐘","一下"],"correct":0,"cat":"duration"},{"label":"②","prompt":"","options":["倒","碎","髒","紅"],"correct":0,"cat":"result"},{"label":"③","prompt":"","options":["著","住","好","懂"],"correct":0,"cat":"result"},{"label":"④","prompt":"","options":["下來","下去","起來","過來"],"correct":0,"cat":"direction"},{"label":"⑤","prompt":"","options":["到","開","在","走"],"correct":0,"cat":"result"}]},{"context":"小張最近在準備考試，每天都讀①才睡，已經持續了②。媽媽看他這麼拚，擔心他身體吃不③，勸他要多休息。小張笑著說，只要再撐④，考完試就能好好放鬆了。果然，考試結束那天，他睡了⑤，整個人都輕鬆了起來。","items":[{"label":"①","prompt":"","options":["到半夜","一分鐘","一下","片刻"],"correct":0,"cat":"grammar"},{"label":"②","prompt":"","options":["好幾天","一分鐘","一下","片刻"],"correct":0,"cat":"duration"},{"label":"③","prompt":"","options":["消","了","下","完"],"correct":0,"cat":"potential"},{"label":"④","prompt":"","options":["一下子","半個世紀","一世代","有生之年"],"correct":0,"cat":"duration"},{"label":"⑤","prompt":"","options":["一整天","一分鐘","片刻","一下"],"correct":0,"cat":"duration"}]},{"context":"這個週末小林一個人去爬山，走①山路，累②，他索性坐下來休息，順便看③隨身帶的地圖，確認接下來的路線。山上的空氣特別新鮮，他深深吸了一口氣，覺得心情舒暢④了。下山時，他不小心踩到石頭，差點摔⑤，還好及時扶住旁邊的樹。","items":[{"label":"①","prompt":"","options":["在","到","過","著"],"correct":3,"cat":"grammar"},{"label":"②","prompt":"","options":["死了","好了","完了","透了"],"correct":0,"cat":"degree"},{"label":"③","prompt":"","options":["懂","起","起來","出來"],"correct":0,"cat":"result"},{"label":"④","prompt":"","options":["多","得多","一些","得很"],"correct":0,"cat":"degree"},{"label":"⑤","prompt":"","options":["倒","碎","破","開"],"correct":0,"cat":"result"}]},{"context":"小陳新學期選了漢語課，老師規定每堂課都要複習①生詞，還要背②課文。剛開始他覺得很難，常常背不③，後來他每天多花④練習，慢慢就進步⑤了，現在已經能流利地跟中國朋友聊天了。","items":[{"label":"①","prompt":"","options":["一遍","一次","一回","一下"],"correct":0,"cat":"frequency"},{"label":"②","prompt":"","options":["熟","懂","會","好"],"correct":0,"cat":"result"},{"label":"③","prompt":"","options":["起來","出來","下去","住"],"correct":0,"cat":"potential"},{"label":"④","prompt":"","options":["半個小時","一分鐘","片刻","一下"],"correct":0,"cat":"duration"},{"label":"⑤","prompt":"","options":["很多","得多","多","一些"],"correct":2,"cat":"degree"}]},{"context":"這家超市週年慶，商品打折得特別便宜，一大早門口就排①了長長的人龍。小美擠②人群，好不容易搶③了最後一台特價電視。回家的路上，她高興得又哼④又跳，鄰居看了都忍不住問她中⑤什麼獎，她笑著說，只是買到了便宜貨而已。","items":[{"label":"①","prompt":"","options":["滿","好","完","到"],"correct":0,"cat":"result"},{"label":"②","prompt":"","options":["進","進去","過去","出去"],"correct":0,"cat":"direction"},{"label":"③","prompt":"","options":["到","見","完","好"],"correct":0,"cat":"result"},{"label":"④","prompt":"","options":["起來","出來","下去","過來"],"correct":0,"cat":"direction"},{"label":"⑤","prompt":"","options":["了","中","到","對"],"correct":0,"cat":"grammar"}]}],"t3":[{"context":"老王辛苦工作了一輩子，最近辛苦攢下的錢被騙光了，他一開始痛苦得吃不下飯。但經過家人的陪伴和安慰，他最後想開了，對孩子們說：「算了，錢財乃外物，只要全家人身體健康平安，比什麼都重要。」","items":[{"label":"①","prompt":"老王一開始為什麼吃不下飯？","options":["生病了","工作太累","錢被騙走了","跟家人吵架"],"correct":2,"cat":"grammar"},{"label":"②","prompt":"文中「想開了」的意思是什麼？","options":["想起來了","不介意了，心裡舒坦了","想睡覺了","猜不出來"],"correct":1,"cat":"result"}]},{"context":"小張一直很想去國外留學，但父母因為擔心他的安全而極力反對，這讓他非常痛苦。昨天晚上，他和父母進行了一番深談，了解了父母的苦心後，小張終於想通了，決定先留在國內讀大學。","items":[{"label":"①","prompt":"小張最後做了什麼決定？","options":["堅持出國留學","先留在國內讀大學","跟父母吵架","放棄讀書"],"correct":1,"cat":"grammar"},{"label":"②","prompt":"文中「想通了」的意思是什麼？","options":["想睡覺了","忘記了","理解、不再糾結了","生氣了"],"correct":2,"cat":"result"}]},{"context":"這件紅色的毛衣是奶奶親手織的，可是洗過一次以後，顏色全都染紅了旁邊的白襯衫。媽媽看到滿滿一盆紅通通的水，又好氣又好笑。","items":[{"label":"①","prompt":"媽媽看到什麼而又好氣又好笑？","options":["毛衣破了","白襯衫被染紅了","毛衣不見了","奶奶生氣了"],"correct":1,"cat":"grammar"},{"label":"②","prompt":"文中「染紅」的意思是什麼？","options":["顏色被染到別的東西上了","變得很乾淨","變得很大","變得很輕"],"correct":0,"cat":"result"}]},{"context":"這家公司這幾年發展得很快，公司規模變大了好幾倍，員工人數從十幾個人成長到上百人，辦公室也從一層樓搬到了整棟大樓。","items":[{"label":"①","prompt":"這家公司這幾年有什麼變化？","options":["規模變大了","倒閉了","搬到國外了","員工變少了"],"correct":0,"cat":"grammar"},{"label":"②","prompt":"文中「變大」的意思是什麼？","options":["變得比較貴","規模比以前擴張、多了","變得比較輕","變得比較快"],"correct":1,"cat":"result"}]},{"context":"老闆常常仗著自己有錢，說話的語氣很不客氣，把身邊的員工都看輕了，覺得大家都不如自己聰明。結果員工一個接一個離職，公司反而做不下去了。","items":[{"label":"①","prompt":"員工為什麼一個接一個離職？","options":["薪水太少","老闆看輕他們","公司要倒閉","工作太累"],"correct":1,"cat":"grammar"},{"label":"②","prompt":"文中「看輕」的意思是什麼？","options":["看不見","看得很清楚","小看、不放在眼裡","覺得很輕鬆"],"correct":2,"cat":"result"}]},{"context":"這家老麵店在巷口開了將近一世代了，是爸爸年輕時開的，現在爸爸也打算把手藝傳給女兒，讓這個味道能一直傳下去。","items":[{"label":"①","prompt":"這家麵店大概開了多久？","options":["一年","一世代（好幾十年）","一個月","一星期"],"correct":1,"cat":"duration"},{"label":"②","prompt":"根據這段話，這家店未來會怎麼樣？","options":["準備關門","手藝會傳給女兒繼續經營","要搬到別的地方","要改賣別的東西"],"correct":1,"cat":"grammar"}]},{"context":"爺爺退休以後回到鄉下老家，一住就是好幾年，每天種種菜、養養雞，過得非常自在，完全不想再回城市生活。","items":[{"label":"①","prompt":"爺爺退休後過著什麼樣的生活？","options":["每天很忙碌","在鄉下悠閒地生活","常常生病","一直想回城市"],"correct":1,"cat":"grammar"},{"label":"②","prompt":"文中「一住就是好幾年」的「好幾年」表示什麼？","options":["住的地方","住的原因","住了很長的時間","一起住的人"],"correct":2,"cat":"duration"}]},{"context":"宿舍樓下在裝修，工人每天一大早就開始鑽牆，吵得大家都沒辦法好好睡覺。有一天晚上，隔壁的同學實在受不了，跑去把工頭罵了一通，工頭才答應改到白天再施工。","items":[{"label":"①","prompt":"隔壁的同學為什麼去找工頭？","options":["想請工頭幫忙","被噪音吵得受不了","想跟工頭做朋友","要付裝修費"],"correct":1,"cat":"grammar"},{"label":"②","prompt":"文中「罵了一通」的「一通」表示什麼？","options":["罵的內容","罵的次數、罵了一頓","罵的地點","罵的原因"],"correct":1,"cat":"frequency"}]},{"context":"這場突如其來的暴雨下了整整一場，路上的積水淹到了小腿，很多店家的貨物都被水泡壞了，損失不小。","items":[{"label":"①","prompt":"這場暴雨造成了什麼結果？","options":["交通比較順暢","店家的貨物被水泡壞","天氣變涼快了","大家都很高興"],"correct":1,"cat":"grammar"},{"label":"②","prompt":"文中「下了整整一場」的「一場」用來計算什麼？","options":["雨的溫度","雨的次數或這一陣雨","雨的顏色","雨的地點"],"correct":1,"cat":"frequency"}]},{"context":"小明打算今天和朋友一起去電影院。可是他加班太晚了，急忙跑到電影院的時候，今晚的票已經全部賣完了，他最後買不到票，只好很不高興地回家了。","items":[{"label":"①","prompt":"小明今天晚上為什麼不高興？","options":["因為他沒去電影院","因為電影不好看","因為票賣完了","因為朋友沒來"],"correct":2,"cat":"result"},{"label":"②","prompt":"文中「買不到」的意思是什麼？","options":["不想買","沒有錢買","沒時間買","想買但沒買成"],"correct":3,"cat":"result"}]},{"context":"王老師上課時說話的聲音太小了，坐在最後一排的同學都聽不見。班長舉起手，大聲對老師說：「老師，請您說大聲一點兒，我們聽不清楚！」","items":[{"label":"①","prompt":"後排的同學為什麼舉手？","options":["因為聽不見","因為想回答問題","因為下課了","因為聽不懂"],"correct":0,"cat":"result"},{"label":"②","prompt":"文中「聽不清楚」的意思是什麼？","options":["聲音模糊，不容易聽懂","不明白意思","沒聽說過","聽錯了"],"correct":0,"cat":"result"}]},{"context":"媽媽把洗乾淨的衣服掛在陽台外面。沒想到下午突然颳起了大風，衣服全部被吹跑了，媽媽只好跑出去一件一件撿回來。","items":[{"label":"①","prompt":"媽媽下午出去做什麼？","options":["洗衣服","買衣服","撿衣服","看風景"],"correct":2,"cat":"grammar"},{"label":"②","prompt":"文中「洗乾淨」的「乾淨」表示什麼？","options":["洗了很久","動作做完後，東西不髒了","洗得很快","還沒洗完"],"correct":1,"cat":"result"}]},{"context":"小狗把爸爸最喜歡的茶杯打碎了。爸爸下班回家看到地上的碎片，氣得滿臉通紅，小狗嚇得躲在沙發下面不敢出來。","items":[{"label":"①","prompt":"爸爸為什麼生氣？","options":["小狗不見了","茶杯碎了","地太髒了","下班太晚"],"correct":1,"cat":"result"},{"label":"②","prompt":"文中「碎」表示動作的什麼？","options":["原因","時間","結果","方向"],"correct":2,"cat":"result"}]},{"context":"外面的雪下得很大，地上全白了。南方來的留學生第一次看到雪，都高興壞了，紛紛跑到外面堆雪人、打雪仗，玩得開心極了。","items":[{"label":"①","prompt":"留學生們為什麼跑出去？","options":["因為下雨了","因為看到了雪","因為要上課","因為迷路了"],"correct":1,"cat":"grammar"},{"label":"②","prompt":"文中「高興壞了」的意思是什麼？","options":["高興得生病了","非常高興","不高興","高興得想哭"],"correct":1,"cat":"degree"}]},{"context":"哥哥今天買了一台新電視。可是說明書太複雜了，他看了半天也沒看懂，最後只好打電話請朋友過來幫忙安裝。","items":[{"label":"①","prompt":"哥哥為什麼請朋友幫忙？","options":["沒時間","看不懂說明書","電視太重","電視壞了"],"correct":1,"cat":"result"},{"label":"②","prompt":"文中「看了半天」的「半天」表示什麼？","options":["看了很短的時間","看了很長的時間","看了一半","沒有看"],"correct":1,"cat":"duration"}]},{"context":"這座山太高了，我們才爬到半山腰就累得氣喘吁吁。大家決定在樹下休息一會兒，等體力恢復了再繼續往上爬。","items":[{"label":"①","prompt":"大家為什麼在樹下休息？","options":["下雨了","爬山太累了","到了山頂","想吃東西"],"correct":1,"cat":"grammar"},{"label":"②","prompt":"文中「休息一會兒」的「一會兒」表示什麼？","options":["很長的時間","很短的時間","很多次","很高的山"],"correct":1,"cat":"duration"}]},{"context":"小王今天去銀行辦事，沒想到排隊的人非常多。他等了兩個小時才辦完，出來的時候已經快到下午兩點了，他肚子餓得咕咕叫。","items":[{"label":"①","prompt":"小王為什麼肚子餓？","options":["沒帶錢","在銀行等了很久","忘記吃早飯","不想吃午飯"],"correct":1,"cat":"grammar"},{"label":"②","prompt":"文中「等了兩個小時」是哪一種補語？","options":["結果補語","時量補語","動量補語","方向補語"],"correct":1,"cat":"duration"}]},{"context":"今天早上起霧了，外面的建築物都看不清楚。司機們都開得很慢，一路上不斷按喇叭，平時半個小時的車程，今天卻開了一個多小時。","items":[{"label":"①","prompt":"今天為什麼開車開得很慢？","options":["車壞了","起霧看不清楚","堵車了","司機累了"],"correct":1,"cat":"result"},{"label":"②","prompt":"文中「開得很慢」的「得很慢」修飾的是什麼？","options":["起霧的樣子","建築物的樣子","開車這個動作的狀態","時間的長短"],"correct":2,"cat":"manner"}]},{"context":"這首歌太好聽了，我昨天聽了一遍就喜歡上了。今天一整天，我的腦子裡一直在重複這首歌的旋律，怎麼也停不下來。","items":[{"label":"①","prompt":"關於這首歌，下面哪一個正確？","options":["我很討厭這首歌","聽了一次就喜歡上了","這首歌很難聽","我聽不懂這首歌"],"correct":1,"cat":"grammar"},{"label":"②","prompt":"文中「聽了一遍」的「一遍」表示什麼？","options":["時間的長短","動作的次數","聲音的大小","高興的程度"],"correct":1,"cat":"frequency"}]},{"context":"小明在廚房裡幫忙切菜，一不小心切傷了手指，血流了出來。媽媽趕快拿來醫藥箱，幫他把傷口包紮好。","items":[{"label":"①","prompt":"小明發生了什麼事？","options":["打破了杯子","切傷了手","做好了飯","洗乾淨了手"],"correct":1,"cat":"grammar"},{"label":"②","prompt":"文中「流了出來」的「出來」表示血的什麼？","options":["結果","方向、位置的移動","時間","次數"],"correct":1,"cat":"direction"}]},{"context":"妹妹的漢語進步得很快。她現在不僅看得懂簡單的漢語小說，還能跟中國朋友流利地聊天，大家都誇她聰明。","items":[{"label":"①","prompt":"妹妹現在的漢語水平怎麼樣？","options":["能看懂簡單的小說","不會聊天","進步很慢","不會寫字"],"correct":0,"cat":"potential"},{"label":"②","prompt":"文中「看得懂」的「得懂」表示什麼？","options":["想看書","有能力理解內容","看完了","看不見"],"correct":1,"cat":"result"}]},{"context":"大明今天起晚了。他急忙跑到火車站，結果火車已經開走了。他只能坐在長椅上，無奈地等下一班車，心裡懊惱極了。","items":[{"label":"①","prompt":"大明為什麼沒坐上火車？","options":["起晚了，火車開走了","忘記帶錢","火車壞了","不想坐車"],"correct":0,"cat":"grammar"},{"label":"②","prompt":"文中大明「懊惱極了」的心情程度如何？","options":["有一點點懊惱","非常懊惱","完全不懊惱","懊惱得笑了出來"],"correct":1,"cat":"degree"}]},{"context":"這家小吃店已經經營了半個世紀，從爺爺那一代開始賣，現在還是每天大排長龍，老顧客都說這味道幾十年來都沒變過。","items":[{"label":"①","prompt":"這家小吃店的特色是什麼？","options":["才剛開幕","經營了半個世紀，味道不變","已經倒閉了","換了新老闆"],"correct":1,"cat":"duration"},{"label":"②","prompt":"文中「經營了半個世紀」的「半個世紀」大約是多久？","options":["五十年左右","五個月","五年","五天"],"correct":0,"cat":"duration"}]},{"context":"弟弟因為考試考得不理想，心情低落了一整天，一句話也不想說。爸爸只好陪著他，等他自己慢慢調整過來。","items":[{"label":"①","prompt":"弟弟今天心情怎麼樣？","options":["非常高興","心情低落，不想說話","生病了","想出去玩"],"correct":1,"cat":"grammar"},{"label":"②","prompt":"文中「低落了一整天」的「一整天」表示什麼？","options":["低落的原因","低落持續的時間","低落的程度","低落的次數"],"correct":1,"cat":"duration"}]},{"context":"這位老師傅做這種傳統點心已經做了十來年了，手藝非常純熟，做出來的每一個都大小一致，讓客人吃了都讚不絕口。","items":[{"label":"①","prompt":"這位老師傅的手藝怎麼樣？","options":["才剛開始學","非常純熟","已經退休了","不太熟練"],"correct":1,"cat":"duration"},{"label":"②","prompt":"文中「做了十來年」的「十來年」大約是多久？","options":["十天左右","十個月左右","十年左右","十世紀"],"correct":2,"cat":"duration"}]}],"t4":[{"context":"A：這張沙發太重了，我一個人搬不動，你能幫我一下嗎？地上剛拖過，小心別把沙發弄髒了。<br>B：沒問題，我們一起把它抬過去。","items":[{"label":"①","prompt":"A請B幫忙做什麼？","options":["把沙發抬到別的地方","幫忙決定沙發放哪裡","把沙發抬進來","把沙發抬到樓上"],"correct":0,"cat":"direction"},{"label":"②","prompt":"文中「搬不動」的意思是什麼？","options":["沒有力氣搬","不想搬","搬得很快","搬得很輕鬆"],"correct":0,"cat":"potential"}]},{"context":"A：你聽，外面是不是有人在敲門？<br>B：外面雨太大、雷聲太響，我什麼都聽不見。","items":[{"label":"①","prompt":"B的意思是什麼？","options":["雨聲雷聲太大，聽不到","他在睡覺沒聽見","耳朵不好聽不見","下雨打雷電鈴壞了"],"correct":0,"cat":"result"},{"label":"②","prompt":"根據對話，現在外面天氣怎麼樣？","options":["風和日麗","颳風下雷雨","下雪","大晴天"],"correct":1,"cat":"grammar"}]},{"context":"A：小王，你買到今天晚上的電影票了嗎？<br>B：今天人太多了，我排了半天隊，最後還是買不到，票都賣光了。","items":[{"label":"①","prompt":"小王的意思是？","options":["工作太忙，沒去買","人太多了，不想買","去了可是沒買到票","看到人多，不想排隊"],"correct":2,"cat":"result"},{"label":"②","prompt":"文中「排了半天隊」的「半天」表示什麼？","options":["排了很久的隊","只排了一下子","沒有排隊","排了一半"],"correct":0,"cat":"duration"}]},{"context":"A：媽媽，我的藍色襯衫洗乾淨了嗎？我今天想穿。<br>B：已經洗好了，就掛在外面，你去拿過來吧。","items":[{"label":"①","prompt":"接下來A要做什麼？","options":["把髒衣服拿去洗","把衣服收進來","到外面去曬衣服","把衣服掛起來"],"correct":1,"cat":"direction"},{"label":"②","prompt":"文中「洗好了」的「好」表示什麼？","options":["洗得不錯看","洗完並且弄乾淨了","還在洗","洗壞了"],"correct":1,"cat":"result"}]},{"context":"A：大明，昨天的英語考試，你都做完了嗎？<br>B：別提了，題目太多，我最後兩題看不懂，所以沒做完。","items":[{"label":"①","prompt":"關於大明的考試，下面哪一個正確？","options":["大明昨天沒考試","大明學不會英語","大明沒寫完考卷","大明覺得很簡單"],"correct":2,"cat":"result"},{"label":"②","prompt":"文中「看不懂」的意思是什麼？","options":["看不見題目","沒有時間看","看了但不理解","不想看"],"correct":2,"cat":"result"}]},{"context":"A：你怎麼了？看起來很不高興。<br>B：我昨天去買票，可是買不到，氣死了。","items":[{"label":"①","prompt":"B為什麼不高興？","options":["因為買到票了","因為買不到票","因為不想買票","因為票太貴了"],"correct":1,"cat":"result"},{"label":"②","prompt":"文中「氣死了」的意思是什麼？","options":["生了一點氣","非常生氣","完全不生氣","高興得不得了"],"correct":1,"cat":"degree"}]},{"context":"A：怎麼不多吃點？<br>B：太多了，我吃不了。","items":[{"label":"①","prompt":"B的意思是什麼？","options":["已經飽了，沒辦法再吃下去","菜太多不知道要吃什麼","不好吃","不想吃"],"correct":0,"cat":"potential"},{"label":"②","prompt":"這段對話最可能發生在什麼場合？","options":["餐桌上","教室裡","車站","醫院"],"correct":0,"cat":"grammar"}]},{"context":"A：你昨天看的那部電影怎麼樣？<br>B：看不下去。","items":[{"label":"①","prompt":"B的意思可能是什麼？","options":["來不及去看","人太多沒買到票","電影太無聊，讓人沒有耐心繼續看","沒時間看完"],"correct":2,"cat":"potential"},{"label":"②","prompt":"根據對話，B對那部電影的評價如何？","options":["非常喜歡","評價不高","沒有意見","覺得普通"],"correct":1,"cat":"grammar"}]},{"context":"A：你怎麼了？<br>B：我昨天走了一天的路，現在走不動了。","items":[{"label":"①","prompt":"以下正確的是？","options":["B不喜歡走路","B現在沒力氣走路了","B昨天走了，今天不想走","B每天走路都累死了"],"correct":1,"cat":"potential"},{"label":"②","prompt":"文中「走了一天」的「一天」表示什麼？","options":["走路的地點","走路的次數","走路持續的時間","走路的原因"],"correct":2,"cat":"grammar"}]},{"context":"A：你覺得這件衣服怎麼樣？<br>B：我買不起。","items":[{"label":"①","prompt":"B的意思是什麼？","options":["衣服不好看","衣服太貴，錢不夠付","他不想花錢","覺得不適合自己穿"],"correct":1,"cat":"potential"},{"label":"②","prompt":"根據對話，B現在的心情比較接近哪一種？","options":["有點無奈","非常興奮","生氣","驕傲"],"correct":0,"cat":"grammar"}]},{"context":"A：你昨天看的那本書怎麼樣？<br>B：很有意思，我看完以後還想再看一遍。","items":[{"label":"①","prompt":"B的意思是什麼？","options":["那本書很無聊","他已經看了兩次了","他看不懂那本書的意思","看完了，還想再看一次"],"correct":3,"cat":"frequency"},{"label":"②","prompt":"文中「看完」的意思是什麼？","options":["開始看","把整本書看到結束","看了一半","不想看"],"correct":1,"cat":"result"}]},{"context":"A：先生，您看中這款手機了嗎？現在買有優惠。<br>B：樣式很好，但我用慣了蘋果手機，別的牌子用不習慣。","items":[{"label":"①","prompt":"B為什麼不買這款手機？","options":["太貴了","已經習慣用別的牌子，不想換","不喜歡樣式","手機壞了"],"correct":1,"cat":"grammar"},{"label":"②","prompt":"A說「看中」的意思是什麼？","options":["看見了","看了以後很喜歡、覺得滿意","看錯了","看完"],"correct":1,"cat":"result"}]},{"context":"A：天氣預報說今天下午會降溫，你衣服穿夠了嗎？<br>B：哎呀，我出門太急，穿少了，現在凍死了。","items":[{"label":"①","prompt":"B為什麼覺得冷？","options":["沒買夠衣服","出門穿得不夠多","沒帶衣服","沒穿衣服"],"correct":1,"cat":"grammar"},{"label":"②","prompt":"文中「凍死了」的意思是什麼？","options":["有點冷","非常冷","不冷","凍傷了"],"correct":1,"cat":"degree"}]},{"context":"A：這篇課文你讀熟了嗎？明天課堂上要聽寫。<br>B：我讀了三遍，基本上都記住了。","items":[{"label":"①","prompt":"B昨晚做了什麼？","options":["寫漢字","讀課文","聽課文","寫課文"],"correct":1,"cat":"frequency"},{"label":"②","prompt":"文中「記住」的「住」表示什麼？","options":["記憶固定下來、沒忘記","記錯了","忘記了","記得很快"],"correct":0,"cat":"result"}]},{"context":"A：烤鴨太好吃了，我吃飽了。<br>B：我也是，肚子撐得不得了，我們去散步一會兒吧。","items":[{"label":"①","prompt":"B說「撐得不得了」表示什麼？","options":["沒吃飽","肚子非常撐、非常飽","肚子痛","不想吃"],"correct":1,"cat":"manner"},{"label":"②","prompt":"接下來A和B打算做什麼？","options":["繼續吃飯","出去散步一下","馬上回家睡覺","去買東西"],"correct":1,"cat":"duration"}]},{"context":"A：小麗，你看見我的鑰匙了嗎？我到處都找不到。<br>B：別著急，你看看是不是忘在包包裡了？","items":[{"label":"①","prompt":"A怎麼了？","options":["忘了買鑰匙","把鑰匙放在包包裡忘了拿","鑰匙不夠用","鑰匙不見了，找不到"],"correct":3,"cat":"result"},{"label":"②","prompt":"B建議A去哪裡找？","options":["書包裡","包包裡","口袋裡","車上"],"correct":1,"cat":"grammar"}]},{"context":"A：大明，你今天早上的漢語課怎麼遲到了？<br>B：昨晚複習到半夜，今天早上鬧鐘響了我也沒聽見，睡過頭了。","items":[{"label":"①","prompt":"大明今天為什麼遲到？","options":["沒睡覺","昨晚睡得太晚，早上睡過頭了","在床上看書","忘記上課"],"correct":1,"cat":"grammar"},{"label":"②","prompt":"文中「睡過頭」的意思是什麼？","options":["睡得剛剛好","睡得比預定的時間長，起晚了","沒睡著","睡得很淺"],"correct":1,"cat":"direction"}]},{"context":"A：這間房間坐得下十個人嗎？<br>B：坐不下。","items":[{"label":"①","prompt":"B的意思是什麼？","options":["站著的話可以","房間太小，容納不了十個人","房間太大","房間在樓上"],"correct":1,"cat":"potential"},{"label":"②","prompt":"如果想讓十個人都坐下，接下來應該怎麼辦？","options":["換一間更大的房間","把人數減少","把桌子搬走","什麼都不用做"],"correct":0,"cat":"grammar"}]},{"context":"A：這件衣服不錯啊，也不貴！<br>B：穿不下吧？","items":[{"label":"①","prompt":"B的意思是什麼？","options":["衣服太貴","尺寸太小，穿不進去","衣服不好看","買不起"],"correct":1,"cat":"potential"},{"label":"②","prompt":"這段對話裡，B對這件衣服的態度是什麼？","options":["很想買","覺得尺寸可能不合適","覺得顏色不好看","完全沒興趣"],"correct":1,"cat":"grammar"}]},{"context":"A：你怎麼沒做完題目？<br>B：有幾題做不出來。","items":[{"label":"①","prompt":"B的意思是什麼？","options":["沒時間做完","有幾題太難，想不出答案","太累了不想做","做了可是做錯了"],"correct":1,"cat":"grammar"},{"label":"②","prompt":"根據對話，B沒做完題目的原因是什麼？","options":["題目太簡單","有些題目太難","考試時間到了","忘記寫"],"correct":1,"cat":"grammar"}]},{"context":"老闆：王秘書，幫我接待一下客人，我走不開。<br>秘書：好的，老闆。","items":[{"label":"①","prompt":"老闆的意思是什麼？","options":["他現在很忙，脫不了身","他不想見客人","他在開會","他不開心不想走"],"correct":0,"cat":"result"},{"label":"②","prompt":"接下來秘書會做什麼？","options":["拒絕老闆","去接待客人","請客人等老闆","自己去開會"],"correct":1,"cat":"grammar"}]},{"context":"A：這道菜你吃得完嗎？<br>B：吃得完，我餓死了。","items":[{"label":"①","prompt":"B為什麼吃得完？","options":["因為菜太少","因為餓極了","因為不好吃","因為不想吃"],"correct":1,"cat":"degree"},{"label":"②","prompt":"文中「吃得完」表示什麼？","options":["有能力把整道菜吃光","沒辦法吃完","不想吃完","已經吃完了"],"correct":0,"cat":"grammar"}]},{"context":"A：這次的鋼琴比賽你練了多久？<br>B：練了整整半年，每天都練一個小時以上。","items":[{"label":"①","prompt":"B為了比賽花了多少時間練習？","options":["一個月","半年","一年半","一星期"],"correct":1,"cat":"duration"},{"label":"②","prompt":"根據對話，B練習的態度怎麼樣？","options":["很隨便，偶爾才練","非常認真、每天都練","完全沒有練習","只練了一次"],"correct":1,"cat":"grammar"}]},{"context":"A：你們公司這個項目做了多久了？<br>B：已經進行了一年半，下個月終於要上線了。","items":[{"label":"①","prompt":"這個項目大概進行了多久？","options":["半年","一年半","一年","兩年"],"correct":1,"cat":"duration"},{"label":"②","prompt":"根據對話，這個項目現在處於什麼階段？","options":["剛剛開始","快要完成、要上線了","已經取消了","還沒有計畫"],"correct":1,"cat":"grammar"}]},{"context":"A：你們夫妻倆分開了好幾年，這次怎麼又聯絡上了？<br>B：是啊，孩子幫我們牽的線，現在感情比以前還好。","items":[{"label":"①","prompt":"這對夫妻分開了多久？","options":["好幾個月","好幾年","好幾天","好幾十年"],"correct":1,"cat":"duration"},{"label":"②","prompt":"根據對話，這對夫妻現在的關係怎麼樣？","options":["完全沒聯絡","感情比以前更好","還在吵架","已經離婚"],"correct":1,"cat":"grammar"}]}]};
+var PRACTICE_TYPES = [
+  {id:"t1", num:"１", zh:"單句選詞填空", en:"Sentence Cloze", desc:"一句一格，選出正確的補語", sets:100, qcount:100},
+  {id:"t2", num:"２", zh:"段落篇章選詞填空", en:"Paragraph Cloze", desc:"一段短文、五個空格", sets:20, qcount:100},
+  {id:"t3", num:"３", zh:"閱讀理解：短文", en:"Reading — Passages", desc:"讀短文，回答兩個問題", sets:25, qcount:50},
+  {id:"t4", num:"４", zh:"閱讀理解：對話", en:"Reading — Dialogues", desc:"讀對話，回答兩個問題", sets:25, qcount:50}
+];
+
+var CATEGORIES3 = [
+{id:"adeg",name:"程度補語",short:"程度",color:"var(--c-degree)",tint:"var(--c-degree-tint)",cards:[{"h": "不行", "p": "bùxíng", "ja": {"m": "限界に達している、どうにもならない", "i": "「行」（うまくいく、大丈夫）を「不」で全否定し、身体や感情がもう機能しない極限状態を表す"}, "en": {"m": "at one's limit, can't take it anymore", "i": "negates 行 (\"to be OK, to manage\") entirely, showing the body or emotion has hit a breaking point"}, "ex": "他熬夜趕稿三天，現在整個人累得不行。"}, {"h": "得要命", "p": "dé yàomìng", "ja": {"m": "死ぬほど〜だ、たまらなく〜だ", "i": "「要命」（命に関わる）を誇張して用い、程度が命がけと言えるほど激しいことを表す"}, "en": {"m": "unbearably, to a killing degree", "i": "exaggerates with 要命 (\"it could cost your life\") to show the degree is so intense it feels life-threatening"}, "ex": "今天的天氣熱得要命，走幾步就滿身是汗。"}, {"h": "得要死", "p": "dé yàosǐ", "ja": {"m": "死ぬほど〜だ（より生々しい口語）", "i": "「要死」（死にそうだ）を直接的に用い、「得要命」よりもさらに生々しく誇張した口語表現"}, "en": {"m": "to death, insanely (blunter than 得要命)", "i": "uses 要死 (\"about to die\") even more bluntly than 得要命, for a rawer, more colloquial exaggeration"}, "ex": "這道菜辣得要死，我一口就被嗆到咳嗽。"}, {"h": "之極", "p": "zhī jí", "ja": {"m": "〜の極み、この上なく〜だ", "i": "「極」（頂点）を「之」でつなぎ、状態がこれ以上ない極限点に達したことを書き言葉で示す"}, "en": {"m": "to the utmost, the very extreme of", "i": "links 極 (\"the peak\") with 之 to state, in formal register, that a condition has reached its outermost limit"}, "ex": "這種行徑荒謬之極，令人難以置信。"}, {"h": "至深", "p": "zhìshēn", "ja": {"m": "極めて深い（感情・影響について）", "i": "「至」（この上なく至る）が「深」を強調し、感情や影響が心の奥底まで達した深さを表す"}, "en": {"m": "profoundly deep (of feelings or influence)", "i": "至 (\"reaching the utmost\") intensifies 深 (\"deep\") to show an emotion or influence has sunk all the way to the core"}, "ex": "這部電影對他的影響至深，徹底改變了他的人生方向。"}, {"h": "無比", "p": "wúbǐ", "ja": {"m": "比類なく〜だ、この上なく〜だ", "i": "「無」＋「比」（比べるもの）で、比較対象が存在しないほど程度が高いことを論理的に示す"}, "en": {"m": "incomparably, unmatched in degree", "i": "literally \"without comparison\" — it logically asserts the degree is so high that nothing exists to measure it against"}, "ex": "這場演出精彩無比，全場觀眾起立鼓掌。"}, {"h": "得體", "p": "détǐ", "ja": {"m": "（言動が）非常にTPOに合っている、適切だ", "i": "「體」（体裁・規範）を「得」（獲得する）ことで、振る舞いが場の規範にぴったり収まった結果を表す"}, "en": {"m": "appropriately, fittingly (of behavior or speech)", "i": "得 (\"having attained\") + 體 (\"proper form\") shows behavior has landed exactly within the social norms of the situation"}, "ex": "她在酒會上應對得體，展現出成熟的社交手腕。"}, {"h": "入微", "p": "rùwēi", "ja": {"m": "微細な点まで行き届いている", "i": "「入」（入り込む）が「微」（微小なもの）にまで到達し、観察や配慮が極めて細かい所まで届く結果を表す"}, "en": {"m": "down to the finest detail", "i": "入 (\"entering into\") reaches all the way to 微 (\"the minute\"), showing observation or care extends to the tiniest particular"}, "ex": "這位護理師照顧病人體貼入微，深受家屬感激。"}, {"h": "到位", "p": "dàowèi", "ja": {"m": "（分析・仕事が）的確で完璧だ、ツボを押さえている", "i": "「到」（到達する）が「位」（あるべき位置）にきっちり着地し、物事が過不足なく適切に処理された結果を表す"}, "en": {"m": "precisely on point, executed just right", "i": "到 (\"arriving\") lands exactly at 位 (\"the right position\") — nothing under- or over-done, hitting the mark exactly"}, "ex": "他這次的分析非常到位，一針見血地指出問題核心。"}, {"h": "有加", "p": "yǒujiā", "ja": {"m": "さらに程度を加えて〜する（主に肯定的評価）", "i": "「加」（加える）を「有」で述べ、すでに高い評価や愛情にさらに上乗せしていく累加のニュアンスを表す"}, "en": {"m": "increasingly so, all the more (usu. positive)", "i": "有 + 加 (\"having addition\") frames the degree as piling on top of an already high baseline, ever more so"}, "ex": "主管對這位新人讚賞有加，認為她前途無量。"}, {"h": "透頂", "p": "tòudǐng", "ja": {"m": "極限に達している（主にネガティブ）", "i": "「透」（突き抜ける）が「頂」（頂点）にまで達し、悪い状態が振り切れるほど極まったことを表す"}, "en": {"m": "to the utmost degree (usu. negative)", "i": "透 (\"piercing through\") reaches all the way to 頂 (\"the very top\"), marking a negative state as completely maxed out"}, "ex": "他這種說謊成性的行為，簡直卑劣透頂。"}, {"h": "出奇", "p": "chūqí", "ja": {"m": "並外れて〜だ、驚くほど〜だ", "i": "「奇」（予想外）が「出」で表に現れ、予測を裏切るほど際立った程度であることを示す"}, "en": {"m": "unusually, surprisingly so", "i": "奇 (\"the unexpected\") emerges (出) beyond what one predicted, marking a degree that catches you off guard"}, "ex": "深夜的街道安靜得出奇，一個人影也沒有。"}, {"h": "不可開交", "p": "bùkě kāijiāo", "ja": {"m": "手が離せないほど忙しい、収拾がつかない", "i": "「開交」（決着をつけて手を離す）が「不可」で否定され、事態が絡み合って抜け出せない極度の状態を表す"}, "en": {"m": "too tied up to break free, in an unmanageable frenzy", "i": "開交 (\"to settle and disengage\") is negated by 不可 — things are so tangled you simply cannot pull yourself free"}, "ex": "年終結算期間，會計部忙得不可開交。"}, {"h": "驚恐萬狀", "p": "jīngkǒng wànzhuàng", "ja": {"m": "この上なく恐怖している様子", "i": "「驚恐」（恐れおののく）に「萬狀」（一万通りの様相）を添え、恐怖が数え切れないほど多様な形で表れる程度を誇張する"}, "en": {"m": "utterly terror-stricken, panicked in every visible way", "i": "萬狀 (\"ten thousand manifestations\") piles onto 驚恐 (\"terrified\") to exaggerate just how many ways the fear shows on the body"}, "ex": "聽到爆炸聲，附近居民驚恐萬狀，四處逃竄。"}, {"h": "分明", "p": "fēnmíng", "ja": {"m": "非常にくっきりと分かれている、明確だ", "i": "「分」（分ける）＋「明」（明らか）で、境界や区別が曖昧さなくはっきり分かれた結果を表す"}, "en": {"m": "sharply distinct, unmistakably clear", "i": "分 (\"dividing\") + 明 (\"clear\") shows a boundary or distinction has come out with zero ambiguity"}, "ex": "這位主管向來公私分明，從不假公濟私。"}, {"h": "得當", "p": "dédàng", "ja": {"m": "極めて適正だ、ちょうどよい", "i": "「當」（適切さ）を「得」（獲得する）ことで、処置や配置が過不足なくぴったり妥当である結果を表す"}, "en": {"m": "fittingly, exactly right (of handling or arrangement)", "i": "得 (\"attaining\") + 當 (\"what is fitting\") shows a decision landed exactly where it should, neither too much nor too little"}, "ex": "這次危機處理得當，公司損失降到了最低。"}, {"h": "過頭", "p": "guòtóu", "ja": {"m": "度を越している、やりすぎだ", "i": "基準の「頭」（先端）を「過」（通り過ぎる）ことで、適正な範囲をオーバーしてしまった結果を表す"}, "en": {"m": "overdoing it, going too far", "i": "過 (\"passing beyond\") + 頭 (\"the tip/limit\") pictures the action shooting right past the proper mark"}, "ex": "他這次玩笑開得過頭了，惹得對方非常不悅。"}, {"h": "成性", "p": "chéngxìng", "ja": {"m": "（悪癖などが）骨の髄まで染みついて習性になっている", "i": "行為が繰り返されて「性」（生まれつきの本性）にまで「成」（成ってしまう）ほど根深い習慣化を表す"}, "en": {"m": "to have become second nature (usu. of bad habits)", "i": "成 (\"becoming\") + 性 (\"one's inborn nature\") shows a repeated behavior has fused into the person's very disposition"}, "ex": "他說謊成性，身邊的朋友都不再相信他了。"}, {"h": "入骨", "p": "rùgǔ", "ja": {"m": "骨の髄まで〜だ、徹底的に〜だ", "i": "「入」（入り込む）が皮膚を突き抜けて「骨」（骨髄）にまで達するイメージで、感情の深さを誇張する"}, "en": {"m": "to the bone, penetratingly deep (of emotion)", "i": "入 (\"entering\") pushes past the skin all the way into 骨 (\"the bone\"), an image for an emotion sunk in devastatingly deep"}, "ex": "他對背信的舊友恨之入骨，多年仍無法釋懷。"}, {"h": "無以復加", "p": "wúyǐ fùjiā", "ja": {"m": "これ以上加えようがない、極限に達している", "i": "「無以」（〜する術がない）と「復加」（さらに加える）が結びつき、程度がすでに頂点に達しそれ以上増やしようがないことを示す"}, "en": {"m": "to the point nothing more could be added, utterly extreme", "i": "無以 (\"no way to\") + 復加 (\"add further\") states the degree has already peaked — there is literally no room left to add more"}, "ex": "這起貪汙案的荒謬程度已經到了無以復加的地步。"}],intro:{"zh": "表示動作或狀態達到的高階程度，比基礎程度補語更書面、更誇張。", "ja": "動作や状態が達した「程度」を、より書き言葉的・誇張的に表します。", "en": "Expresses an advanced degree an action or state reaches — more literary or exaggerated than the basic degree complements."}},
+{id:"ares",name:"結果補語",short:"結果",color:"var(--c-result)",tint:"var(--c-result-tint)",cards:[{"h": "達成", "p": "dáchéng", "ja": {"m": "（合意・目標に）到達し成立させる", "i": "「達」（到達する）が「成」（成し遂げる）と結びつき、交渉や努力が実を結んで完成した結果を表す"}, "en": {"m": "to reach, to achieve (an agreement or goal)", "i": "達 (\"arriving at\") joins 成 (\"accomplishing\") to show effort or negotiation has landed in a completed, realized outcome"}, "ex": "經過數輪磋商，雙方終於達成共識。"}, {"h": "落空", "p": "luòkōng", "ja": {"m": "（期待・計画が）水の泡になる", "i": "「落」（落ちる）が「空」（何もない）という結果に至り、期待していたものが実現せず空振りに終わる様子を表す"}, "en": {"m": "to fall through, to come to nothing", "i": "落 (\"falling\") lands right in 空 (\"emptiness\") — the expectation or plan drops through into nothing at all"}, "ex": "因為天氣驟變，登頂的計畫最終落空了。"}, {"h": "見底", "p": "jiàndǐ", "ja": {"m": "底が見える、底をつく", "i": "「見」（見える）が「底」（底の部分）にまで達し、中身が使い果たされて底が露出する結果を表す"}, "en": {"m": "to hit bottom, to be nearly depleted", "i": "見 (\"becoming visible\") reaches all the way down to 底 (\"the bottom\") — the contents have run so low the bottom itself shows"}, "ex": "連日的乾旱讓水庫的水位幾乎見底。"}, {"h": "用盡", "p": "yòngjìn", "ja": {"m": "完全に使い果たす", "i": "「用」（使う）の結果が「盡」（尽きる）に至り、残りが一切なくなるまで消費し切ったことを表す"}, "en": {"m": "to use up entirely, to exhaust completely", "i": "用 (\"using\") runs its course all the way to 盡 (\"exhausted\") — nothing whatsoever is left after the using"}, "ex": "他用盡了所有積蓄，只為了完成這趟旅行。"}, {"h": "定格", "p": "dìnggé", "ja": {"m": "（瞬間・記憶に）固定される、定着する", "i": "「定」（固定する）が「格」（コマ・枠）に作用し、動いていた場面が一瞬のまま静止して固まる結果を表す"}, "en": {"m": "to freeze in place, to be fixed as a single still frame", "i": "定 (\"fixing\") acts on 格 (\"a frame\") — a moving moment is stopped dead and locked into one still image"}, "ex": "那張笑容燦爛的照片，永遠定格在他的記憶裡。"}, {"h": "歸公", "p": "guīgōng", "ja": {"m": "公のものに帰属する", "i": "「歸」（帰属する）の結果が「公」（公共）に落ち着き、私有物が公共の所有へと移る結末を表す"}, "en": {"m": "to be turned over to the public or state", "i": "歸 (\"reverting to\") settles onto 公 (\"the public\") — private gains end up handed over into public ownership"}, "ex": "這筆不義之財最終依法沒收歸公。"}, {"h": "化為", "p": "huàwéi", "ja": {"m": "〜に化す、跡形もなく姿を変える", "i": "「化」（変化する）の結果が「為」（〜になる）で示され、元の姿が跡形もなく別のものへ変貌する結末を表す"}, "en": {"m": "to turn into, to be reduced to", "i": "化 (\"transforming\") resolves into 為 (\"becoming\") — the original form dissolves entirely into something else"}, "ex": "一場大火過後，這棟老宅已化為灰燼。"}, {"h": "變為", "p": "biànwéi", "ja": {"m": "〜に変わる、〜になる", "i": "「變」（変わる）の結果が「為」で確定され、状態や性質が別のものへと移行し切ったことを表す"}, "en": {"m": "to change into, to become", "i": "變 (\"changing\") settles into 為 (\"becoming\") — a state or nature has shifted all the way into something different"}, "ex": "這篇報導的內容逐漸變為一場政治風波。"}, {"h": "看透", "p": "kàntòu", "ja": {"m": "（本質を）見抜く、見極める", "i": "「看」（見る）が「透」（突き抜ける）にまで至り、表面を貫いて本質や裏側まで見通す結果を表す"}, "en": {"m": "to see right through, to fully perceive the truth of", "i": "看 (\"looking\") pierces all the way through (透), letting the eye penetrate the surface down to the truth beneath"}, "ex": "共事多年，她早已看透了同事的真面目。"}, {"h": "看清", "p": "kànqīng", "ja": {"m": "はっきりと見て取る、見極める", "i": "「看」の結果が「清」（明瞭）に至り、曖昧だったものが視覚的にくっきり判別できるようになる結果を表す"}, "en": {"m": "to see clearly, to make out distinctly", "i": "看 (\"looking\") arrives at 清 (\"clarity\") — what was blurry resolves into something distinctly recognizable"}, "ex": "經過這件事，他終於看清了對方的本性。"}, {"h": "傷及", "p": "shāngjí", "ja": {"m": "（危害が）〜にまで及ぶ、傷つける", "i": "「傷」（傷つける）の作用が「及」（及ぶ）によって、本来無関係だった対象にまで被害が届いてしまう結果を表す"}, "en": {"m": "to injure, with the harm reaching (someone/something)", "i": "傷 (\"harming\") extends via 及 (\"reaching\") — the damage stretches out far enough to touch even bystanders"}, "ex": "這場車禍波及行人，不幸傷及一名孩童。"}, {"h": "波及到", "p": "bōjí dào", "ja": {"m": "（影響が）〜にまで広がり及ぶ", "i": "「波及」（波のように広がり及ぶ）に「到」（到達する）を添え、影響範囲が具体的な対象へ届いたことを明示する"}, "en": {"m": "to spread and reach, to extend as far as", "i": "波及 (\"rippling outward like waves\") is anchored by 到 (\"arriving at\") to pin down exactly where the ripple ends up"}, "ex": "這場金融風暴迅速波及到周邊多個國家。"}, {"h": "歸結為", "p": "guījié wéi", "ja": {"m": "（原因・結論を）〜に帰着させる", "i": "「歸結」（まとめて落ち着かせる）が「為」で着地点を示し、複雑な事象を一つの結論へと収束させる結果を表す"}, "en": {"m": "to boil down to, to come down to (a conclusion)", "i": "歸結 (\"converging to a settled point\") lands via 為 (\"as/into\") — complexity collapses down into a single conclusion"}, "ex": "這場爭議最終可以歸結為資源分配不公。"}, {"h": "致力於", "p": "zhìlì yú", "ja": {"m": "〜に尽力する、力を注ぎ込む", "i": "「致」（尽くす）「力」（力）の結果が「於」でその対象に向けて固定され、努力が特定の目標に注ぎ続けられることを表す"}, "en": {"m": "to devote oneself to, to be dedicated to", "i": "致力 (\"exerting all one's strength\") is pinned by 於 (\"at/toward\") onto its target — effort is channeled and fixed on one cause"}, "ex": "她畢生致力於偏鄉教育的推廣工作。"}, {"h": "凌駕於……之上", "p": "língjià yú...zhī shàng", "ja": {"m": "〜の上に君臨する、〜を凌駕する", "i": "「凌駕」（乗り越えて上に立つ）の結果が「於……之上」でその基準や対象の上方に固定される位置関係を表す"}, "en": {"m": "to override, to place oneself above (a standard or authority)", "i": "凌駕 (\"rising above and overtaking\") is fixed by 於……之上 (\"at a position above X\") — power ends up literally sitting on top of the standard"}, "ex": "任何特權都不該凌駕於法律之上。"}, {"h": "等同於", "p": "děngtóng yú", "ja": {"m": "〜と同等とみなされる、イコールである", "i": "「等同」（同じにする）の結果が「於」で比較対象に固定され、異なる二つの事柄が同一の意味に結び付けられることを表す"}, "en": {"m": "to be equated with, to be tantamount to", "i": "等同 (\"being made equal\") is pinned by 於 onto its counterpart — two different things end up locked together as the same"}, "ex": "保持沉默不能等同於默許這種行為。"}, {"h": "局限於", "p": "júxiàn yú", "ja": {"m": "〜に限定される、とどまる", "i": "「局限」（狭く区切る）の結果が「於」でその範囲に固定され、視野や条件が枠の内側に閉じ込められる結果を表す"}, "en": {"m": "to be confined to, to be limited to", "i": "局限 (\"being boxed in\") is pinned by 於 onto a narrow scope — the view or condition ends up locked inside that boundary"}, "ex": "他的觀察不能只局限於表面的數據。"}, {"h": "游離於……之外", "p": "yóulí yú...zhī wài", "ja": {"m": "〜から遊離する、枠組みの外に漂う", "i": "「游離」（漂って離れる）の結果が「於……之外」でその枠組みの外側に位置づけられ、主流から外れて漂う状態を表す"}, "en": {"m": "to drift apart from, to remain detached from (a system)", "i": "游離 (\"drifting loose\") settles via 於……之外 (\"outside of X\") — the subject ends up floating apart from the mainstream framework"}, "ex": "這位藝術家始終游離於主流市場之外。"}, {"h": "著眼於", "p": "zhuóyǎn yú", "ja": {"m": "〜に着目する、主眼を置く", "i": "「著眼」（目を付ける）の結果が「於」でその対象に固定され、視点や戦略がそこに定まる結果を表す"}, "en": {"m": "to focus on, to set one's sights on", "i": "著眼 (\"fixing the eye\") is anchored by 於 onto its target — strategic attention settles and stays right there"}, "ex": "這項改革著眼於長遠的社會公平。"}, {"h": "見稱於世", "p": "jiànchēng yú shì", "ja": {"m": "世間に称賛される、名声を博す", "i": "受身の「見」＋「稱」（称えられる）の結果が「於世」（世間において）に固定され、評判が広く社会に定着したことを表す"}, "en": {"m": "to be renowned throughout the world", "i": "passive 見 (\"being\") + 稱 (\"praised\") is anchored by 於世 (\"in the world\") — the reputation settles and spreads across all of society"}, "ex": "這位工藝大師以精湛的手藝見稱於世。"}, {"h": "大白於天下", "p": "dàbái yú tiānxià", "ja": {"m": "（真相が）世間にすっかり明らかになる", "i": "「大白」（真っ白に明らかになる）の結果が「於天下」（天下において）に固定され、隠された事実が世界中に露呈する結果を表す"}, "en": {"m": "to come fully to light before the whole world (of truth)", "i": "大白 (\"becoming fully clear\") is anchored by 於天下 (\"under the whole sky\") — the hidden truth ends up exposed to everyone, everywhere"}, "ex": "歷經多年偵查，這起懸案終於真相大白於天下。"}, {"h": "告終", "p": "gàozhōng", "ja": {"m": "（〜という形で）幕を閉じる、終わる", "i": "「告」（告げる、至る）が「終」（終わり）に至ることを述べ、進行していた過程が最終的な結末に到達したことを表す"}, "en": {"m": "to come to an end, to conclude (usu. \"as X\")", "i": "告 (\"announcing/arriving\") reaches 終 (\"the end\") — a process that was running finally arrives at its final stopping point"}, "ex": "這場漫長的談判最終以破局告終。"}, {"h": "奏效", "p": "zòuxiào", "ja": {"m": "（対策などが）効を奏する、効果を発揮する", "i": "「奏」（発揮する）の結果が「效」（効果）として現れ、施した対策が期待通りの結果を生んだことを表す"}, "en": {"m": "to take effect, to work as intended", "i": "奏 (\"bringing forth\") produces 效 (\"effect\") — the measure applied actually delivers the outcome it was meant to"}, "ex": "新的行銷策略很快奏效，銷量明顯回升。"}, {"h": "致死", "p": "zhìsǐ", "ja": {"m": "死に至らしめる", "i": "「致」（至らせる）の結果が「死」に到達し、原因が最終的に生命を奪う結末を招くことを表す"}, "en": {"m": "to cause death, to be fatal", "i": "致 (\"causing to arrive at\") delivers straight to 死 (\"death\") — the cause runs its full course to a fatal outcome"}, "ex": "這種毒蛇的咬傷若不及時治療，可能致死。"}, {"h": "見好", "p": "jiànhǎo", "ja": {"m": "（病状・局面が）快方に向かう", "i": "「見」（現れる）の結果が「好」（良い状態）として現れ始め、悪化していたものが好転の兆しを見せることを表す"}, "en": {"m": "to take a turn for the better, to improve", "i": "見 (\"appearing\") produces 好 (\"goodness\") — a declining situation shows its first visible signs of turning around"}, "ex": "經過治療，父親的病情已明顯見好。"}, {"h": "吃透", "p": "chītòu", "ja": {"m": "深く理解し自分のものにする", "i": "「吃」（吸収する、消化する）の結果が「透」（突き抜ける）にまで至り、内容を芯まで完全に消化・把握したことを表す"}, "en": {"m": "to fully digest and master (a subject or policy)", "i": "吃 (\"consuming/digesting\") pushes through to 透 (\"all the way through\") — the material is absorbed so completely it becomes internalized"}, "ex": "他花了半年時間才把這份合約條款吃透。"}, {"h": "看扁", "p": "kànbiǎn", "ja": {"m": "人を見くびる、過小評価する", "i": "「看」（見る）の結果が「扁」（平べったい）となり、立体的な人物や能力を薄っぺらく見て侮る結果を表す"}, "en": {"m": "to look down on, to underestimate someone", "i": "看 (\"viewing\") flattens the person into 扁 (\"flat\") — a three-dimensional person or ability gets reduced to something thin and unworthy of respect"}, "ex": "別把年輕人看扁了，他們的潛力不容小覷。"}, {"h": "說破", "p": "shuōpò", "ja": {"m": "（秘密や核心を）ズバリと言い当てる", "i": "「說」（言う）の結果が「破」（突き破る）に至り、オブラートに包まれていた事柄を言葉で突き通して露わにすることを表す"}, "en": {"m": "to spell out bluntly, to say outright what was left unsaid", "i": "說 (\"speaking\") acts like 破 (\"breaking through\") — words puncture the polite wrapping and expose what everyone was avoiding saying"}, "ex": "大家心知肚明，卻沒人願意把話說破。"}, {"h": "識破", "p": "shípò", "ja": {"m": "（策略や嘘を）見破る", "i": "「識」（見分ける）の結果が「破」（突き破る）に至り、偽装や策略の表面を見抜いて中身を露呈させることを表す"}, "en": {"m": "to see through, to expose (a scheme or lie)", "i": "識 (\"discerning\") acts as 破 (\"breaking through\") — the disguise is pierced and the trick underneath is laid bare"}, "ex": "他精心策劃的騙局，很快就被警方識破。"}, {"h": "恰到好處", "p": "qiàdào hǎochù", "ja": {"m": "ちょうどよい程度に達している、絶妙だ", "i": "「恰」（ちょうど）が「到」（到達する）「好處」（良い所）に至り、過不足なく最適な地点に正確に落ち着く結果を表す"}, "en": {"m": "just right, hitting the perfect balance", "i": "恰 (\"precisely\") + 到 (\"arriving at\") + 好處 (\"the sweet spot\") shows an action lands exactly on the ideal point, neither too much nor too little"}, "ex": "這道菜的調味恰到好處，鹹淡拿捏得剛剛好。"}, {"h": "躍然紙上", "p": "yuèrán zhǐshàng", "ja": {"m": "（描写が生き生きとして）紙面に躍り出るようだ", "i": "「躍然」（躍り出るさま）の結果が「紙上」（紙の上）に至り、文章や絵の描写が生き生きとしすぎて紙から飛び出して見えるほどの効果を表す"}, "en": {"m": "to leap off the page, vividly brought to life (in writing or art)", "i": "躍然 (\"leaping vividly\") lands on 紙上 (\"the surface of the page\") — the description is so lifelike it seems to jump right off the paper"}, "ex": "作者筆下的人物性格鮮明，簡直躍然紙上。"}],intro:{"zh": "表示動作帶來的高階／書面結果，常見於新聞、論文與正式文書。", "ja": "動作がもたらす高度な・書面語的な「結果」を表します。ニュースや論文でよく使われます。", "en": "Expresses an advanced, literary result an action brings about — common in news, essays, and formal writing."}},
+{id:"adir",name:"方向補語",short:"趨向",color:"var(--c-direction)",tint:"var(--c-direction-tint)",cards:[{"h": "呈現出", "p": "chéngxiàn chū", "ja": {"m": "（ある特徴や状態が）現れ出る、呈する", "i": "「出」が『無から有への出現』を表し、内在していた特質や状態が表面化して見える様子を示す"}, "en": {"m": "to emerge, to present (a quality or state)", "i": "\"出\" marks something moving from hidden to visible — an inner quality or state coming out into view"}, "ex": "這幅畫呈現出畫家晚年孤獨而寧靜的心境。"}, {"h": "暴露出", "p": "bàolù chū", "ja": {"m": "（欠陥や問題が）露呈する", "i": "「出」によって、隠れていた欠陥や本質が覆いを剝がされるように表に出てくることを表す"}, "en": {"m": "to expose, to lay bare (a flaw or problem)", "i": "\"出\" turns 暴露 (to expose) into a completed emergence — the flaw breaks through its cover and becomes visible"}, "ex": "這次危機處理暴露出公司內部管理的重大缺陷。"}, {"h": "折射出", "p": "zhéshè chū", "ja": {"m": "（間接的に）反映する、映し出す", "i": "光が屈折して像を結ぶように、「出」は現象の背後にある本質が間接的な形で見えてくることを表す"}, "en": {"m": "to reflect, to mirror (indirectly)", "i": "like light bending through a prism, \"出\" shows an underlying truth becoming visible only indirectly, through some other phenomenon"}, "ex": "這部小說折射出那個時代知識分子的迷惘與掙扎。"}, {"h": "凸顯出來", "p": "tūxiǎn chūlái", "ja": {"m": "（重要性・矛盾が）際立って現れる", "i": "「凸顯」自体が隆起して見える意味を持ち、「出來」がその視覚的な浮き上がりを完成した動作として強調する"}, "en": {"m": "to stand out sharply, to become starkly evident", "i": "\"凸\" already pictures something bulging upward; \"出來\" completes that image, marking the moment it fully surfaces into plain view"}, "ex": "這次疫情把城鄉醫療資源的差距凸顯出來了。"}, {"h": "引發起來", "p": "yǐnfā qǐlái", "ja": {"m": "（議論・世論を）巻き起こす", "i": "「起來」が静止していたものが一気に立ち上がり動き出すイメージを与え、議論や感情が引き金によって一斉に湧き上がる様子を表す"}, "en": {"m": "to touch off, to stir up (debate or sentiment)", "i": "\"起來\" pictures something dormant suddenly rising up and spreading — the trigger (引發) sets a wave of reaction into motion"}, "ex": "這篇報導在網路上引發起來一場激烈的論戰。"}, {"h": "流傳下來", "p": "liúchuán xiàlái", "ja": {"m": "（伝統・言い伝えが）代々伝わってくる", "i": "「下來」が過去から現在へと途切れず受け継がれてきた時間の流れを表し、消えずに残ってきたことを強調する"}, "en": {"m": "to be passed down, to survive through generations", "i": "\"下來\" traces a line from past to present — the tradition has kept coming down through time without breaking off"}, "ex": "這道古法釀酒的技術是祖先一代代流傳下來的。"}, {"h": "沉澱下來", "p": "chéndiàn xiàlái", "ja": {"m": "（経験・知識が）蓄積されて定着する", "i": "液体中の粒子が底に沈んで落ち着くように、「下來」は時間をかけて心や知識の中に静かに積もり定着する過程を表す"}, "en": {"m": "to settle, to quietly accumulate (experience or knowledge)", "i": "like sediment sinking to the bottom of water, \"下來\" pictures experience quietly settling and taking root over time"}, "ex": "這些年的失敗經驗，慢慢沉澱下來，成了他最寶貴的財富。"}, {"h": "貫徹下去", "p": "guànchè xiàqù", "ja": {"m": "（方針・理念を）最後まで貫き通す", "i": "「下去」は現在から未来へ向かう持続を表し、途中でやめずに最後までやり抜く意志を強調する"}, "en": {"m": "to carry through, to see (a policy or principle) to the end", "i": "\"下去\" projects forward from now into the future — the principle must keep being pushed onward without stopping halfway"}, "ex": "這項改革政策必須堅定不移地貫徹下去，不能半途而廢。"}, {"h": "推廣開來", "p": "tuīguǎng kāilái", "ja": {"m": "（技術・制度が）広く普及していく", "i": "「開來」は一点から四方八方へ広がっていくイメージを与え、狭い範囲から社会全体へ広まる様子を表す"}, "en": {"m": "to spread widely, to become popularized", "i": "\"開來\" pictures something unfolding outward from a single point in every direction — the practice spreads from a small start to wide use"}, "ex": "這種節水灌溉技術一旦推廣開來，將大幅改善乾旱地區的農業。"}, {"h": "隔絕開來", "p": "géjué kāilái", "ja": {"m": "（関係・接触を）完全に遮断する", "i": "「開來」が両者の間に隙間を作って広げていくイメージを与え、繋がりを断ち切って離す結果を強調する"}, "en": {"m": "to cut off completely, to isolate (from contact)", "i": "\"開來\" pictures a gap opening and widening between two sides — the connection is severed and the distance is forced apart"}, "ex": "醫院立刻將確診病患與其他病人隔絕開來，以防疫情擴散。"}, {"h": "蔓延開來", "p": "mànyán kāilái", "ja": {"m": "（病気・悪習が）社会に広がっていく", "i": "つるが伸びるように「蔓延」し、「開來」がその広がりが四方八方に及ぶ結果を強調する"}, "en": {"m": "to spread, to run rampant (disease or a bad trend)", "i": "\"蔓\" pictures a vine creeping outward; \"開來\" shows that creeping spread reaching in every direction until it's out of control"}, "ex": "這種造假的歪風一旦蔓延開來，整個行業的信譽都會受損。"}, {"h": "演變下來", "p": "yǎnbiàn xiàlái", "ja": {"m": "（歴史を経て）現在の形に変化してきた", "i": "「下來」が過去から現在まで続く時間の軸を表し、長い変化の過程を経て今の姿に落ち着いたことを示す"}, "en": {"m": "to have evolved (into the present form) over time", "i": "\"下來\" traces the passage from past to present — the thing has gradually changed along the way and settled into what it is now"}, "ex": "這套禮俗是從古代祭祀儀式演變下來的。"}, {"h": "孤立起來", "p": "gūlì qǐlái", "ja": {"m": "（ある要素を）切り離して考える、孤立させる", "i": "「起來」がばらばらだったものを一つのまとまりとして囲い込むイメージを与え、対象を周囲から切り離してひとつの単位として扱う操作を表す"}, "en": {"m": "to isolate, to treat separately (an element or factor)", "i": "\"起來\" here bundles the target into its own separate unit — pulling it out of its surroundings so it can be examined on its own"}, "ex": "分析這個變數時，我們得先把它孤立起來，排除其他因素的干擾。"}, {"h": "席捲而來", "p": "xíjuǎn ér lái", "ja": {"m": "（流行・災害が）猛烈な勢いで押し寄せる", "i": "筵（むしろ）を巻き上げるように何もかも一気に巻き込みながら迫ってくる様子を「而來」が方向として結びつける"}, "en": {"m": "to sweep in, to come with overwhelming force", "i": "\"席捲\" pictures rolling everything up like a mat being swept away; \"而來\" points that unstoppable sweep straight at the speaker"}, "ex": "金融海嘯席捲而來，無數企業在一夕之間宣告破產。"}, {"h": "接踵而來", "p": "jiēzhǒng ér lái", "ja": {"m": "（問題・出来事が）次から次へとやってくる", "i": "前の人のかかとに次の人のつま先が接するほど間を置かず続く様子から、事態が絶え間なく連続して起こることを表す"}, "en": {"m": "to come one after another, in quick succession", "i": "pictures people walking so close that each one's toes touch the heels ahead — events arrive with no gap between them"}, "ex": "公司才解決完財務危機，人事糾紛又接踵而來。"}, {"h": "蜂擁而來", "p": "fēngyōng ér lái", "ja": {"m": "（群衆・資金が）蜂のように群がって押し寄せる", "i": "蜂の群れが一斉に飛びかかるように、大勢の人や物が無秩序かつ勢いよく一方向に集まってくる様子を表す"}, "en": {"m": "to swarm in, to flock in en masse", "i": "pictures a swarm of bees descending all at once — a crowd or rush of things converging chaotically toward one point"}, "ex": "消息一傳出，投資人便蜂擁而來，搶購這檔新股。"}, {"h": "歸納起來", "p": "guīnà qǐlái", "ja": {"m": "要約すると、まとめると", "i": "「起來」が散らばっていた情報や論点を一つの枠の中にまとめ上げる動作を表す"}, "en": {"m": "to sum up, to generalize", "i": "\"起來\" gathers scattered points and folds them into one bundle — the many becomes a single, condensed conclusion"}, "ex": "歸納起來，這次失敗的原因不外乎三點：資金、時機與團隊。"}, {"h": "看上", "p": "kànshàng", "ja": {"m": "気に入る、見初める", "i": "「上」が視線や好みの対象にぴたりと吸い付いて離れないイメージを与え、選び取って心を留める結果を表す"}, "en": {"m": "to take a liking to, to set one's sights on", "i": "\"上\" pictures the gaze locking onto a target and sticking there — the eye lands on something and claims it as the chosen one"}, "ex": "他一眼就看上了櫥窗裡那件大衣，毫不猶豫地買下了。"}, {"h": "迷上", "p": "míshàng", "ja": {"m": "（趣味などに）夢中になる、ハマる", "i": "「上」が心を対象にぴったり吸着させるイメージを与え、抜け出せないほど惹きつけられる結果を強調する"}, "en": {"m": "to become obsessed with, to get hooked on", "i": "\"上\" pictures the mind fusing onto its object — once attached, attention can no longer pull away"}, "ex": "自從去了一趟西藏，他就迷上了攝影，假日都往山裡跑。"}, {"h": "說不上來", "p": "shuō bu shànglái", "ja": {"m": "（言葉が出かかっているのに）うまく言えない", "i": "「上來」は口から外へ言葉を引っ張り出す方向を表し、その否定形「不上來」は言葉が喉でつかえて出てこない状態を示す"}, "en": {"m": "to be unable to put into words", "i": "\"上來\" pictures words being pulled up and out through the mouth; the negated form shows them stuck partway, unable to surface"}, "ex": "這幅畫哪裡特別，我一時說不上來，但就是覺得很美。"}, {"h": "算下來", "p": "suàn xiàlái", "ja": {"m": "トータルで計算すると", "i": "「下來」が計算の結果を最後に地面に下ろして固定させるイメージを与え、最終的な数字が確定する様子を表す"}, "en": {"m": "all told, when you work it out", "i": "\"下來\" pictures the running total finally being set down and fixed in place — the calculation lands on its final figure"}, "ex": "每個月的房租加上水電，算下來一年要花掉他大半的薪水。"}, {"h": "靜下心來", "p": "jìng xià xīn lái", "ja": {"m": "心を落ち着かせる", "i": "「下」で浮ついていた心を低い位置に落ち着かせ、「來」でその安定した状態を話し手の視点に引き寄せて完成させる"}, "en": {"m": "to calm oneself down, to settle one's mind", "i": "\"下\" lowers the restless mind into a settled position, and \"來\" completes that settling as a state now fully in place"}, "ex": "遇到再大的挫折，也要先靜下心來，才能想出對策。"}],intro:{"zh": "表示動作朝向某個方向發展的抽象、比喻用法，常見於書面語與新聞報導。", "ja": "動作が向かう「方向」の抽象的・比喩的な用法を表します。書面語やニュースによく見られます。", "en": "Expresses abstract, figurative extensions of directional complements — common in written and news register."}},
+{id:"apot",name:"可能補語",short:"可能",color:"var(--c-potential)",tint:"var(--c-potential-tint)",cards:[{"h": "談不上", "p": "tánbushàng", "ja": {"m": "～と言うほどではない、そのレベルに達していない", "i": "「上」は基準に到達する方向を表し、「不上」でその基準にすら届かず、話題にする資格がないことを示す"}, "en": {"m": "to not even qualify as, to be nowhere near (a certain level)", "i": "\"上\" marks reaching up to a standard; \"不上\" says the thing doesn't even get that far — too slight to be called by that name"}, "ex": "這只是隨手畫畫，談不上什麼藝術創作。"}, {"h": "怪不得", "p": "guàibude", "ja": {"m": "どうりで～なわけだ、～を責められない", "i": "「怪」（責める）＋「不得」（できない）で、理由が分かった今となっては相手を責めることができないという納得の気持ちを表す"}, "en": {"m": "no wonder; can't be blamed for it", "i": "\"怪\" (to blame) plus \"不得\" (cannot) — once the reason is clear, there's no basis left to blame anyone"}, "ex": "原來他昨晚熬夜趕報告，怪不得今天上課一直打瞌睡。"}, {"h": "恨不得", "p": "hènbude", "ja": {"m": "喉から手が出るほど～したい", "i": "「恨」（悔やむ）ほどの強い願望が「不得」（叶えられない）という現実にぶつかり、切実さを誇張して表す"}, "en": {"m": "to be dying to, to wish desperately (that one could)", "i": "\"恨\" (a bitter, aching longing) collides with \"不得\" (cannot) — the wish is so intense it borders on frustration at not already having it"}, "ex": "聽到放假的消息，他恨不得馬上飛奔回家。"}, {"h": "怨不得", "p": "yuànbude", "ja": {"m": "～を責めるわけにはいかない、～のせいにできない", "i": "「怨」（恨む）＋「不得」（できない）で、事情を知れば相手や状況を恨む余地がないことを表す"}, "en": {"m": "can't be blamed on, no grounds to resent", "i": "\"怨\" (to resent) plus \"不得\" (cannot) — given the full picture, there's no fair basis left to hold it against anyone"}, "ex": "這次失敗是計畫本身有漏洞，怨不得執行團隊不努力。"}, {"h": "要不得", "p": "yàobude", "ja": {"m": "（品質・態度が）お話にならない、絶対によくない", "i": "「要」（受け入れる）＋「不得」（できない）で、そのやり方や考え方は到底容認できないことを表す"}, "en": {"m": "unacceptable, absolutely not to be tolerated", "i": "\"要\" (to accept, to take) plus \"不得\" (cannot) — the attitude or method is one that simply cannot be allowed to stand"}, "ex": "這種欺騙客戶的手段實在要不得，遲早會砸了招牌。"}, {"h": "使不得", "p": "shǐbude", "ja": {"m": "（その方法は）使うべきではない、通用しない", "i": "「使」（用いる）＋「不得」（できない）で、その手段を実際に用いることは許されない、あるいは効果がないことを示す"}, "en": {"m": "won't do, must not be used (of a method or action)", "i": "\"使\" (to use) plus \"不得\" (cannot) — the method itself is one that must not be put into practice"}, "ex": "這種土法煉鋼的做法在正式生產線上使不得。"}, {"h": "摸不著", "p": "mōbuzháo", "ja": {"m": "（核心・意味が）掴めない", "i": "「摸」（手探りする）＋「不著」（触れる結果に至らない）で、手を伸ばしても実体や要点に触れられない状態を表す"}, "en": {"m": "unable to grasp, out of reach (of understanding)", "i": "\"摸\" (to feel around for) plus \"不著\" (fails to make contact) — reaching out but never quite touching the thing you're after"}, "ex": "他這番話說得太玄，大家聽完還是摸不著頭緒。"}, {"h": "對得起", "p": "duìdeqǐ", "ja": {"m": "（期待や恩に）報いる、顔向けができる", "i": "「對」（向き合う）＋「得起」（それに堪えられる）で、相手の期待や恩義に見合うだけの行いができていることを示す"}, "en": {"m": "to be worthy of, to live up to (someone's trust or sacrifice)", "i": "\"對\" (to face) plus \"得起\" (can bear the weight of it) — one's conduct is solid enough to stand and face the other person without shame"}, "ex": "他辭去高薪工作回鄉教書，才覺得對得起自己當初的理想。"}, {"h": "過得去", "p": "guòdeqù", "ja": {"m": "まずまずだ、なんとか通用する；（心情的に）申し訳が立つ", "i": "「過」（通り過ぎる）＋「得去」（そこまで行き着ける）で、基準ぎりぎりを何とかクリアできる、あるいは良心に照らして許容できることを表す"}, "en": {"m": "passable, good enough to get by; (of conscience) able to live with it", "i": "\"過\" (to pass through) plus \"得去\" (can make it over there) — just barely clearing the bar, whether a minimum standard or one's own conscience"}, "ex": "這道菜的味道還過得去，不算難吃。"}, {"h": "划得來/划不來", "p": "huádelái/huábulái", "ja": {"m": "割に合う／割に合わない", "i": "「划」（そろばんを弾く、採算を計算する）＋「得來/不來」で、コストと利益を天秤にかけた結果、引き受ける価値があるかないかを判断する"}, "en": {"m": "worth it / not worth it (in a cost-benefit sense)", "i": "\"划\" (to reckon, as if working an abacus) plus \"得來/不來\" weighs cost against benefit and delivers a verdict on whether the deal pays off"}, "ex": "花三小時排隊只為省五十塊，實在划不來。"}, {"h": "靠得住/靠不住", "p": "kàodezhù/kàobuzhù", "ja": {"m": "頼りになる／頼りにならない", "i": "「靠」（寄りかかる）＋「得住/不住」（その重みに持ちこたえられるか）で、人や物に体重を預けても崩れないかどうかを表す"}, "en": {"m": "reliable / unreliable", "i": "\"靠\" (to lean on) plus \"得住/不住\" (able or unable to hold firm under that weight) — can this person or thing bear the weight of your trust without giving way"}, "ex": "這個廠商的品質靠得住，合作了十年從沒出過問題。"}, {"h": "受得了/受不了", "p": "shòudeliǎo/shòubuliǎo", "ja": {"m": "耐えられる／耐えられない", "i": "「受」（受け止める）＋「得了/不了」（最後までやり遂げられるか）で、苦痛や負担を最後まで受け止めきれるかどうかを表す"}, "en": {"m": "able to bear it / unable to stand it", "i": "\"受\" (to take on, absorb) plus \"得了/不了\" (able or unable to see it through to the end) — can you keep absorbing this hardship all the way through"}, "ex": "這裡夏天又濕又熱，外地人常常受不了。"}, {"h": "經得起/經不起", "p": "jīngdeqǐ/jīngbuqǐ", "ja": {"m": "（試練に）耐えられる／耐えられない", "i": "「經」（経る、経験する）＋「得起/不起」（その過程を支えきれるか）で、繰り返しの検証や試練に持ちこたえられるかを表す"}, "en": {"m": "able to withstand / unable to withstand (testing or scrutiny)", "i": "\"經\" (to go through, undergo) plus \"得起/不起\" (able or unable to hold up under it) — can the thing survive repeated testing without breaking down"}, "ex": "這份數據經得起任何審計單位的反覆檢驗。"}, {"h": "犯不著", "p": "fànbuzháo", "ja": {"m": "～する必要はない、そこまでする価値がない", "i": "「犯」（わざわざ手を出す・冒す）＋「不著」（それに見合う結果に届かない）で、そんなリスクや手間をかける価値がないことを表す"}, "en": {"m": "not worth doing, no need to bother", "i": "\"犯\" (to risk, to bother incurring) plus \"不著\" (doesn't reach a payoff) — the trouble or risk isn't matched by any worthwhile return"}, "ex": "為了這點小事跟他吵架，實在犯不著。"}, {"h": "顧不得", "p": "gùbude", "ja": {"m": "～を気にかけている余裕がない、構っていられない", "i": "「顧」（気にかける、振り返る）＋「不得」（その余裕がない）で、他のことに手一杯で、ある事柄にまで注意を向けられない状態を表す"}, "en": {"m": "to have no time or energy to worry about, unable to attend to", "i": "\"顧\" (to look after, pay heed to) plus \"不得\" (no capacity left for it) — so consumed by one thing that there's no attention left to spare for another"}, "ex": "火警一響，他什麼都顧不得了，拔腿就往外跑。"}],intro:{"zh": "表示「能不能」做到某件事的高階慣用組合，常帶有固定搭配與委婉語氣。", "ja": "「できる／できない」を表す高度な慣用的組み合わせで、婉曲的なニュアンスを伴うことが多いです。", "en": "Advanced, idiomatic can/cannot combinations, often carrying a softened or indirect tone."}},
+{id:"aidiom",name:"成語化可能補語",short:"成語",color:"var(--c-idiom)",tint:"var(--c-idiom-tint)",cards:[{"h": "迫不得已", "p": "pò bùdéyǐ", "ja": {"m": "やむを得ず、そうせざるを得ない", "i": "「迫」（追い詰められる）＋「不得已」（やめることができない）で、外からの圧力によって他に選択肢が残されていない状態を表す"}, "en": {"m": "forced into it, having no other choice", "i": "\"迫\" (to be pressed/forced) combines with \"不得已\" (cannot do otherwise) — pressure from outside leaves literally no alternative"}, "ex": "公司資金周轉不靈，迫不得已只好裁員。"}, {"h": "必不可少", "p": "bì bùkě shǎo", "ja": {"m": "絶対に欠かせない、必須である", "i": "「必」（必ず）＋「不可少」（少なくすることが許されない）で、これ以上減らせない最低限の必要性を強調する"}, "en": {"m": "absolutely essential, indispensable", "i": "\"必\" (definitely) plus \"不可少\" (cannot be reduced or lacking) — this is the floor below which the amount cannot fall"}, "ex": "良好的溝通是團隊合作中必不可少的一環。"}, {"h": "微不足道", "p": "wēi bùzú dào", "ja": {"m": "取るに足らない、口にするほどのものではない", "i": "「微」（わずか）＋「不足道」（語るに値しない）で、あまりにも小さく、話題にする価値すらないことを表す"}, "en": {"m": "negligible, too trivial to mention", "i": "\"微\" (tiny) plus \"不足道\" (not worth speaking of) — the thing is so small it doesn't even clear the bar for being worth talking about"}, "ex": "跟你的付出相比，我這點小忙實在微不足道。"}, {"h": "深不可測", "p": "shēn bùkě cè", "ja": {"m": "底知れず深い、予測不可能である", "i": "「深」（深い）＋「不可測」（測ることができない）で、深さや本質が測定の限界を超えていることを表す"}, "en": {"m": "unfathomable, impossible to gauge", "i": "\"深\" (deep) plus \"不可測\" (cannot be measured) — the depth exceeds any instrument's ability to sound it"}, "ex": "他這個人心思深不可測，誰也猜不透他真正的打算。"}, {"h": "牢不可破", "p": "láo bùkě pò", "ja": {"m": "（強固で）絶対に破れない", "i": "「牢」（頑丈な檻・牢獄）＋「不可破」（破ることができない）で、堅く結びついた状態が壊されようがないことを表す"}, "en": {"m": "unbreakable, ironclad", "i": "\"牢\" (a sturdy cage or prison) plus \"不可破\" (cannot be broken) — the bond is locked so solidly that nothing can force it open"}, "ex": "兩人多年並肩作戰，建立起牢不可破的信任關係。"}, {"h": "遙不可及", "p": "yáo bùkě jí", "ja": {"m": "遥か彼方にあって手が届かない", "i": "「遙」（はるか遠い）＋「不可及」（追いつくことができない）で、目標が視界には入っていても距離的に到達不可能であることを表す"}, "en": {"m": "distant and unattainable, out of reach", "i": "\"遙\" (far, distant) plus \"不可及\" (cannot be reached) — the goal is visible on the horizon but the distance makes it impossible to close"}, "ex": "對當年的他來說，出國留學是一個遙不可及的夢想。"}, {"h": "堅不可摧", "p": "jiān bùkě cuī", "ja": {"m": "（意志・防衛が）極めて堅固で破壊できない", "i": "「堅」（堅い）＋「不可摧」（打ち砕くことができない）で、外力を受けても崩れない強靭さを強調する"}, "en": {"m": "indestructible, impregnable", "i": "\"堅\" (hard, firm) plus \"不可摧\" (cannot be crushed) — no force applied from outside can break through this strength"}, "ex": "這座軍事要塞號稱堅不可摧，從未被敵軍攻陷。"}, {"h": "難能可貴", "p": "nánnéng kěguì", "ja": {"m": "めったにできないことで、極めて価値がある", "i": "「難能」（行うのが難しい）にもかかわらず「可貴」（貴ぶべき）であるとし、困難さゆえの価値の高さを強調する"}, "en": {"m": "rare and commendable, all the more valuable for being hard to achieve", "i": "\"難能\" (hard to accomplish) is paired with \"可貴\" (worthy of prizing) — the very difficulty of doing it is what makes it precious"}, "ex": "在資源如此匱乏的情況下還能堅持研究，實在難能可貴。"}, {"h": "情不自禁", "p": "qíng bùzì jīn", "ja": {"m": "思わず～してしまう、感情を抑えられない", "i": "「情」（感情）＋「不自禁」（自分で自分を禁じることができない）で、理性のコントロールを超えて感情が行動を突き動かす様子を表す"}, "en": {"m": "unable to help oneself, overcome with emotion", "i": "\"情\" (feeling) plus \"不自禁\" (cannot restrain oneself) — emotion overrides self-control and drives the action before reason can intervene"}, "ex": "聽到久違的鄉音，她情不自禁地流下了眼淚。"}, {"h": "美不可言", "p": "měi bùkě yán", "ja": {"m": "言葉では言い表せないほど美しい", "i": "「美」（美しい）＋「不可言」（言葉にすることができない）で、美しさが言語表現の限界を超えていることを表す"}, "en": {"m": "indescribably beautiful", "i": "\"美\" (beautiful) plus \"不可言\" (cannot be put into words) — the beauty exceeds what language is capable of capturing"}, "ex": "日出時雲海翻騰，整片山景美不可言。"}, {"h": "百思不得其解", "p": "bǎisī bùdé qí jiě", "ja": {"m": "いくら考えても納得がいかない、理解できない", "i": "「百思」（何度も何度も考える）にもかかわらず「不得其解」（その答えを得ることができない）とし、思考を尽くしても解決に至らない徒労感を表す"}, "en": {"m": "utterly baffled despite endless thought", "i": "\"百思\" (thinking it over a hundred times) collides with \"不得其解\" (still cannot obtain the solution) — exhaustive effort that never lands on an answer"}, "ex": "這件事的來龍去脈，他至今百思不得其解。"}, {"h": "求之不得", "p": "qiú zhī bùdé", "ja": {"m": "願ってもないことだ、渡りに船だ", "i": "「求之」（それを求める）にもかかわらず「不得」（得られない）ほど貴重なものが、実際に手に入る幸運を強調する"}, "en": {"m": "a stroke of luck, exactly what one was hoping for", "i": "\"求之不得\" literally says \"even seeking it, one couldn't get it\" — so when it actually falls into your lap, it's framed as too good to have hoped for"}, "ex": "能得到業界權威的親自指導，這對他來說真是求之不得的機會。"}, {"h": "站得住腳", "p": "zhàndezhù jiǎo", "ja": {"m": "（論理・立場が）成立する、筋が通っている", "i": "「站」（立つ）＋「得住」（その状態を保てる）＋「腳」（足元）で、論拠や立場が崩れずにしっかり立っていられることを比喩的に表す"}, "en": {"m": "to hold up, to be well-founded (of an argument or position)", "i": "\"站得住腳\" literally means \"can stand firm on one's feet\" — the argument is solid enough not to topple when pushed"}, "ex": "他提出的證據站得住腳，法官最終採信了他的說法。"}],intro:{"zh": "由可能補語結構凝固而成的四字成語，整體已是固定用法，不可拆解替換。", "ja": "可能補語の構造がそのまま四字熟語化したもので、全体が固定表現として使われます。", "en": "Four-character idioms that crystallized from the potential-complement pattern — used as fixed, unsplittable units."}},
+{id:"avv",name:"動詞＋動詞結果補語",short:"動補",color:"var(--c-vv)",tint:"var(--c-vv-tint)",cards:[{"h": "看膩", "p": "kàn nì", "ja": {"m": "見飽きる、見て嫌になる", "i": "「膩」は本来「脂っこい」の意味で、同じものを見続けた結果、胃もたれするように心理的に飽きてしまう状態を表す"}, "en": {"m": "to grow sick of the sight of something", "i": "膩 literally means 'greasy' — like food too oily to stomach, so repeated looking curdles into distaste"}, "ex": "這部連續劇拖了太久，觀眾早就看膩了。"}, {"h": "吃膩", "p": "chī nì", "ja": {"m": "食べ飽きる", "i": "「膩」の用法は「看膩」と同じで、同じ料理を食べ続けた結果、脂っこさに胃も心も疲れて食欲を失う状態を表す"}, "en": {"m": "to get tired of eating something", "i": "same 膩 logic as 看膩 — repeated eating of the same food turns into a greasy, appetite-killing overload"}, "ex": "便當吃了一整個月，員工們早就吃膩了。"}, {"h": "聽厭", "p": "tīng yàn", "ja": {"m": "聞き飽きる、聞いてうんざりする", "i": "「厭」は「嫌気がさす」という拒絶感情を表し、同じ話や音を聞かされ続けた結果、精神的に拒否反応が起きることを示す"}, "en": {"m": "to grow weary of hearing something", "i": "厭 carries active aversion, not mere boredom — repeated hearing builds up into a real psychological rejection"}, "ex": "那首洗腦神曲電台天天放，大家都聽厭了。"}, {"h": "說服", "p": "shuō fú", "ja": {"m": "説得する、納得させる", "i": "「服」は「従う、心から納得する」の意で、話す（說）という行為が相手の心を服従・納得させる結果に至ったことを示す"}, "en": {"m": "to persuade, to win someone over", "i": "服 means 'to yield, to be convinced' — the talking (說) is the action, and the other person's mind submitting is the result"}, "ex": "他花了一個下午，終於說服父母讓他休學去旅行。"}, {"h": "推翻", "p": "tuī fān", "ja": {"m": "覆す、転覆させる", "i": "「翻」は物が「ひっくり返る」様子で、押す（推）という力が対象を完全に裏返し、政権や定説を崩す結果を表す"}, "en": {"m": "to overturn, to topple", "i": "翻 pictures something flipping upside-down — the push (推) is forceful enough to flip a regime, theory, or verdict completely over"}, "ex": "新出土的證據推翻了原本的判決結果。"}, {"h": "打倒", "p": "dǎ dǎo", "ja": {"m": "打ち倒す、打倒する", "i": "「倒」は「バタンと倒れる」様子で、打つ（打）という力が対象を立っていられない状態に追い込む結果を表す"}, "en": {"m": "to strike down, to defeat", "i": "倒 depicts something toppling over — the strike (打) is strong enough to knock the target off its feet, literally or politically"}, "ex": "這場選舉，反對派誓言要打倒現任的貪腐政府。"}, {"h": "看走眼", "p": "kàn zǒu yǎn", "ja": {"m": "見誤る、目利きを誤る", "i": "「走」は「逸れる、それる」の意で、見る（看）という視線・判断が対象から外れてしまい、鑑定や人物評価を誤る結果を表す"}, "en": {"m": "to misjudge, to be a poor judge of value or character", "i": "走 means 'to stray off course' — the act of looking (看) veers off target, so the resulting appraisal turns out wrong"}, "ex": "這位收藏家難得看走眼，誤把贗品當成真跡收購。"}, {"h": "跑遍", "p": "pǎo biàn", "ja": {"m": "走り回る、隅々まで回る", "i": "「遍」は「もれなく全体に及ぶ」を表し、走る（跑）という動作が対象範囲のすべての場所を網羅した結果を示す"}, "en": {"m": "to run all over, to cover every place (on foot)", "i": "遍 marks 'leaving nothing out' — the running (跑) sweeps across every single spot within the range"}, "ex": "為了找失蹤的愛犬，他跑遍了社區附近的每一條巷子。"}, {"h": "找遍", "p": "zhǎo biàn", "ja": {"m": "くまなく探す、隅々まで探し回る", "i": "「遍」の用法は同じく、探す（找）という動作が対象範囲を一つも漏らさず網羅したことを表す"}, "en": {"m": "to search everywhere, to look high and low", "i": "same 遍 logic as 跑遍 — the searching (找) leaves not a single spot uncovered"}, "ex": "鑰匙找遍了整間屋子，沒想到最後竟然是在口袋裡。"}, {"h": "說漏嘴", "p": "shuō lòu zuǐ", "ja": {"m": "うっかり口を滑らせる、口が滑る", "i": "「漏」は「漏れる」の意で、話す（說）という行為の中で、隠すべき情報が口から水のように漏れ出てしまう結果を表す"}, "en": {"m": "to blurt out, to let something slip while talking", "i": "漏 means 'to leak' — while talking (說) a secret seeps out through the mouth like water through a crack, unintended"}, "ex": "他喝多了幾杯，一不小心就把併購計畫說漏嘴了。"}, {"h": "哭醒", "p": "kū xǐng", "ja": {"m": "泣いて目が覚める", "i": "「醒」は眠りから覚める結果を表し、泣く（哭）という感情の爆発が睡眠状態を突き破り、覚醒に至らせることを示す"}, "en": {"m": "to wake (oneself) up crying", "i": "醒 marks the result of returning to consciousness — the crying (哭) is intense enough to break through sleep and jolt the person awake"}, "ex": "孩子半夜做了惡夢，哭醒之後久久無法再入睡。"}, {"h": "想通", "p": "xiǎng tōng", "ja": {"m": "納得する、吹っ切れる、考えが通る", "i": "「通」は「つながる、通り抜ける」の意で、考える（想）という行為が心の中の「つかえ」を突き抜けさせ、迷いを解消する結果を表す"}, "en": {"m": "to come to terms with something, to work it out mentally", "i": "通 means 'to get through, unblocked' — the thinking (想) breaks through a mental knot, clearing away confusion or resentment"}, "ex": "他失戀了一整年，最近終於想通，決定重新開始生活。"}],intro:{"zh": "由「動詞＋動詞」組成，第二個動詞轉化為結果補語，說明第一個動作的結果。", "ja": "「動詞＋動詞」の組み合わせで、後ろの動詞が結果補語化し、前の動作の結果を説明します。", "en": "A verb followed by a second verb that has become a result complement, describing the outcome of the first action."}},
+{id:"adur",name:"時量補語",short:"時量",color:"var(--c-duration)",tint:"var(--c-duration-tint)",cards:[{"h": "有生之年", "p": "yǒu shēng zhī nián", "ja": {"m": "生涯、生きている間", "i": "「生を有する年」の意で、ある願いや行為が「人生の終わりまで続く」という、個人にとって極限の時量を表す"}, "en": {"m": "for as long as one lives, in one's remaining years", "i": "literally 'the years one still possesses life' — it marks the outer limit of a personal duration, stretching to the very end of one's life"}, "ex": "他最大的心願，就是能在有生之年親眼看到人類登陸火星。"}, {"h": "有史以來", "p": "yǒu shǐ yǐ lái", "ja": {"m": "有史以来、歴史上", "i": "「史が有って以来」の意で、人類の記録が始まってから現在までという、時間軸上最大級の時量を基準として補足する"}, "en": {"m": "since records began, the most ~ in (recorded) history", "i": "literally 'since history existed' — it supplies the largest possible span of time as the yardstick, from the dawn of records to now"}, "ex": "這是該地區有史以來最嚴重的一次乾旱。"}, {"h": "歷時", "p": "lì shí", "ja": {"m": "〜の期間を経る、〜かけて（行われる）", "i": "「歷」は「経過する」の意で、後ろに時量を直接伴い、出来事がその長さの時間をまるごと経過したことを表す"}, "en": {"m": "to span/last (a given length of time)", "i": "歷 means 'to pass through' — the duration that follows names exactly how much time the event traveled through from start to finish"}, "ex": "這項考古挖掘工程歷時十年，終於在去年完工。"}, {"h": "耗時", "p": "hào shí", "ja": {"m": "（〜の時間を）費やす、〜かかる", "i": "「耗」は「消耗する」の意で、後ろの時量がその作業のために「使い果たされた」時間の量であることを強調する"}, "en": {"m": "to take up, to consume (a given amount of time)", "i": "耗 means 'to use up' — the duration that follows emphasizes time spent or expended, often implying cost or effort"}, "ex": "這份研究報告耗時三個月才完成初稿。"}, {"h": "餘生", "p": "yú shēng", "ja": {"m": "余生、残りの人生", "i": "「餘」は「残り」の意で、ある出来事以降に残された「人生全体の時間」を一つのまとまった時量として表す"}, "en": {"m": "the remainder of one's life", "i": "餘 means 'leftover' — it bundles everything left of a person's life, from a turning point onward, into a single span of time"}, "ex": "退休之後，他打算在鄉下度過餘生。"}, {"h": "長達", "p": "cháng dá", "ja": {"m": "〜にも及ぶ、長きにわたる", "i": "「達」は「到達する」の意で、期間の長さがことさら強調すべき驚くべき数値にまで「達している」ことを示す誇張的な時量表現"}, "en": {"m": "lasting as long as, spanning (an emphatically long duration)", "i": "達 means 'to reach' — it frames the duration as reaching all the way up to a striking, emphasized length"}, "ex": "這起貪污案纏訟長達十五年，至今仍未定讞。"}, {"h": "為期", "p": "wéi qī", "ja": {"m": "期間を〜とする、〜間の予定で", "i": "「期」は「期間・任期」の意で、計画やイベントが「その長さを一つの区切られた期間として定める」ことを示す"}, "en": {"m": "scheduled to last, set for a period of", "i": "期 means 'term/period' — it fixes an event's duration as a defined, planned span rather than an open-ended one"}, "ex": "這場為期一週的國際影展，吸引了大批影迷前來朝聖。"}],intro:{"zh": "表示動作或狀態持續的高階、書面時間長度，常見於報導與正式敘述。", "ja": "動作や状態が続いた高度な・書面語的な時間の長さを表します。報道や正式な文章でよく使われます。", "en": "Advanced, literary expressions of how long an action or state lasted — common in reports and formal narration."}},
+{id:"afreq",name:"動量補語",short:"動量",color:"var(--c-frequency)",tint:"var(--c-frequency-tint)",cards:[{"h": "一番", "p": "yī fān", "ja": {"m": "（思考・議論などの）ひとしきり、一通り", "i": "「番」は出来事の「一巡り」を数える量詞で、単純な回数ではなく、思考や議論などの複雑なプロセス全体を一区切りとして数える"}, "en": {"m": "a whole bout/spell of (thinking, arguing, effort)", "i": "番 counts a full 'round' of an event — not a tally of times, but an entire elaborate process like deliberation or debate treated as one unit"}, "ex": "經過一番激烈的辯論，委員會終於做出最終決議。"}, {"h": "一遭", "p": "yī zāo", "ja": {"m": "（人生の巡り合わせとしての）一度、一巡り", "i": "「遭」は「巡り合う、出くわす」の意で、人生における滅多にない体験や運命的な出来事を一つの節目として数える文語的な動量詞"}, "en": {"m": "one time round (of a rare, fateful life experience)", "i": "遭 means 'to encounter' — it counts a rare, fateful passage through life as a single lap, often in the phrase 走一遭"}, "ex": "既然來這世上走一遭，凡事都不該留下遺憾。"}, {"h": "一瞥", "p": "yī piē", "ja": {"m": "（書面語）ちらりと見ること、一瞥", "i": "「瞥」自体が「ちらっと見る」という一瞬の動作を表す語で、「一瞥」はその一回性を強調した、口語「看一眼」の書面語版"}, "en": {"m": "a glance, a glimpse (literary)", "i": "瞥 itself means 'to glance fleetingly' — pairing it with 一 crystallizes that instant into the literary counterpart of spoken 看一眼"}, "ex": "她只匆匆一瞥，便認出了人群中的老同學。"}, {"h": "一例/一宗", "p": "yī lì / yī zōng", "ja": {"m": "（事件・症例などの）一件", "i": "「例」「宗」はともに事件・症例・案件を数える書面語の量詞で、ニュースや法律・医学分野で一つの事案を格式高く数える"}, "en": {"m": "one case/instance (of an event, legal case, or medical case)", "i": "both 例 and 宗 are formal classifiers for a single 'case' — used in news, legal, or medical registers to tally an incident with official weight"}, "ex": "醫院通報新增一例罕見病毒感染，法院則受理了一宗重大貪污案。"}, {"h": "一撞", "p": "yī zhuàng", "ja": {"m": "ぶつかる一回、一撞き", "i": "「撞」は「ぶつかる、突き当たる」動作を表し、「一撞」でその衝撃が一回の出来事として起こったことを強調する叙述的な動量詞"}, "en": {"m": "one collision/impact (a single, forceful bump)", "i": "撞 means 'to crash into' — 一撞 freezes that impact as a single dramatic event, often marking the decisive moment in a narrative"}, "ex": "卡車煞車失靈衝上安全島，狠狠一撞便撞垮護欄。"}, {"h": "驚鴻一瞥", "p": "jīng hóng yī piē", "ja": {"m": "一瞬だけ見た、忘れられない美しい姿", "i": "「驚鴻（飛び立つ美しい白鳥）」を「一瞥」しただけという成語で、一瞬しか見えなかったからこそ強く印象に焼き付くことを表す"}, "en": {"m": "a fleeting, unforgettable glimpse (of someone or something beautiful)", "i": "literally 'a single glance at a startled swan in flight' — the very brevity of that one glimpse is what burns the beautiful image into memory"}, "ex": "記者會上，她驚鴻一瞥的身影，成了隔天媒體的頭條。"}],intro:{"zh": "表示動作進行的高階、書面次數或情態，常帶有文學色彩。", "ja": "動作が行われた高度な・書面語的な回数や様子を表し、文学的な色合いを帯びることが多いです。", "en": "Advanced, literary ways to count how many times (or in what manner) an action occurred — often with a literary flavor."}}
+];
+
+var PRACTICE_TYPES3 = [{"id": "c1", "num": "1", "zh": "單句選擇填空", "en": "Sentence Cloze", "desc": "高階補語的單句填空練習", "qcount": 85}, {"id": "c2", "num": "2", "zh": "閱讀理解", "en": "Reading Comprehension", "desc": "短文與對話中的高階補語理解", "qcount": 41}];
+
+var PRACTICE3 = {"c1":[{"context":null,"items":[{"label":null,"prompt":"小林感冒好幾天沒退燒，今天全身痠痛，難受得＿＿，整天都躺在床上。","options":["不行","入骨","過頭","成性"],"correct":0,"cat":"adeg"}]},{"context":null,"items":[{"label":null,"prompt":"剛跑完全程馬拉松，他渴＿＿，一口氣灌下兩瓶水。","options":["得要命","有加","成性","入骨"],"correct":0,"cat":"adeg"}]},{"context":null,"items":[{"label":null,"prompt":"他昨晚在派對上跳了三小時的舞，現在腿痠＿＿，走路都一瘸一拐的。","options":["得要死","得體","入微","有加"],"correct":0,"cat":"adeg"}]},{"context":null,"items":[{"label":null,"prompt":"這場記者會上官員語焉不詳、答非所問，簡直荒謬＿＿。","options":["之極","成性","入骨","有加"],"correct":0,"cat":"adeg"}]},{"context":null,"items":[{"label":null,"prompt":"那部描寫戰爭創傷的電影讓觀眾感受＿＿，久久不能平復心情。","options":["至深","之極","無比","過頭"],"correct":0,"cat":"adeg"}]},{"context":null,"items":[{"label":null,"prompt":"這場閉幕式的煙火表演絢麗＿＿，讓在場民眾看得目不轉睛。","options":["無比","至深","有加","入微"],"correct":0,"cat":"adeg"}]},{"context":null,"items":[{"label":null,"prompt":"她出席這場國際頒獎典禮時，服裝與談吐都十分＿＿，展現出優雅的國際觀。","options":["得體","入骨","過頭","成性"],"correct":0,"cat":"adeg"}]},{"context":null,"items":[{"label":null,"prompt":"這位資深護理師觀察＿＿，連病人皺眉的細微表情都逃不過她的眼睛。","options":["入微","到位","得體","有加"],"correct":0,"cat":"adeg"}]},{"context":null,"items":[{"label":null,"prompt":"這家飯店的服務做得非常＿＿，從入住到退房，每個細節都讓房客感到滿意妥貼。","options":["到位","過頭","成性","入骨"],"correct":0,"cat":"adeg"}]},{"context":null,"items":[{"label":null,"prompt":"教練罕見地對這位新秀球員讚賞＿＿，直言他是近十年來最有潛力的新人。","options":["有加","入微","到位","得當"],"correct":0,"cat":"adeg"}]},{"context":null,"items":[{"label":null,"prompt":"這項工程層層轉包、偷工減料，弊案爆發後證實整個承包體系腐敗＿＿。","options":["透頂","有加","得體","入微"],"correct":0,"cat":"adeg"}]},{"context":null,"items":[{"label":null,"prompt":"平常吵鬧的教室今天安靜得＿＿，原來是老師忘記說今天要小考。","options":["出奇","過頭","成性","入骨"],"correct":0,"cat":"adeg"}]},{"context":null,"items":[{"label":null,"prompt":"年末結帳加上尾牙籌備，會計部這幾天忙得＿＿，根本沒時間喘口氣。","options":["不可開交","透頂","得當","入骨"],"correct":0,"cat":"adeg"}]},{"context":null,"items":[{"label":null,"prompt":"地震發生的瞬間，餐廳裡的客人紛紛尖叫，＿＿地衝向逃生出口。","options":["驚恐萬狀","分明","得當","出奇"],"correct":0,"cat":"adeg"}]},{"context":null,"items":[{"label":null,"prompt":"這位法官辦案向來公私＿＿，即使是至親犯法也絕不徇私。","options":["分明","得當","過頭","成性"],"correct":0,"cat":"adeg"}]},{"context":null,"items":[{"label":null,"prompt":"這次危機公關處理得十分＿＿，不僅平息了輿論，還讓品牌形象加分。","options":["得當","得體","入骨","有加"],"correct":0,"cat":"adeg"}]},{"context":null,"items":[{"label":null,"prompt":"他為了討好上司，把同事平庸的企劃案誇得＿＿，讓其他人聽了都尷尬。","options":["過頭","出奇","分明","有加"],"correct":0,"cat":"adeg"}]},{"context":null,"items":[{"label":null,"prompt":"他年輕時嗜賭＿＿，把家產都輸光了，直到中年才痛改前非。","options":["成性","入骨","過頭","分明"],"correct":0,"cat":"adeg"}]},{"context":null,"items":[{"label":null,"prompt":"自從得知對方背叛了自己，她對這個昔日好友恨之＿＿，再也不願往來。","options":["入骨","有加","到位","得當"],"correct":0,"cat":"adeg"}]},{"context":null,"items":[{"label":null,"prompt":"他做人自私到了＿＿的地步，連生病的室友都不願意幫忙倒杯水。","options":["無以復加","不可開交","之極","透頂"],"correct":0,"cat":"adeg"}]},{"context":null,"items":[{"label":null,"prompt":"歷經三輪馬拉松式談判，勞資雙方終於在凌晨兩點＿＿共識，結束了這場罷工危機。","options":["達成","落空","歸公","用盡"],"correct":0,"cat":"ares"}]},{"context":null,"items":[{"label":null,"prompt":"由於颱風來襲，全家期待已久的出國旅遊計畫最終＿＿了。","options":["落空","達成","見底","見好"],"correct":0,"cat":"ares"}]},{"context":null,"items":[{"label":null,"prompt":"連續乾旱三個月，水庫的蓄水量只剩不到一成，眼看就要＿＿，全市拉起限水警報。","options":["見底","用盡","見好","落空"],"correct":0,"cat":"ares"}]},{"context":null,"items":[{"label":null,"prompt":"為了挽救瀕臨倒閉的公司，老闆＿＿了所有能想到的辦法，仍然無力回天。","options":["用盡","見底","達成","歸公"],"correct":0,"cat":"ares"}]},{"context":null,"items":[{"label":null,"prompt":"那張全家福拍下的瞬間，彷彿永遠＿＿在他最幸福的記憶裡。","options":["定格","見底","化為","歸公"],"correct":0,"cat":"ares"}]},{"context":null,"items":[{"label":null,"prompt":"法院判決該名貪官的不法所得全數＿＿，並依法追究其刑責。","options":["歸公","見底","用盡","定格"],"correct":0,"cat":"ares"}]},{"context":null,"items":[{"label":null,"prompt":"一場無情的大火，讓這棟百年古蹟瞬間＿＿灰燼。","options":["化為","定格","歸公","用盡"],"correct":0,"cat":"ares"}]},{"context":null,"items":[{"label":null,"prompt":"隨著環境劇烈變化，這片原本翠綠的森林，如今已經＿＿一片荒漠。","options":["變為","見底","定格","歸公"],"correct":0,"cat":"ares"}]},{"context":null,"items":[{"label":null,"prompt":"十幾年來歷經人情冷暖、爾虞我詐，他早已＿＿世事，心如止水。","options":["看透","看清","看扁","識破"],"correct":0,"cat":"ares"}]},{"context":null,"items":[{"label":null,"prompt":"直到親眼看到對方偽造的合約，她才終於＿＿了這個人的真面目。","options":["看清","識破","看扁","說破"],"correct":0,"cat":"ares"}]},{"context":null,"items":[{"label":null,"prompt":"檢方依過失＿＿罪起訴該名超速肇事的駕駛。","options":["致死","見好","落空","定格"],"correct":0,"cat":"ares"}]},{"context":null,"items":[{"label":null,"prompt":"住院治療兩週後，阿嬤的病情總算漸漸＿＿，醫生也點頭同意讓她出院休養。","options":["見好","見底","落空","致死"],"correct":0,"cat":"ares"}]},{"context":null,"items":[{"label":null,"prompt":"為了打贏這場官司，律師花了整整一個月的時間，把卷宗裡上千頁的資料全部＿＿。","options":["吃透","看透","看扁","識破"],"correct":0,"cat":"ares"}]},{"context":null,"items":[{"label":null,"prompt":"別因為他年紀小就＿＿他，這孩子的程式設計能力已經超越許多大人了。","options":["看扁","看透","看清","識破"],"correct":0,"cat":"ares"}]},{"context":null,"items":[{"label":null,"prompt":"大家其實都心知肚明是誰洩露了公司機密，只是沒有人願意當面把這件事＿＿。","options":["說破","識破","看扁","吃透"],"correct":0,"cat":"ares"}]},{"context":null,"items":[{"label":null,"prompt":"這名詐騙集團的話術雖然天花亂墜，卻被反詐騙志工一眼＿＿。","options":["識破","說破","看扁","吃透"],"correct":0,"cat":"ares"}]},{"context":null,"items":[{"label":null,"prompt":"他這番挑釁的發言，像一顆震撼彈，瞬間把整個網路論壇的罵戰＿＿，一發不可收拾。","options":["引發起來","蔓延開來","席捲而來","沉澱下來"],"correct":0,"cat":"adir"}]},{"context":null,"items":[{"label":null,"prompt":"這道百年老店的獨門滷汁配方，靠著師徒口耳相傳才得以完整＿＿。","options":["流傳下來","沉澱下來","貫徹下去","演變下來"],"correct":0,"cat":"adir"}]},{"context":null,"items":[{"label":null,"prompt":"離開喧囂的都市生活半年後，他浮躁的心情總算漸漸＿＿。","options":["沉澱下來","流傳下來","貫徹下去","靜下心來"],"correct":0,"cat":"adir"}]},{"context":null,"items":[{"label":null,"prompt":"為了防止疫情擴散，醫院立刻將確診病患與其他患者完全＿＿。","options":["隔絕開來","孤立起來","蔓延開來","席捲而來"],"correct":0,"cat":"adir"}]},{"context":null,"items":[{"label":null,"prompt":"做實驗時，為了確認溫度是唯一變因，研究人員必須把其他影響因素統統＿＿，逐一排除干擾。","options":["孤立起來","隔絕開來","歸納起來","凸顯出來"],"correct":0,"cat":"adir"}]},{"context":null,"items":[{"label":null,"prompt":"金融海嘯瞬間＿＿，全球股市應聲重挫，無一倖免。","options":["席捲而來","接踵而來","蜂擁而來","蔓延開來"],"correct":0,"cat":"adir"}]},{"context":null,"items":[{"label":null,"prompt":"公司才剛度過財務危機，緊接著客訴、罷工、高層離職等問題又＿＿，讓經營團隊焦頭爛額。","options":["接踵而來","席捲而來","蜂擁而來","引發起來"],"correct":0,"cat":"adir"}]},{"context":null,"items":[{"label":null,"prompt":"百貨公司週年慶開賣的第一分鐘，搶購優惠品的人潮就＿＿，把賣場擠得水洩不通。","options":["蜂擁而來","接踵而來","席捲而來","隔絕開來"],"correct":0,"cat":"adir"}]},{"context":null,"items":[{"label":null,"prompt":"＿＿，這次會議中大家的意見雖多，但主要可分成三大方向。","options":["歸納起來","孤立起來","算下來","靜下心來"],"correct":0,"cat":"adir"}]},{"context":null,"items":[{"label":null,"prompt":"這件禮服她逛街時一眼就＿＿了，立刻決定買下來當作生日禮服。","options":["看上","迷上","看透","看扁"],"correct":0,"cat":"adir"}]},{"context":null,"items":[{"label":null,"prompt":"自從朋友帶他去看了一場攀岩比賽，他就徹底＿＿了這項運動，現在幾乎每個週末都往攀岩館跑。","options":["迷上","看上","說不上來","靜下心來"],"correct":0,"cat":"adir"}]},{"context":null,"items":[{"label":null,"prompt":"問他到底哪裡不對勁，他皺著眉想了半天，卻怎麼也＿＿具體的原因。","options":["說不上來","算下來","靜下心來","歸納起來"],"correct":0,"cat":"adir"}]},{"context":null,"items":[{"label":null,"prompt":"這趟自助旅行雖然機票貴，但扣掉省下的住宿與餐飲費，＿＿其實比跟團便宜。","options":["算下來","歸納起來","說不上來","靜下心來"],"correct":0,"cat":"adir"}]},{"context":null,"items":[{"label":null,"prompt":"考試前先深呼吸幾次，讓自己＿＿，才能發揮真正的實力。","options":["靜下心來","沉澱下來","說不上來","算下來"],"correct":0,"cat":"adir"}]},{"context":null,"items":[{"label":null,"prompt":"他學了三個月的西班牙文，頂多會幾句問候語，＿＿精通。","options":["談不上","怨不得","顧不得","摸不著"],"correct":0,"cat":"apot"}]},{"context":null,"items":[{"label":null,"prompt":"原來今天是他生日，＿＿他一早就那麼開心。","options":["怪不得","恨不得","顧不得","犯不著"],"correct":0,"cat":"apot"}]},{"context":null,"items":[{"label":null,"prompt":"聽到女兒在國外出車禍的消息，媽媽＿＿立刻插翅飛過去。","options":["恨不得","顧不得","怪不得","談不上"],"correct":0,"cat":"apot"}]},{"context":null,"items":[{"label":null,"prompt":"這次上當受騙，全因為我自己貪小便宜、疏於查證，事到如今也只能說是＿＿別人存心欺騙。","options":["怨不得","怪不得","顧不得","對得起"],"correct":0,"cat":"apot"}]},{"context":null,"items":[{"label":null,"prompt":"動不動就用暴力解決問題，這種心態實在＿＿。","options":["要不得","使不得","談不上","摸不著"],"correct":0,"cat":"apot"}]},{"context":null,"items":[{"label":null,"prompt":"「大熱天的，您一把年紀還堅持自己爬到屋頂修水管，這可真是＿＿，還是讓我來吧！」","options":["使不得","要不得","顧不得","摸不著"],"correct":0,"cat":"apot"}]},{"context":null,"items":[{"label":null,"prompt":"主管交代的任務說得含糊不清，讓新人完全＿＿頭緒，不知從何做起。","options":["摸不著","說不上","顧不得","談不上"],"correct":0,"cat":"apot"}]},{"context":null,"items":[{"label":null,"prompt":"只是一點小誤會，＿＿為了這種事跟多年的好朋友鬧翻。","options":["犯不著","顧不得","怨不得","談不上"],"correct":0,"cat":"apot"}]},{"context":null,"items":[{"label":null,"prompt":"若非公司資金周轉出了問題，老闆也不會＿＿裁掉這麼多辛苦培養的員工。","options":["迫不得已","情不自禁","求之不得","難能可貴"],"correct":0,"cat":"aidiom"}]},{"context":null,"items":[{"label":null,"prompt":"對登山者而言，一份詳細的地圖和指南針是探勘未知山區時＿＿的裝備。","options":["必不可少","微不足道","深不可測","難能可貴"],"correct":0,"cat":"aidiom"}]},{"context":null,"items":[{"label":null,"prompt":"跟他這一生的偉大貢獻相比，我所做的這點小事根本＿＿。","options":["微不足道","必不可少","深不可測","牢不可破"],"correct":0,"cat":"aidiom"}]},{"context":null,"items":[{"label":null,"prompt":"這位新來的執行長平時話不多，心思＿＿，沒人猜得透他下一步的盤算。","options":["深不可測","遙不可及","牢不可破","微不足道"],"correct":0,"cat":"aidiom"}]},{"context":null,"items":[{"label":null,"prompt":"經過三十年並肩作戰的革命情感，兩人之間的友誼早已＿＿。","options":["牢不可破","深不可測","遙不可及","求之不得"],"correct":0,"cat":"aidiom"}]},{"context":null,"items":[{"label":null,"prompt":"十年前，出國留學對家境清寒的他來說根本是個＿＿的夢想，如今卻靠獎學金實現了。","options":["遙不可及","深不可測","必不可少","微不足道"],"correct":0,"cat":"aidiom"}]},{"context":null,"items":[{"label":null,"prompt":"這個景點他去過十幾次了，風景早就＿＿了，這次說什麼也不想再去。","options":["看膩","吃膩","聽厭","看走眼"],"correct":0,"cat":"avv"}]},{"context":null,"items":[{"label":null,"prompt":"連續一個月每天叫外送吃同一家便當店，他早就把那幾道菜給＿＿了。","options":["吃膩","看膩","聽厭","想通"],"correct":0,"cat":"avv"}]},{"context":null,"items":[{"label":null,"prompt":"老闆那套「要感恩公司給機會」的說詞，員工們早就＿＿了，一聽到就想翻白眼。","options":["聽厭","看膩","吃膩","說服"],"correct":0,"cat":"avv"}]},{"context":null,"items":[{"label":null,"prompt":"經過三個小時的懇談，業務員總算把猶豫不決的客戶＿＿，順利簽下合約。","options":["說服","推翻","打倒","說漏嘴"],"correct":0,"cat":"avv"}]},{"context":null,"items":[{"label":null,"prompt":"新出土的考古證據，徹底＿＿了學界過去對這個文明起源的假設。","options":["推翻","打倒","說服","看走眼"],"correct":0,"cat":"avv"}]},{"context":null,"items":[{"label":null,"prompt":"那位年邁的拳王在第十回合被年輕挑戰者一記重拳＿＿在地，結束了他的不敗紀錄。","options":["打倒","推翻","說服","哭醒"],"correct":0,"cat":"avv"}]},{"context":null,"items":[{"label":null,"prompt":"這幅畫當年被幾位資深專家一致鑑定為贗品，只賣了幾千塊，沒想到十年後經科學儀器檢測，證實竟是價值連城的真跡，專家們的鑑定眼光這次可是徹底＿＿了。","options":["看走眼","看膩","看扁","找遍"],"correct":0,"cat":"avv"}]},{"context":null,"items":[{"label":null,"prompt":"這位業務員三年來為了拓展市場，幾乎＿＿了全台灣的中小企業，鞋子都不知道磨壞了幾雙。","options":["跑遍","找遍","說服","想通"],"correct":0,"cat":"avv"}]},{"context":null,"items":[{"label":null,"prompt":"鑰匙不知道掉在哪裡，他把整間屋子的每個角落都＿＿了，還是找不到。","options":["找遍","跑遍","說漏嘴","哭醒"],"correct":0,"cat":"avv"}]},{"context":null,"items":[{"label":null,"prompt":"他原本想守住這個驚喜派對的秘密，沒想到一時興奮就不小心＿＿，把消息洩漏給了壽星本人。","options":["說漏嘴","說服","想通","哭醒"],"correct":0,"cat":"avv"}]},{"context":null,"items":[{"label":null,"prompt":"她夢見多年前過世的奶奶，哭著哭著竟把自己給＿＿了。","options":["哭醒","想通","說漏嘴","看走眼"],"correct":0,"cat":"avv"}]},{"context":null,"items":[{"label":null,"prompt":"糾結了好幾個月，他終於＿＿了，明白強求不來的感情不必再苦苦挽留。","options":["想通","說服","看走眼","找遍"],"correct":0,"cat":"avv"}]},{"context":null,"items":[{"label":null,"prompt":"這場跨國訴訟纏訟多年，前後＿＿整整八年，原告和被告都已從中年拖到白髮蒼蒼。","options":["歷時","為期","必不可少","犯不著"],"correct":0,"cat":"adur"}]},{"context":null,"items":[{"label":null,"prompt":"光是把這批文件逐一翻譯成三種語言，就已經＿＿整整三個月，還不包括後續校對的時間。","options":["耗時","站得住腳","犯不著","情不自禁"],"correct":0,"cat":"adur"}]},{"context":null,"items":[{"label":null,"prompt":"這是一場＿＿十二個小時的馬拉松式協商會議，議員們個個疲憊不堪。","options":["長達","難能可貴","微不足道","說漏嘴"],"correct":0,"cat":"adur"}]},{"context":null,"items":[{"label":null,"prompt":"公司為新進員工安排了一場＿＿三個月的密集培訓計畫，結訓後才能正式上線。","options":["為期","必不可少","說服","一番"],"correct":0,"cat":"adur"}]},{"context":null,"items":[{"label":null,"prompt":"這個複雜的方案，全體高層閉門開會，經過激烈討論＿＿，才終於達成共識。","options":["一番","一遭","一瞥","一撞"],"correct":0,"cat":"afreq"}]},{"context":null,"items":[{"label":null,"prompt":"既然難得來到這座百年古城，就該放慢腳步，好好在巷弄間走＿＿，才不虛此行。","options":["一遭","一番","一瞥","一例"],"correct":0,"cat":"afreq"}]},{"context":null,"items":[{"label":null,"prompt":"火車呼嘯而過，他只來得及朝窗外的故鄉風景投以匆匆＿＿，畫面便已消逝。","options":["一瞥","一番","一遭","一撞"],"correct":0,"cat":"afreq"}]},{"context":null,"items":[{"label":null,"prompt":"衛生單位今早公布，境內昨日新增＿＿本土登革熱確診，籲請民眾加強防蚊措施。","options":["一例","一番","一遭","一瞥"],"correct":0,"cat":"afreq"}]},{"context":null,"items":[{"label":null,"prompt":"走在人潮擁擠的夜市裡，他冷不防被身後衝來的機車猛地＿＿，整個人跌坐在地上動彈不得。","options":["一撞","一番","一遭","一瞥"],"correct":0,"cat":"afreq"}]}],"c2":[{"context":"法治社會的根本原則，在於任何人的權力都不能超越法律去行使。近來有議員提案，主張特定官員可享有『免責特權』，使其行為不受司法審查。學者投書批評，這種特權一旦被賦予，等於讓個人意志凌駕於法律之上，而『言論自由』更不能被等同於『毫無限制地誹謗他人』，兩者性質截然不同。此外，該學者也指出，目前對貪瀆案件的調查，往往只局限於行政疏失層面，卻很少深入追究幕後的金流結構，這才是問題的核心所在。","items":[{"label":"①","prompt":"根據這段文字，學者為什麼批評「免責特權」的提案？","options":["因為它會讓官員的個人意志超越法律的約束力","因為它會降低政府的行政效率","因為它會增加議會的預算負擔","因為它違反了憲法對言論自由的保障"],"correct":0,"cat":"ares"},{"label":"②","prompt":"文中「等同於」的意思最接近下列何者？","options":["被視為完全一樣、可以互相替代","只是稍微相似而已","逐漸演變而成","遠遠超過、遙遙領先"],"correct":0,"cat":"ares"},{"label":"③","prompt":"文中提到，目前的調查方式有什麼問題？","options":["調查範圍被限定在行政疏失，沒有深入追查金流結構","調查人力嚴重不足，案件長期積壓","調查結果經常對外洩露，影響審判公正","調查機關與涉案官員關係過於密切"],"correct":0,"cat":"ares"}]},{"context":"這位作家向來游離於主流文壇之外，不參加任何文學獎項，也拒絕加入作家協會，始終保持著獨來獨往的創作姿態。評論家指出，他的小說之所以歷久不衰，關鍵在於創作時著眼於人性最幽微的角落，而非追逐一時的話題熱度。若要將他成功的原因歸結為一句話，那便是：他從未試圖討好任何讀者，只忠於自己內心的聲音。","items":[{"label":"①","prompt":"文中「游離於主流文壇之外」最適合理解為？","options":["始終不屬於文壇的核心圈子，走著和大家不同的路","經常在各大文學獎項之間游走比賽","與文壇其他作家保持密切合作關係","曾經是文壇主流，後來才被邊緣化"],"correct":0,"cat":"ares"},{"label":"②","prompt":"評論家認為這位作家的小說能夠歷久不衰，主要原因是什麼？","options":["他在寫作時聚焦於深刻描寫人性，而不是追逐流行話題","他積極參加各種文學獎項，提高知名度","他經常與其他暢銷作家合作出版","他的作品內容緊跟社會熱門議題"],"correct":0,"cat":"ares"},{"label":"③","prompt":"文中「歸結為」的意思是？","options":["最後可以簡化為一句話來說明","與其他因素完全無關","遠遠超越、凌駕於其上","逐漸演變成完全不同的樣貌"],"correct":0,"cat":"ares"}]},{"context":"這位物理學家年輕時默默無聞，晚年才因為一項劃時代的發現而見稱於世，各國媒體爭相報導他的生平故事。然而，鮮少人知道，他早年其實曾被指控剽竊同事的研究成果，這樁塵封已久的公案，直到他過世多年後，才隨著私人信件的曝光而大白於天下，真相終於水落石出。","items":[{"label":"①","prompt":"文中「見稱於世」是指？","options":["因為傑出成就而受到廣泛推崇、聲名遠播","因為捲入醜聞而遭世人唾棄","長期隱居，完全不與外界往來","作品雖多，卻始終默默無聞、乏人問津"],"correct":0,"cat":"ares"},{"label":"②","prompt":"關於這位物理學家剽竊爭議的真相，文中提到後來發生了什麼事？","options":["真相隨著私人信件曝光而完全公開，水落石出","真相至今仍然成謎，沒有人知道答案","當事人在生前親自出面澄清了所有疑慮","相關單位下令永久封存所有調查資料"],"correct":0,"cat":"ares"}]},{"context":"十年前，這片沿海濕地因為工業污染而魚蝦絕跡，當地一群退休教師自發組成保育團隊，致力於復育原生紅樹林與底棲生物。起初，團隊嘗試的人工復育方法屢屢失敗，第一階段的移植計畫最終以幼苗大量枯死告終，讓志工們一度心灰意冷。所幸經過反覆調整栽種方式與監測水質，新一輪的復育策略終於奏效，如今濕地已重新出現招潮蟹與白鷺鷥的蹤跡。","items":[{"label":"①","prompt":"這群退休教師組成保育團隊之後，主要投入了什麼工作？","options":["全心投入濕地生態的復育，包括紅樹林與底棲生物","向政府陳情要求關閉附近所有工廠","訓練當地居民從事觀光導覽","研發能夠淨化污水的新型機器"],"correct":0,"cat":"ares"},{"label":"②","prompt":"文中「以幼苗大量枯死告終」的意思是？","options":["這項計畫最後的結果是幼苗大量死亡，以失敗收場","幼苗雖然大量死亡，但計畫仍持續進行中","這項計畫尚未開始執行","幼苗大量死亡後，團隊立刻獲得政府補助"],"correct":0,"cat":"ares"},{"label":"③","prompt":"根據文章，後來濕地復育出現什麼轉機？","options":["調整栽種方式與監測水質後，新策略終於發揮效果，生態逐漸恢復","政府直接介入接管了整個復育計畫","志工們決定放棄復育，轉而發展觀光","工廠主動關閉，污染源徹底消失"],"correct":0,"cat":"ares"}]},{"context":"這本新出版的散文集，文字看似平淡，實則用字精準，每一個形容詞的分量都拿捏得恰到好處，絕不誇張也不過分節制。作者描寫童年老家後院的那段文字尤其令人印象深刻，祖母搖著蒲扇、貓咪懶洋洋趴在門檻上的畫面彷彿躍然紙上，讓讀者彷彿身歷其境。","items":[{"label":"①","prompt":"文中「拿捏得恰到好處」是指？","options":["分寸掌握得剛剛好，不多不少、不誇張也不過分保守","過度誇張、用詞浮誇","完全沒有修飾、平鋪直敘","還沒抓到重點，有待加強"],"correct":0,"cat":"ares"},{"label":"②","prompt":"文中「彷彿躍然紙上」形容的是？","options":["描寫生動逼真，畫面彷彿就在眼前活了過來","文字內容艱澀難懂，讀者難以理解","書本紙質精美，印刷十分講究","情節發展平淡，缺乏起伏"],"correct":0,"cat":"ares"}]},{"context":"昨晚這場規模六點八的強震，震央雖然位於外海，但強烈的搖晃仍傷及市區多棟老舊建築，造成三人受傷送醫。氣象單位也提醒，接下來幾天可能出現多次餘震，災情恐將波及到鄰近的兩個縣市，呼籲民眾提高警覺，做好防災準備。","items":[{"label":"①","prompt":"文中「傷及市區多棟老舊建築」的意思是？","options":["讓市區多棟老舊建築遭受破壞，也造成有人因此受創","讓市區的建築變得更加堅固","只影響了郊區，市區完全沒有損失","建築物完好無損，只是外觀受到驚嚇"],"correct":0,"cat":"ares"},{"label":"②","prompt":"文中提到，接下來的餘震可能會有什麼影響？","options":["災情可能會擴大，連帶影響到附近的兩個縣市","餘震只會發生在原本的震央附近，不會有其他影響","政府已經確定不會再有餘震發生","鄰近縣市的災情比市區更加嚴重"],"correct":0,"cat":"ares"}]},{"context":"這部紀錄片跟拍了一個礦工家庭三代人的生活，鏡頭語言樸實卻極具張力，完整呈現出台灣礦業由盛轉衰的歷程。片中幾段訪談也意外暴露出當年礦場安全檢查形同虛設的真相，讓觀眾看得怵目驚心。導演坦言，他其實是想藉由這個小家庭的悲歡，折射出整個世代勞工被時代巨輪輾過的共同命運。","items":[{"label":"①","prompt":"文中「完整呈現出台灣礦業由盛轉衰的歷程」是指？","options":["清楚地展示出台灣礦業從興盛走向衰落的整個過程","完全省略了台灣礦業曾經興盛的部分","只討論礦業衰落後的補償問題","誇大了礦業實際的發展規模"],"correct":0,"cat":"adir"},{"label":"②","prompt":"片中的訪談內容讓觀眾發現了什麼？","options":["當年礦場的安全檢查其實只是做做樣子，並未落實","礦工當年的薪水其實遠高於外界想像","礦場的安全紀錄一直保持良好","訪談對象大多不願意透露真實想法"],"correct":0,"cat":"adir"},{"label":"③","prompt":"文中「折射出整個世代勞工……共同命運」的意思最接近？","options":["間接反映出、映照出那個世代勞工共通的處境","完全歪曲、扭曲了勞工的真實處境","刻意忽略了勞工階層的存在","直接列出所有礦工的姓名與資料"],"correct":0,"cat":"adir"}]},{"context":"這次員工滿意度調查的結果，把公司內部溝通不良的問題徹底凸顯出來，近六成員工表示主管交辦任務時經常語焉不詳。人資長在檢討會議上強調，新訂定的『透明溝通準則』無論遇到多少阻力，都必須從高層到基層貫徹下去，絕不能虎頭蛇尾，否則企業文化改革終將淪為空談。","items":[{"label":"①","prompt":"文中「把……問題徹底凸顯出來」是指？","options":["讓原本不明顯的問題變得十分清楚、引人注意","讓原本嚴重的問題徹底消失","刻意掩蓋問題，不讓外界知道","把問題的責任推給基層員工"],"correct":0,"cat":"adir"},{"label":"②","prompt":"人資長對於「透明溝通準則」有什麼要求？","options":["不論遇到多大阻力，都要從高層到基層徹底落實、堅持到底","只要基層員工遵守就好，高層可以不受約束","可以視情況隨時調整或暫停執行","先在部分部門試辦，成效不佳就取消"],"correct":0,"cat":"adir"}]},{"context":"台灣的手搖飲文化，最早只是街邊幾家小攤販賣的清涼飲品，後來隨著連鎖加盟制度的成熟，才逐漸推廣開來，如今幾乎每條街都能看到手搖飲店的蹤影。然而，近年來另一股風氣也悄悄蔓延開來——不少店家為了搶快，開始使用劣質果糖與香精，食安問題頻傳。學者分析，這種從強調天然食材到追求成本壓縮的轉變，其實是市場過度競爭之下，長期演變下來的必然結果。","items":[{"label":"①","prompt":"文中「才逐漸推廣開來」的意思是？","options":["逐漸普及、傳開到台灣各地，越來越多人接觸得到","逐漸消失、乏人問津","只在少數幾個城市流行，始終沒有擴大","被政府明令禁止販售"],"correct":0,"cat":"adir"},{"label":"②","prompt":"文中提到，近年手搖飲業出現了什麼隱憂？","options":["部分店家為了降低成本，使用劣質原料，導致食安問題逐漸擴散","手搖飲店數量開始大幅減少","消費者對手搖飲的需求完全消失","政府已經徹底解決了所有食安問題"],"correct":0,"cat":"adir"},{"label":"③","prompt":"文中「長期演變下來的必然結果」是指？","options":["經過長時間一步步轉化、發展才形成的結果","一夕之間突然發生的意外結果","完全依照最初計畫發展的結果","與市場競爭毫無關聯的巧合"],"correct":0,"cat":"adir"}]},{"context":"林師傅在夜市擺麵攤已經二十年了。上個月他母親突然中風住院，需要人日夜照顧，他一度想收攤不做，但轉念一想，這攤子是老顧客們多年來捧場才撐起來的，做生意最重要的就是要對得起良心，也要對得起每一位掏錢捧場的老客人。於是他請了一位工讀生幫忙顧攤，自己白天去醫院照顧母親，晚上再趕回來掌廚，忙得連好好吃一頓飯、睡一場整覺都顧不得了。即使如此，他仍堅持湯頭不能偷工減料，「這陣子生意做得不算頂好，但至少過得去，客人吃得滿意，我心裡才踏實。」他這麼說。","items":[{"label":"①","prompt":"根據這段文字，林師傅為什麼在母親生病後仍堅持不收掉麵攤？","options":["因為他覺得對得起客人的長期支持比自己方便更重要","因為工讀生的薪水太低，收攤不划算","因為母親要求他無論如何都要繼續營業","因為他認為自己過得去，不需要別人幫忙"],"correct":0,"cat":"apot"},{"label":"②","prompt":"文中「顧不得」意思最接近下列何者？","options":["忙到根本沒有餘裕去在意、處理那些事","完全不在乎那些事情，認為不重要","已經妥善安排好那些事情，不用擔心","故意忽略那些事，藉此偷懶"],"correct":0,"cat":"apot"},{"label":"③","prompt":"文中林師傅說「生意…至少過得去」，這句話最符合下列哪一個意思？","options":["生意雖稱不上興隆，但也還能維持基本的水準，不算太差","生意其實非常興隆，賺了不少錢","生意已經差到快要倒閉的地步","生意好壞他完全不在乎，隨緣就好"],"correct":0,"cat":"apot"}]},{"context":"表哥最近想拉我一起投資一間手搖飲加盟店，他說評估過附近的人流和租金，這個地段開店「划得來」，兩三年就能回本。可是我打聽了一下，這家加盟總部去年才剛換過兩次負責人，財務狀況一直不透明，聽起來實在不太靠得住。我把這些疑慮告訴表哥，他卻堅持自己蒐集的市調數據經得起考驗，認為只是同業放的謠言，不必理會。我心裡仍然七上八下——如果加盟總部真的說垮就垮，我們這筆錢恐怕就打水漂了。","items":[{"label":"①","prompt":"「我」對這樁投資最主要的疑慮是什麼？","options":["加盟總部的經營穩定性和財務透明度令人不放心","表哥沒有做任何市場調查就決定投資","手搖飲的口味已經退流行，不再受歡迎","這個地段的租金太貴，開店根本不划算"],"correct":0,"cat":"apot"},{"label":"②","prompt":"文中表哥說這個地段開店「划得來」，意思是什麼？","options":["以目前評估的成本和報酬來看，這筆投資值得，能夠回本獲利","這個地段目前正在特價出租，租金比市價便宜許多","這個地段的交通非常便利，開車或搭車都很方便","這筆投資風險太高，怎麼算都不值得去做"],"correct":0,"cat":"apot"},{"label":"③","prompt":"文中「經得起考驗」是指表哥認為自己的市調數據如何？","options":["有憑有據、合理可信，就算被質疑或深入檢查也不會出問題","只是他個人主觀的猜測，缺乏任何根據","數據雖然好看，但其實是他捏造出來的假資料","那些數據已經過時，早就不適用於現在的市場"],"correct":0,"cat":"apot"}]},{"context":"表姊在急診室當護理師五年了，值大夜班、面對生死交關的場面早已是家常便飯。有人問她：「這種高壓的工作環境，你怎麼受得了？」她笑著說，剛入行前半年幾乎天天以淚洗面、也懷疑過自己是不是選錯了行業，但後來想通了：既然選擇了這條路，就要對得起病人的信任。同事都說，像她這樣在高壓崗位上堅持五年、始終保持耐心與溫柔的人，實在難能可貴。至於她提出改善輪班制度的建議，護理長也認為理由充分、站得住腳，已經著手研議調整方案。","items":[{"label":"①","prompt":"根據文章，表姊剛入行時的心情與後來的轉變是什麼？","options":["一開始也曾經難以承受、甚至想過放棄，後來因為想通而堅持下來","她從一開始就完全樂在其中，從未感到辛苦","她因為受不了工作壓力，最後轉調到其他部門","她認為急診室的工作其實比想像中輕鬆許多"],"correct":0,"cat":"apot"},{"label":"②","prompt":"文中同事稱讚表姊「難能可貴」，這是什麼意思？","options":["這種事很不容易做到，因此格外值得珍惜與讚賞","這種事雖然普通，但態度還算及格","這種能力是與生俱來的天賦，不需要努力","這種行為其實隱藏著不可告人的動機"],"correct":0,"cat":"aidiom"},{"label":"③","prompt":"文中提到表姊的建議「站得住腳」，意思最接近？","options":["論點合理充分，能夠成立、不怕被推翻","建議內容其實模糊不清，尚待補充說明","建議雖然立意良好，但缺乏具體可行性","護理長基於人情才勉強採納這項建議"],"correct":0,"cat":"aidiom"}]},{"context":"去年秋天，我到日本京都自助旅行，傍晚時分獨自走到嵐山的渡月橋上，正好遇上滿山楓紅倒映在河面上，夕陽餘暉灑落，景色美不可言，讓我一時忘了拿起相機，只是靜靜站著看了好久。就在這時，身旁一位素未謀面的旅人也被眼前的畫面感動，情不自禁地讚嘆出聲，我們相視一笑，聊了起來，才知道彼此都是獨自旅行的背包客。後來她告訴我，她正巧在找同行夥伴一起走接下來的旅程，對我這個剛好也沒有既定行程的人來說，這真是求之不得的邀約，於是我們便結伴走完了接下來三天的關西之旅。","items":[{"label":"①","prompt":"文中「美不可言」用來形容眼前的景色如何？","options":["美到讓人幾乎找不到合適的詞語來形容","美則美矣，但其實沒有想像中那麼特別","景色很美，但夾雜著淡淡的哀傷與遺憾","那裡的美景其實只是商業廣告誇大宣傳"],"correct":0,"cat":"aidiom"},{"label":"②","prompt":"文中那位旅人「情不自禁地讚嘆出聲」，是什麼意思？","options":["因為內心受到觸動，不由自主地脫口而出","刻意提高音量，想引起周圍人的注意","出於禮貌，勉強擠出幾句稱讚的話","因為看不懂眼前的景象，忍不住發問"],"correct":0,"cat":"aidiom"},{"label":"③","prompt":"對「我」來說，那位旅人提出結伴同行的邀約，是什麼樣的心情？","options":["正合心意，簡直是意外而難得的好機會","有些勉強，但礙於禮貌不好意思拒絕","感到困擾，因為原本已經有其他旅伴","覺得對方另有目的，因此有所保留"],"correct":0,"cat":"aidiom"}]},{"context":"這座矗立在山巔的古堡，城牆以巨石堆砌而成，歷經數百年的戰火與地震仍屹立不搖，當地人都說它堅不可摧，從未真正被攻破過。然而考古學家始終百思不得其解的是，城堡地底那條神秘通道究竟通往何處，至今仍是未解之謎。傳說中，曾有登山客在濃霧散去的瞬間，於城堡最高處驚鴻一瞥地看見一道白色身影，隨即又被霧氣籠罩，消失無蹤，此後便再也沒有人親眼見過。","items":[{"label":"①","prompt":"文中「堅不可摧」形容這座古堡的城牆具有什麼特質？","options":["極為堅固，任憑外力攻擊或天災都難以破壞","外觀雖然堅硬，但其實內部結構早已腐朽","建造工法特殊，因此造價十分昂貴","城牆表面粗糙，缺乏美觀的裝飾設計"],"correct":0,"cat":"aidiom"},{"label":"②","prompt":"文中「百思不得其解」是指考古學家對通道的去向感到？","options":["無論怎麼推敲研究，都始終找不出合理的答案","完全不感興趣，認為不值得深入研究","已經找到答案，只是尚未對外公開","認為答案顯而易見，不需要多加思考"],"correct":0,"cat":"aidiom"},{"label":"③","prompt":"文中登山客「驚鴻一瞥」看見白色身影，這個詞強調的是什麼？","options":["只在極短暫的瞬間看見，畫面美麗卻稍縱即逝、令人難忘","那道身影其實是登山客自己的錯覺，並非真實存在","登山客長時間盯著那個方向，仔細確認了很久","那道身影每天都固定出現，已經不算罕見"],"correct":0,"cat":"afreq"}]},{"context":"爺爺今年九十歲了，年輕時因戰亂被迫離開故鄉，從此再也沒能回去。這些年來，他常常望著窗外喃喃自語：「不知道有生之年，還能不能再看一眼老家門口那棵大榕樹。」上個月，兩岸開放了睽違已久的探親專案，堂哥主動幫爺爺報名，說什麼也要圓他這個心願。出發前，爺爺激動地說，這趟旅程恐怕是他餘生最重要的一件事了。新聞報導這次專案時也提到，開放探親的規模是有史以來最大的一次，超過十萬名旅客申請同行。","items":[{"label":"①","prompt":"爺爺說「有生之年」希望再看一眼老家的榕樹，這句話透露出什麼樣的心情？","options":["擔心自己來日不多，希望能在死前完成這個心願","認為自己還很年輕，這件事完全不急著做","對故鄉已經沒有任何情感，只是隨口說說","希望晚輩代替自己回去看看就好，自己不必親自前往"],"correct":0,"cat":"adur"},{"label":"②","prompt":"文中爺爺說這趟旅程是他「餘生」最重要的一件事，「餘生」是指？","options":["一個人往後所剩、尚未走完的日子","已經度過、無法追回的過去歲月","一整年當中最後剩下的那幾個月","因債務等因素被迫延長工作的時間"],"correct":0,"cat":"adur"},{"label":"③","prompt":"新聞報導提到這次探親規模是「有史以來」最大的一次，這個詞是什麼意思？","options":["從有記載的歷史開始到現在，從來沒有過的（程度）","只是最近幾年當中數一數二的規模","依照法律規定所限定的最高上限人數","相較於去年同期，成長了將近一倍"],"correct":0,"cat":"adur"}]}]};
+
+var MODULES = [
+  {id:"study", num:"一", zh:"學習", en:"Learning", desc:"認識每個補語的本義與意象", active:true},
+  {id:"practice", num:"二", zh:"練習", en:"Practice", desc:"選詞填空與閱讀理解", active:true},
+  {id:"mastery", num:"三", zh:"精熟", en:"Mastery", desc:"126個高階補語：卡片與練習", active:true},
+  {id:"lookup", num:"四", zh:"查詢", en:"Lookup", desc:"輸入補語，查所有相關學習卡", active:true}
+];
+
+/* ============ 狀態 ============ */
+var state = {
+  script: "trad",          // trad | simp
+  screen: "lang",          // lang | menu | studyLang | types | deck | practiceTypes | practiceQuiz | practiceDone | masteryHome | lookupSearch
+  moduleCtx: "base",       // base | mastery | lookup — which module's data/flow is in view
+  studyLang: "ja",         // ja | en
+  lookupQuery: "",
+  categoryId: null,
+  order: [],
+  idx: 0,
+  flipped: false,
+  shuffled:false,
+  // ---- practice module ----
+  practiceTypeId: null,    // t1 | t2 | t3 | t4
+  practiceSets: [],        // active array of question-sets
+  setIdx: 0,
+  answers: [],             // selected option index per item in current set (null = unanswered)
+  checked: false,
+  practiceScore: 0,
+  practiceTotal: 0,
+  practiceWrong: []        // collected wrong items for the review list
+};
+
+try{
+  var saved = window.localStorage && localStorage.getItem("buyu-script");
+  if(saved === "trad" || saved === "simp") state.script = saved;
+}catch(e){}
+
+function tt(str){ return state.script === "simp" ? toS(str) : str; }
+
+function findCat(id){
+  for(var i=0;i<CATEGORIES.length;i++){ if(CATEGORIES[i].id===id) return CATEGORIES[i]; }
+  for(var j=0;j<CATEGORIES3.length;j++){ if(CATEGORIES3[j].id===id) return CATEGORIES3[j]; }
+  return null;
+}
+
+function go(screen, extra){
+  state.screen = screen;
+  if(extra) for(var k in extra) state[k]=extra[k];
+  render();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function setScript(s){
+  state.script = s;
+  try{ window.localStorage && localStorage.setItem("buyu-script", s); }catch(e){}
+  render();
+}
+
+/* ============ Render: topbar ============ */
+function renderTopbar(){
+  var bar = document.getElementById("topbar");
+  var left = "";
+  var isMastery = state.moduleCtx === "mastery";
+  var isLookup = state.moduleCtx === "lookup";
+  var homeNav = isMastery ? "masteryHome" : "menu";
+  var moduleZh = isMastery ? "精熟" : (isLookup ? "查詢" : "學習");
+  if(state.screen === "menu"){
+    left = '<span class="crumb"><b>'+tt("補語")+'</b></span>';
+  } else if(state.screen === "masteryHome"){
+    left = '<button class="nav-btn" data-nav="menu">‹ '+tt('返回')+'</button><span class="crumb">'+tt('精熟')+'</span>';
+  } else if(state.screen === "studyLang"){
+    left = '<button class="nav-btn" data-nav="'+homeNav+'">‹ '+tt('返回')+'</button><span class="crumb">'+tt(moduleZh)+'</span>';
+  } else if(state.screen === "lookupSearch"){
+    left = '<button class="nav-btn" data-nav="studyLang">‹ '+tt('返回')+'</button><span class="crumb">'+tt('查詢')+' · '+(state.studyLang==="ja"?tt('中日'):tt('中英'))+'</span>';
+  } else if(state.screen === "types"){
+    left = '<button class="nav-btn" data-nav="studyLang">‹ '+tt('返回')+'</button><span class="crumb">'+tt(moduleZh)+' · '+(state.studyLang==="ja"?tt('中日'):tt('中英'))+'</span>';
+  } else if(state.screen === "deck"){
+    left = '<button class="nav-btn" data-nav="types">‹ '+tt('返回')+'</button><span class="crumb">'+tt(moduleZh)+' · '+(state.studyLang==="ja"?tt('中日'):tt('中英'))+'</span>';
+  } else if(state.screen === "practiceTypes"){
+    left = '<button class="nav-btn" data-nav="'+homeNav+'">‹ '+tt('返回')+'</button><span class="crumb">'+tt('練習')+'</span>';
+  } else if(state.screen === "practiceQuiz" || state.screen === "practiceDone"){
+    var ptC = findPType(state.practiceTypeId);
+    left = '<button class="nav-btn" data-nav="practiceTypes">‹ '+tt('返回')+'</button><span class="crumb">'+tt('練習')+' · '+(ptC?tt(ptC.zh):"")+'</span>';
+  } else {
+    left = '';
+  }
+
+  var right = '<div class="script-toggle" role="group" aria-label="'+tt('繁簡切換')+'">'
+    + '<button data-script="trad" class="'+(state.script==="trad"?"active":"")+'">繁體</button>'
+    + '<button data-script="simp" class="'+(state.script==="simp"?"active":"")+'"><span class="zh-simp">简体</span></button>'
+    + '</div>';
+
+  if(state.screen === "lang"){ right = ""; }
+
+  var homeBtn = "";
+  if(state.screen !== "lang" && state.screen !== "menu"){
+    homeBtn = '<button class="nav-btn" data-nav="menu" style="margin-left:2px;">⌂ '+tt('模塊')+'</button>';
+  }
+
+  bar.innerHTML = '<div class="topbar-left">'+left+'</div><div class="topbar-left">'+homeBtn+right+'</div>';
+
+  bar.querySelectorAll("[data-nav]").forEach(function(b){
+    b.addEventListener("click", function(){ go(b.getAttribute("data-nav")); });
+  });
+  bar.querySelectorAll("[data-script]").forEach(function(b){
+    b.addEventListener("click", function(){ setScript(b.getAttribute("data-script")); });
+  });
+}
+
+/* ============ Render: screens ============ */
+function screenLang(){
+  return ''
+  +'<section class="hero">'
+    +'<div class="mark">補</div>'
+    +'<h1 class="title">'+tt("補語")+'</h1>'
+    +'<div class="choice-grid">'
+      +'<div class="choice-card" data-script="trad"><span class="big">繁體</span><span class="cap">TRADITIONAL</span></div>'
+      +'<div class="choice-card" data-script="simp"><span class="big zh-simp">简体</span><span class="cap">SIMPLIFIED</span></div>'
+    +'</div>'
+  +'</section>';
+}
+
+function screenMenu(){
+  var cards = MODULES.map(function(m){
+    var cls = "module-card" + (m.active? "" : " soon");
+    var badge = m.active ? "" : '<span class="badge-soon">'+tt('即將推出')+'</span>';
+    return '<div class="'+cls+'" data-module="'+m.id+'" data-active="'+m.active+'">'
+      + badge
+      + '<span class="num">'+m.num+'</span>'
+      + '<h3>'+tt(m.zh)+'</h3>'
+      + '<p>'+tt(m.desc)+' · '+m.en+'</p>'
+      + '</div>';
+  }).join("");
+  return ''
+  +'<div class="section-head">'
+    +'<h2>'+tt("補語")+'</h2>'
+    +'<p>'+tt("選擇模塊開始")+'</p>'
+  +'</div>'
+  +'<div class="module-grid">'+cards+'</div>';
+}
+
+function screenStudyLang(){
+  var heading = state.moduleCtx === "mastery" ? "精熟" : (state.moduleCtx === "lookup" ? "查詢" : "學習");
+  return ''
+  +'<div class="section-head">'
+    +'<h2>'+tt(heading)+'</h2>'
+    +'<p>'+tt("想搭配哪種語言解釋？")+'</p>'
+  +'</div>'
+  +'<div class="choice-grid" style="max-width:460px;">'
+    +'<div class="choice-card" data-studylang="ja"><span class="big">中日</span><span class="cap">CHINESE × JAPANESE</span></div>'
+    +'<div class="choice-card" data-studylang="en"><span class="big">中英</span><span class="cap">CHINESE × ENGLISH</span></div>'
+  +'</div>';
+}
+
+/* ============ Render: lookup (module 4) ============ */
+function allLookupCards(){
+  var out = [];
+  CATEGORIES.forEach(function(c){
+    c.cards.forEach(function(card){
+      out.push({card:card, level:"basic", levelZh:"初級", catName:c.name, color:c.color, tint:c.tint});
+    });
+  });
+  CATEGORIES3.forEach(function(c){
+    c.cards.forEach(function(card){
+      out.push({card:card, level:"advanced", levelZh:"高級", catName:c.name, color:c.color, tint:c.tint});
+    });
+  });
+  return out;
+}
+
+function lookupMatch(h, query){
+  var qs = toS(query);
+  var variants = h.split("/");
+  for(var i=0;i<variants.length;i++){
+    if(toS(variants[i]).indexOf(qs) !== -1) return true;
+  }
+  return false;
+}
+
+function screenLookupSearch(){
+  var q = state.lookupQuery.trim();
+  var body = "";
+  if(!q){
+    body = '<p class="lookup-hint">'+tt("請輸入想查詢的補語，例如「見」或「得」")+'</p>';
+  } else {
+    var all = allLookupCards();
+    var exact = [], partial = [];
+    all.forEach(function(entry){
+      if(lookupMatch(entry.card.h, q)){
+        if(entry.card.h.split("/").some(function(v){ return toS(v) === toS(q); })) exact.push(entry);
+        else partial.push(entry);
+      }
+    });
+    var results = exact.concat(partial);
+    if(results.length === 0){
+      body = '<p class="lookup-hint">'+tt("沒有找到跟「"+q+"」有關的補語")+'</p>';
+    } else {
+      body = '<div class="lookup-results">' + results.map(function(entry){
+        var card = entry.card;
+        var css = '--cat-color:'+entry.color+';--cat-tint:'+entry.tint+';';
+        var langBlock = state.studyLang === "ja"
+          ? '<div class="back-line"><span class="lbl">本来の意味：</span><span class="val">'+card.ja.m+'</span></div>'
+           +'<div class="back-line"><span class="lbl">補語のイメージ：</span><span class="val">'+card.ja.i+'</span></div>'
+           +'<div class="back-line example"><span class="lbl">例：</span><span class="val">'+tt(card.ex)+'</span></div>'
+          : '<div class="back-line"><span class="lbl">Original meaning: </span><span class="val">'+card.en.m+'</span></div>'
+           +'<div class="back-line"><span class="lbl">Image as complement: </span><span class="val">'+card.en.i+'</span></div>'
+           +'<div class="back-line example"><span class="lbl">Example: </span><span class="val">'+tt(card.ex)+'</span></div>';
+        return ''
+        +'<div class="lookup-card" style="'+css+'">'
+          +'<div class="lookup-card-head">'
+            +'<span class="lookup-hanzi">'+tt(card.h)+'</span>'
+            +'<span class="lookup-level-badge">'+tt(entry.levelZh)+'</span>'
+          +'</div>'
+          +'<div class="pinyin lookup-pinyin">'+card.p+'</div>'
+          +'<span class="lookup-cat-pill" style="color:'+entry.color+';background:'+entry.tint+';">'+tt(entry.catName)+'</span>'
+          +'<div class="back-lines">'+langBlock+'</div>'
+        +'</div>';
+      }).join("") + '</div>';
+    }
+  }
+  return ''
+  +'<div class="section-head">'
+    +'<h2>'+tt("查詢")+'</h2>'
+    +'<p>'+tt("輸入補語，立刻查看初級與高級所有相關的學習卡")+'</p>'
+  +'</div>'
+  +'<div class="lookup-search-wrap">'
+    +'<input type="text" id="lookupInput" class="lookup-input" placeholder="'+tt('輸入補語，例如「見」')+'" value="'+(state.lookupQuery||"").replace(/"/g,"&quot;")+'" autocomplete="off">'
+  +'</div>'
+  + body;
+}
+
+function screenTypes(){
+  var cats = state.moduleCtx === "mastery" ? CATEGORIES3 : CATEGORIES;
+  var cards = cats.map(function(c){
+    return '<div class="type-card" style="--cat-color:'+c.color+';--cat-tint:'+c.tint+';" data-cat="'+c.id+'">'
+      + '<h3>'+tt(c.name)+'</h3>'
+      + '<p>'+tt(c.intro.zh)+'</p>'
+      + '<span class="count">'+c.cards.length+' '+tt('張卡片')+'</span>'
+      + '</div>';
+  }).join("");
+  var subtitle = state.moduleCtx === "mastery"
+    ? tt("高階補語主要可以分為以下"+cats.length+"大類型")
+    : tt("中文的補語主要可以分為以下"+cats.length+"大類型");
+  return ''
+  +'<div class="section-head">'
+    +'<h2>'+tt("選擇補語類型")+'</h2>'
+    +'<p>'+subtitle+'</p>'
+  +'</div>'
+  +'<div class="type-grid">'+cards+'</div>';
+}
+
+function screenMasteryHome(){
+  var cards = [
+    {id:"cards", num:"卡", zh:"卡片", en:"Flashcards", desc:tt("認識高階補語的本義與意象")+" · "+CATEGORIES3.reduce(function(n,c){return n+c.cards.length;},0)+" "+tt("張")},
+    {id:"practice", num:"練", zh:"練習", en:"Practice", desc:tt("選擇填空與閱讀理解")+" · "+PRACTICE_TYPES3.reduce(function(n,t){return n+t.qcount;},0)+" "+tt("題")}
+  ].map(function(m){
+    return '<div class="module-card" data-mastery-sub="'+m.id+'" data-active="true">'
+      + '<span class="num">'+m.num+'</span>'
+      + '<h3>'+tt(m.zh)+'</h3>'
+      + '<p>'+m.desc+' · '+m.en+'</p>'
+      + '</div>';
+  }).join("");
+  return ''
+  +'<div class="section-head">'
+    +'<h2>'+tt("精熟")+'</h2>'
+    +'<p>'+tt("126個高階補語，涵蓋成語化用法與書面語表達")+'</p>'
+  +'</div>'
+  +'<div class="module-grid">'+cards+'</div>';
+}
+
+function screenDeck(){
+  var cat = findCat(state.categoryId);
+  if(!cat) return screenTypes();
+  var total = state.order.length;
+  var done = state.idx >= total;
+
+  var css = '--cat-color:'+cat.color+';--cat-tint:'+cat.tint+';';
+
+  if(done){
+    return ''
+    +'<div class="deck-head" style="'+css+'">'
+      +'<span class="cat-pill"><span class="dot"></span>'+tt(cat.name)+'</span>'
+    +'</div>'
+    +'<div class="deck-body">'
+      +'<div class="done-panel" style="'+css+'">'
+        +'<div class="emoji-mark">✓</div>'
+        +'<h3>'+tt("複習完成！")+'</h3>'
+        +'<p>'+tt("你複習了「"+cat.name+"」全部 "+total+" 張卡片")+'</p>'
+        +'<div class="done-actions">'
+          +'<button class="pill-btn primary" data-again="1">'+tt("再複習一次")+'</button>'
+          +'<button class="pill-btn" data-nav="types">'+tt("換一個類型")+'</button>'
+        +'</div>'
+      +'</div>'
+    +'</div>';
+  }
+
+  var cardIdx = state.order[state.idx];
+  var card = cat.cards[cardIdx];
+  var langBlock = state.studyLang === "ja"
+    ? '<div class="back-line"><span class="lbl">本来の意味：</span><span class="val">'+card.ja.m+'</span></div>'
+     +'<div class="back-line"><span class="lbl">補語のイメージ：</span><span class="val">'+card.ja.i+'</span></div>'
+     +'<div class="back-line example"><span class="lbl">例：</span><span class="val">'+tt(card.ex)+'</span></div>'
+    : '<div class="back-line"><span class="lbl">Original meaning: </span><span class="val">'+card.en.m+'</span></div>'
+     +'<div class="back-line"><span class="lbl">Image as complement: </span><span class="val">'+card.en.i+'</span></div>'
+     +'<div class="back-line example"><span class="lbl">Example: </span><span class="val">'+tt(card.ex)+'</span></div>';
+
+  var pct = Math.round(((state.idx)/total)*100);
+
+  return ''
+  +'<div class="deck-head" style="'+css+'">'
+    +'<span class="cat-pill"><span class="dot"></span>'+tt(cat.name)+'</span>'
+    +'<div class="progress-wrap">'
+      +'<span>'+(state.idx+1)+' / '+total+'</span>'
+      +'<span class="progress-track"><span class="progress-fill" style="width:'+pct+'%;"></span></span>'
+    +'</div>'
+  +'</div>'
+  +'<div class="deck-body" style="'+css+'">'
+    +'<div class="card-stage">'
+      +'<div class="flip-card'+(state.flipped?" flipped":"")+'" id="flipCard" tabindex="0" role="button" aria-label="'+tt('點擊卡片查看解釋')+'">'
+        +'<div class="flip-inner">'
+          +'<div class="face face-front" style="'+css+'"><div class="hanzi">'+tt(card.h)+'</div></div>'
+          +'<div class="face face-back">'
+            +'<div class="back-hanzi">'+tt(card.h)+'</div>'
+            +'<div class="back-pinyin pinyin">'+card.p+'</div>'
+            +'<div class="back-lines">'+langBlock+'</div>'
+          +'</div>'
+        +'</div>'
+      +'</div>'
+      +'<div class="tap-hint">'+tt(state.flipped ? "再點一下回到正面" : "點擊卡片查看解釋")+'</div>'
+    +'</div>'
+    +'<div class="deck-controls">'
+      +'<button class="ctl-btn" id="prevBtn" '+(state.idx===0?"disabled":"")+' aria-label="'+tt('上一張')+'">‹</button>'
+      +'<button class="flip-btn" id="flipBtn" style="'+css+'">'+tt(state.flipped ? "看正面" : "翻卡")+'</button>'
+      +'<button class="ctl-btn" id="nextBtn" aria-label="'+tt('下一張')+'">›</button>'
+    +'</div>'
+    +'<div class="deck-foot-row"><button class="ghost-btn" id="shuffleBtn">'+tt(state.shuffled ? "✓ 隨機順序" : "隨機順序")+'</button></div>'
+  +'</div>';
+}
+
+/* ============ Render: practice ============ */
+function findPType(id){
+  for(var i=0;i<PRACTICE_TYPES.length;i++){ if(PRACTICE_TYPES[i].id===id) return PRACTICE_TYPES[i]; }
+  for(var j=0;j<PRACTICE_TYPES3.length;j++){ if(PRACTICE_TYPES3[j].id===id) return PRACTICE_TYPES3[j]; }
+  return null;
+}
+
+function screenPracticeTypes(){
+  var types = state.moduleCtx === "mastery" ? PRACTICE_TYPES3 : PRACTICE_TYPES;
+  var cards = types.map(function(t){
+    return '<div class="type-card" data-ptype="'+t.id+'">'
+      + '<span class="num" style="color:var(--accent);font-family:\'Noto Serif TC\',serif;font-style:italic;font-weight:700;font-size:12.5px;">'+t.num+'</span>'
+      + '<h3 style="margin-top:4px;">'+tt(t.zh)+'</h3>'
+      + '<p>'+tt(t.desc)+'</p>'
+      + '<span class="count">'+t.qcount+' '+tt('題')+'</span>'
+      + '</div>';
+  }).join("");
+  return ''
+  +'<div class="section-head">'
+    +'<h2>'+tt("練習")+'</h2>'
+    +'<p>'+tt("選擇題型開始練習")+'</p>'
+  +'</div>'
+  +'<div class="type-grid">'+cards+'</div>';
+}
+
+function buildPracticeSets(typeId, shuffle){
+  var raw = PRACTICE[typeId] || PRACTICE3[typeId];
+  var order = raw.map(function(_,i){return i;});
+  if(shuffle) order = shuffleArr(order);
+  return order.map(function(i){ return raw[i]; });
+}
+
+function startPractice(typeId, shuffle){
+  var sets = buildPracticeSets(typeId, shuffle);
+  var total = sets.reduce(function(sum,s){ return sum + s.items.length; }, 0);
+  go("practiceQuiz", {
+    practiceTypeId: typeId,
+    practiceSets: sets,
+    setIdx: 0,
+    answers: new Array(sets[0].items.length).fill(null),
+    checked: false,
+    practiceScore: 0,
+    practiceTotal: total,
+    practiceWrong: []
+  });
+}
+
+function screenPracticeQuiz(){
+  var pt = findPType(state.practiceTypeId);
+  var sets = state.practiceSets;
+  var set = sets[state.setIdx];
+  var qNumBefore = sets.slice(0, state.setIdx).reduce(function(s,x){return s+x.items.length;},0);
+  var css = '--cat-color:var(--accent);--cat-tint:var(--accent-tint);';
+
+  var passageHtml = set.context ? '<div class="quiz-passage">'+tt(set.context)+'</div>' : '';
+
+  var itemsHtml = set.items.map(function(item, i){
+    var label = item.label ? '<span class="q-label">'+item.label+'</span>' : '';
+    var promptTxt = item.prompt ? tt(item.prompt) : '';
+    var optsHtml = item.options.map(function(opt, oi){
+      var cls = "opt-btn";
+      var sel = state.answers[i] === oi;
+      if(sel) cls += " selected";
+      if(state.checked){
+        if(oi === item.correct) cls += " is-correct";
+        else if(sel && oi !== item.correct) cls += " is-wrong";
+      }
+      var mark = String.fromCharCode(65+oi);
+      return '<button class="'+cls+'" data-item="'+i+'" data-opt="'+oi+'" '+(state.checked?"disabled":"")+'>'
+        + '<span class="opt-mark">'+mark+'</span><span>'+tt(opt)+'</span>'
+        + '</button>';
+    }).join("");
+    return '<div class="quiz-item">'
+      + (label || promptTxt ? '<div class="q-prompt">'+label+'<span>'+promptTxt+'</span></div>' : '')
+      + '<div class="opt-list">'+optsHtml+'</div>'
+      + '</div>';
+  }).join("");
+
+  var allAnswered = state.answers.every(function(a){ return a !== null; });
+  var isLastSet = state.setIdx === sets.length - 1;
+
+  var actionHtml;
+  if(!state.checked){
+    actionHtml = '<div class="quiz-actions"><button class="pill-btn primary" id="checkBtn" '+(allAnswered?"":"disabled")+'>'+tt("檢查答案")+'</button></div>';
+  } else {
+    actionHtml = '<div class="quiz-actions"><button class="pill-btn primary" id="nextSetBtn">'+(isLastSet?tt("看結果"):tt("下一題"))+'</button></div>';
+  }
+
+  return ''
+  +'<div class="quiz-headrow" style="'+css+'">'
+    +'<span class="cat-pill"><span class="dot"></span>'+tt(pt.zh)+'</span>'
+    +'<div class="progress-wrap">'
+      +'<span>'+(qNumBefore+1)+'–'+(qNumBefore+set.items.length)+' / '+state.practiceTotal+'</span>'
+      +'<span class="progress-track"><span class="progress-fill" style="width:'+Math.round((qNumBefore/state.practiceTotal)*100)+'%;"></span></span>'
+    +'</div>'
+  +'</div>'
+  +'<div class="quiz-shell">'+passageHtml+itemsHtml+actionHtml+'</div>';
+}
+
+function screenPracticeDone(){
+  var pt = findPType(state.practiceTypeId);
+  var pct = Math.round((state.practiceScore/state.practiceTotal)*100);
+  var wrongHtml = "";
+  if(state.practiceWrong.length){
+    wrongHtml = '<div class="review-head">'+tt("錯題回顧")+' ('+state.practiceWrong.length+')</div>'
+      + '<div class="review-list">' + state.practiceWrong.map(function(w){
+          return '<div class="review-item">'
+            + '<div class="r-q">'+tt(w.prompt || w.label || "")+'</div>'
+            + '<div class="r-your">'+tt("你的答案：")+tt(w.yourText)+'</div>'
+            + '<div class="r-correct">'+tt("正確答案：")+tt(w.correctText)+'</div>'
+            + '</div>';
+        }).join("") + '</div>';
+  }
+  return ''
+  +'<div class="deck-body">'
+    +'<div class="done-panel">'
+      +'<div class="score-ring"><span>'+pct+'%</span><small>'+state.practiceScore+' / '+state.practiceTotal+'</small></div>'
+      +'<h3>'+tt(pt.zh)+' '+tt("完成！")+'</h3>'
+      +'<p>'+tt("答對 "+state.practiceScore+" 題，共 "+state.practiceTotal+" 題")+'</p>'
+      +'<div class="done-actions">'
+        +'<button class="pill-btn primary" data-retry="1">'+tt("再做一次")+'</button>'
+        +'<button class="pill-btn" data-nav="practiceTypes">'+tt("換題型")+'</button>'
+      +'</div>'
+    +'</div>'
+    + wrongHtml
+  +'</div>';
+}
+
+/* ============ main render ============ */
+function render(){
+  document.body.classList.toggle("script-simp", state.script === "simp");
+  renderTopbar();
+  var app = document.getElementById("app");
+  if(state.screen === "lang") app.innerHTML = screenLang();
+  else if(state.screen === "menu") app.innerHTML = screenMenu();
+  else if(state.screen === "masteryHome") app.innerHTML = screenMasteryHome();
+  else if(state.screen === "studyLang") app.innerHTML = screenStudyLang();
+  else if(state.screen === "lookupSearch") app.innerHTML = screenLookupSearch();
+  else if(state.screen === "types") app.innerHTML = screenTypes();
+  else if(state.screen === "deck") app.innerHTML = screenDeck();
+  else if(state.screen === "practiceTypes") app.innerHTML = screenPracticeTypes();
+  else if(state.screen === "practiceQuiz") app.innerHTML = screenPracticeQuiz();
+  else if(state.screen === "practiceDone") app.innerHTML = screenPracticeDone();
+  bindScreenEvents();
+}
+
+function shuffleArr(a){
+  a = a.slice();
+  for(var i=a.length-1;i>0;i--){
+    var j = Math.floor(Math.random()*(i+1));
+    var t = a[i]; a[i]=a[j]; a[j]=t;
+  }
+  return a;
+}
+
+function bindScreenEvents(){
+  var app = document.getElementById("app");
+
+  // lang screen
+  app.querySelectorAll("[data-script]").forEach(function(el){
+    el.addEventListener("click", function(){
+      setScript(el.getAttribute("data-script"));
+      go("menu");
+    });
+  });
+
+  // menu screen
+  app.querySelectorAll("[data-module]").forEach(function(el){
+    el.addEventListener("click", function(){
+      if(el.getAttribute("data-active") !== "true") return;
+      var id = el.getAttribute("data-module");
+      if(id === "study") go("studyLang", {moduleCtx:"base"});
+      else if(id === "practice") go("practiceTypes", {moduleCtx:"base"});
+      else if(id === "mastery") go("masteryHome", {moduleCtx:"mastery"});
+      else if(id === "lookup") go("studyLang", {moduleCtx:"lookup", lookupQuery:""});
+    });
+  });
+
+  // masteryHome screen: cards / practice sub-cards
+  app.querySelectorAll("[data-mastery-sub]").forEach(function(el){
+    el.addEventListener("click", function(){
+      var id = el.getAttribute("data-mastery-sub");
+      if(id === "cards") go("studyLang", {moduleCtx:"mastery"});
+      else if(id === "practice") go("practiceTypes", {moduleCtx:"mastery"});
+    });
+  });
+
+  // practice: type picker
+  app.querySelectorAll("[data-ptype]").forEach(function(el){
+    el.addEventListener("click", function(){
+      startPractice(el.getAttribute("data-ptype"), false);
+    });
+  });
+
+  // practice: quiz option select
+  app.querySelectorAll(".opt-btn").forEach(function(el){
+    el.addEventListener("click", function(){
+      if(state.checked) return;
+      var i = parseInt(el.getAttribute("data-item"), 10);
+      var oi = parseInt(el.getAttribute("data-opt"), 10);
+      state.answers[i] = oi;
+      render();
+    });
+  });
+
+  // practice: check answers
+  var checkBtn = document.getElementById("checkBtn");
+  if(checkBtn) checkBtn.addEventListener("click", function(){
+    var set = state.practiceSets[state.setIdx];
+    set.items.forEach(function(item, i){
+      var chosen = state.answers[i];
+      if(chosen === item.correct){
+        state.practiceScore++;
+      } else {
+        state.practiceWrong.push({
+          prompt: (set.context ? (item.label||"") + " " + (item.prompt||"") : item.prompt),
+          yourText: item.options[chosen],
+          correctText: item.options[item.correct]
+        });
+      }
+    });
+    state.checked = true;
+    render();
+  });
+
+  // practice: next set / see results
+  var nextSetBtn = document.getElementById("nextSetBtn");
+  if(nextSetBtn) nextSetBtn.addEventListener("click", function(){
+    if(state.setIdx < state.practiceSets.length - 1){
+      state.setIdx++;
+      state.answers = new Array(state.practiceSets[state.setIdx].items.length).fill(null);
+      state.checked = false;
+      render();
+      window.scrollTo({top:0, behavior:"smooth"});
+    } else {
+      go("practiceDone");
+    }
+  });
+
+  // practice: retry
+  var retryBtn = app.querySelector("[data-retry]");
+  if(retryBtn) retryBtn.addEventListener("click", function(){
+    startPractice(state.practiceTypeId, false);
+  });
+
+  // study lang screen
+  app.querySelectorAll("[data-studylang]").forEach(function(el){
+    el.addEventListener("click", function(){
+      var lang = el.getAttribute("data-studylang");
+      if(state.moduleCtx === "lookup") go("lookupSearch", {studyLang: lang});
+      else go("types", {studyLang: lang});
+    });
+  });
+
+  // lookup screen: search input (IME-safe re-render)
+  var lookupInput = document.getElementById("lookupInput");
+  if(lookupInput){
+    var composing = false;
+    lookupInput.addEventListener("compositionstart", function(){ composing = true; });
+    lookupInput.addEventListener("compositionend", function(){
+      composing = false;
+      state.lookupQuery = lookupInput.value;
+      render();
+    });
+    lookupInput.addEventListener("input", function(){
+      state.lookupQuery = lookupInput.value;
+      if(!composing) render();
+    });
+    lookupInput.focus();
+    var lookupPos = lookupInput.value.length;
+    try{ lookupInput.setSelectionRange(lookupPos, lookupPos); }catch(e){}
+  }
+
+  // types screen
+  app.querySelectorAll("[data-cat]").forEach(function(el){
+    el.addEventListener("click", function(){
+      var cat = findCat(el.getAttribute("data-cat"));
+      var order = cat.cards.map(function(_,i){return i;});
+      go("deck", {categoryId: cat.id, order: order, idx:0, flipped:false, shuffled:false});
+    });
+  });
+
+  // deck screen
+  var flip = document.getElementById("flipCard");
+  if(flip){
+    flip.addEventListener("click", function(){ state.flipped = !state.flipped; render(); });
+    flip.addEventListener("keydown", function(ev){
+      if(ev.key===" " || ev.key==="Enter"){ ev.preventDefault(); state.flipped=!state.flipped; render(); }
+    });
+  }
+  var flipBtn = document.getElementById("flipBtn");
+  if(flipBtn) flipBtn.addEventListener("click", function(ev){ ev.stopPropagation(); state.flipped=!state.flipped; render(); });
+
+  var prevBtn = document.getElementById("prevBtn");
+  if(prevBtn) prevBtn.addEventListener("click", function(){
+    if(state.idx>0){ state.idx--; state.flipped=false; render(); }
+  });
+  var nextBtn = document.getElementById("nextBtn");
+  if(nextBtn) nextBtn.addEventListener("click", function(){
+    state.idx++; state.flipped=false; render();
+  });
+  var shuffleBtn = document.getElementById("shuffleBtn");
+  if(shuffleBtn) shuffleBtn.addEventListener("click", function(){
+    var cat = findCat(state.categoryId);
+    var base = cat.cards.map(function(_,i){return i;});
+    state.order = state.shuffled ? base : shuffleArr(base);
+    state.shuffled = !state.shuffled;
+    state.idx = 0; state.flipped=false;
+    render();
+  });
+  var againBtn = app.querySelector("[data-again]");
+  if(againBtn) againBtn.addEventListener("click", function(){
+    var cat = findCat(state.categoryId);
+    var base = cat.cards.map(function(_,i){return i;});
+    state.order = state.shuffled ? shuffleArr(base) : base;
+    state.idx = 0; state.flipped=false;
+    render();
+  });
+  app.querySelectorAll("[data-nav]").forEach(function(b){
+    b.addEventListener("click", function(){ go(b.getAttribute("data-nav")); });
+  });
+
+  // keyboard nav on deck
+  if(state.screen === "deck"){
+    document.onkeydown = function(ev){
+      if(ev.key==="ArrowRight"){ nextBtn && nextBtn.click(); }
+      else if(ev.key==="ArrowLeft"){ prevBtn && !prevBtn.disabled && prevBtn.click(); }
+    };
+  } else {
+    document.onkeydown = null;
+  }
+}
+
+render();
+})();
+</script>
