@@ -600,6 +600,33 @@
     padding:3px 9px;border-radius:999px;margin:9px 0 12px;
   }
   .lookup-card .back-lines{width:100%;max-width:none;}
+
+  /* ===== 教室大螢幕版：整體放大（約 iPad 九成滿版）+ 學習卡片加大 ===== */
+  .wrap{zoom:var(--z,1);min-height:calc(100vh / var(--z,1));max-width:960px;}
+  .card-stage{max-width:620px;}
+  .deck-controls{max-width:620px;gap:18px;margin-top:26px;}
+  .face-front .hanzi{font-size:clamp(90px,16vw,150px);}
+  .face{padding:34px 36px;}
+  .face-back{padding-top:30px;}
+  .back-hanzi{font-size:calc(46px * var(--text-scale));}
+  .back-pinyin{font-size:calc(28px * var(--text-scale));margin-bottom:18px;}
+  .back-lines{max-width:100%;gap:14px;}
+  .back-line{font-size:calc(21px * var(--text-scale));line-height:1.7;}
+  .tap-hint{font-size:calc(15px * var(--text-scale));}
+  .ctl-btn{width:calc(60px * var(--text-scale));height:calc(60px * var(--text-scale));font-size:calc(26px * var(--text-scale));}
+  .flip-btn{height:calc(60px * var(--text-scale));font-size:calc(22px * var(--text-scale));max-width:260px;}
+  .ghost-btn{font-size:calc(17px * var(--text-scale));}
+  .face-front{aspect-ratio:3/2;}
+  .face{padding:26px 32px;}
+  .back-pinyin{margin-bottom:10px;}
+  .back-lines{gap:8px;}
+  .deck-controls{margin-top:16px;}
+  .deck-body{padding:0 0 6px;}
+  .deck-foot-row{margin-top:6px;}
+  footer.site-foot{padding:10px 0 4px;}
+  .speak-btn{margin-top:8px;background:var(--surface);border:1px solid var(--line);color:var(--cat-color,var(--accent));
+    border-radius:999px;padding:8px 20px;font-size:calc(17px * var(--text-scale));font-weight:700;cursor:pointer;}
+  .speak-btn:hover{background:var(--cat-tint,var(--accent-tint));}
 </style>
 
 <div class="wrap">
@@ -768,16 +795,20 @@ var ttsVoices = [];
 })();
 
 function pickVoice(script){
-  var names = script === "simp" ? ["婷婷","ting-ting","tingting"] : ["美佳","mei-jia","meijia"];
+  var names = script === "simp"
+    ? ["婷婷","ting-ting","tingting","雲揚","云扬","yunyang"]
+    : ["美佳","mei-jia","meijia"];
   var lang = script === "simp" ? "zh-cn" : "zh-tw";
-  var i, v, nm;
-  for(i=0;i<ttsVoices.length;i++){
-    v = ttsVoices[i]; nm = (v.name||"").toLowerCase();
-    for(var k=0;k<names.length;k++){ if(nm.indexOf(names[k])!==-1) return v; }
+  var i, v, nm, k;
+  for(k=0;k<names.length;k++){            // 依優先順序：先找婷婷，沒有再找雲揚
+    for(i=0;i<ttsVoices.length;i++){
+      nm = (ttsVoices[i].name||"").toLowerCase();
+      if(nm.indexOf(names[k])!==-1) return ttsVoices[i];
+    }
   }
   for(i=0;i<ttsVoices.length;i++){
     v = ttsVoices[i];
-    if((v.lang||"").toLowerCase() === lang) return v;
+    if((v.lang||"").toLowerCase().replace("_","-") === lang) return v;
   }
   for(i=0;i<ttsVoices.length;i++){
     v = ttsVoices[i];
@@ -798,6 +829,25 @@ function speakSentence(text, script){
     window.speechSynthesis.speak(u);
   }catch(e){}
 }
+
+
+/* ============ 依螢幕自動放大（教室後排也看得到） ============ */
+function applyFitZoom(){
+  var root = document.documentElement;
+  var w = window.innerWidth || 1024, h = window.innerHeight || 768, z = 1;
+  if(w >= 600){ z = Math.max(1.2, Math.min(1.8, w / 720)); }
+  root.style.setProperty("--z", z.toFixed(3));
+  if(typeof state !== "undefined" && state.screen === "deck"){   // 學習卡片：一頁放得下，不用捲動
+    for(var i=0;i<5;i++){
+      var sh = Math.max(root.scrollHeight, document.body.scrollHeight);
+      if(sh <= h + 1) break;
+      z = Math.max(0.5, z * (h / sh) * 0.99);
+      root.style.setProperty("--z", z.toFixed(3));
+    }
+  }
+}
+applyFitZoom();
+window.addEventListener("resize", applyFitZoom);
 
 /* ============ Render: topbar ============ */
 function renderTopbar(){
@@ -971,6 +1021,7 @@ function screenLookupSearch(){
           +'<div class="pinyin lookup-pinyin">'+card.p+'</div>'
           +'<span class="lookup-cat-pill" style="color:'+entry.color+';background:'+entry.tint+';">'+tt(entry.catName)+'</span>'
           +'<div class="back-lines">'+langBlock+'</div>'
+            +'<button type="button" class="speak-btn" id="speakExBtn">🔊 '+tt("再聽一次例句")+'</button>'
         +'</div>';
       }).join("") + '</div>';
     }
@@ -1317,6 +1368,7 @@ function render(){
   else if(state.screen === "practiceQuiz") app.innerHTML = screenPracticeQuiz();
   else if(state.screen === "practiceDone") app.innerHTML = screenPracticeDone();
   bindScreenEvents();
+  applyFitZoom();
 }
 
 function shuffleArr(a){
@@ -1537,22 +1589,36 @@ function bindScreenEvents(){
   });
 
   // deck screen
+  function deckCurrentExample(){
+    var c = findCat(state.categoryId);
+    var cd = c && c.cards[state.order[state.idx]];
+    return cd ? tt(cd.ex) : "";
+  }
+  function deckToggleFlip(){
+    state.flipped = !state.flipped;
+    if(state.flipped){ speakSentence(deckCurrentExample(), state.script); }   // 翻到背面 → 朗讀例句（同步呼叫，iOS 才會出聲）
+    else { try{ window.speechSynthesis.cancel(); }catch(e){} }
+    render();
+  }
   var flip = document.getElementById("flipCard");
   if(flip){
-    flip.addEventListener("click", function(){ state.flipped = !state.flipped; render(); });
+    flip.addEventListener("click", deckToggleFlip);
     flip.addEventListener("keydown", function(ev){
-      if(ev.key===" " || ev.key==="Enter"){ ev.preventDefault(); state.flipped=!state.flipped; render(); }
+      if(ev.key===" " || ev.key==="Enter"){ ev.preventDefault(); deckToggleFlip(); }
     });
   }
   var flipBtn = document.getElementById("flipBtn");
-  if(flipBtn) flipBtn.addEventListener("click", function(ev){ ev.stopPropagation(); state.flipped=!state.flipped; render(); });
+  if(flipBtn) flipBtn.addEventListener("click", function(ev){ ev.stopPropagation(); deckToggleFlip(); });
+  var speakExBtn = document.getElementById("speakExBtn");
+  if(speakExBtn) speakExBtn.addEventListener("click", function(ev){ ev.stopPropagation(); speakSentence(deckCurrentExample(), state.script); });
 
   var prevBtn = document.getElementById("prevBtn");
   if(prevBtn) prevBtn.addEventListener("click", function(){
-    if(state.idx>0){ state.idx--; state.flipped=false; render(); }
+    if(state.idx>0){ try{window.speechSynthesis.cancel();}catch(e){} state.idx--; state.flipped=false; render(); }
   });
   var nextBtn = document.getElementById("nextBtn");
   if(nextBtn) nextBtn.addEventListener("click", function(){
+    try{window.speechSynthesis.cancel();}catch(e){}
     state.idx++; state.flipped=false; render();
   });
   var shuffleBtn = document.getElementById("shuffleBtn");
