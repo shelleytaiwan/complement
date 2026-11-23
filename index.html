@@ -602,7 +602,17 @@
   .lookup-card .back-lines{width:100%;max-width:none;}
 
   /* ===== 教室大螢幕版：整體放大（約 iPad 九成滿版）+ 學習卡片加大 ===== */
-  .wrap{zoom:var(--z,1);min-height:calc(100vh / var(--z,1));max-width:960px;}
+  html,body{min-height:100vh;}
+  body{display:flex;flex-direction:column;justify-content:center;align-items:center;}
+  .wrap{zoom:var(--z,1);min-height:0;width:100%;max-width:960px;padding:20px 20px 12px;flex:0 0 auto;}
+  .section-head{margin:0 0 14px;}
+  .section-head h2{font-size:calc(34px * var(--text-scale));}
+  .section-head p{font-size:calc(20px * var(--text-scale));}
+  .type-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
+  .type-card{padding:16px 16px;border-radius:14px;}
+  .type-card h3{font-size:calc(19px * var(--text-scale));margin-bottom:5px;}
+  .type-card p{font-size:calc(13.5px * var(--text-scale));margin-bottom:8px;}
+  .type-card .count{font-size:calc(12px * var(--text-scale));padding:3px 10px;}
   .card-stage{max-width:620px;}
   .deck-controls{max-width:620px;gap:18px;margin-top:26px;}
   .face-front .hanzi{font-size:clamp(90px,16vw,150px);}
@@ -833,17 +843,17 @@ function speakSentence(text, script){
 
 /* ============ 依螢幕自動放大（教室後排也看得到） ============ */
 function applyFitZoom(){
-  var root = document.documentElement;
+  var root = document.documentElement, wrap = document.querySelector(".wrap");
   var w = window.innerWidth || 1024, h = window.innerHeight || 768, z = 1;
-  if(w >= 600){ z = Math.max(1.2, Math.min(1.8, w / 720)); }
+  if(w >= 600){ z = Math.max(1, Math.min(1.6, 0.85 * w / 960)); }   // 內容寬約為視窗的 85%
   root.style.setProperty("--z", z.toFixed(3));
-  if(typeof state !== "undefined" && state.screen === "deck"){   // 學習卡片：一頁放得下，不用捲動
-    for(var i=0;i<5;i++){
-      var sh = Math.max(root.scrollHeight, document.body.scrollHeight);
-      if(sh <= h + 1) break;
-      z = Math.max(0.5, z * (h / sh) * 0.99);
-      root.style.setProperty("--z", z.toFixed(3));
-    }
+  if(!wrap) return;
+  var target = h * 0.88;                                             // 上下留白：內容高度不超過視窗的 88%
+  for(var i=0;i<5;i++){
+    var ch = wrap.getBoundingClientRect().height;
+    if(ch <= target + 1) break;
+    z = Math.max(0.5, z * (target / ch) * 0.99);
+    root.style.setProperty("--z", z.toFixed(3));
   }
 }
 applyFitZoom();
